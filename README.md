@@ -1,1 +1,3 @@
 # RezhDuma
+
+    npm start
