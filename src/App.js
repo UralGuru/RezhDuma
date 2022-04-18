@@ -11,8 +11,11 @@ function App() {
         <BrowserRouter>
             <Header />
             <NavBar />
-            
-            <Button className="btn-primary">{"SomeText"}</Button>
+            <div>fdfa</div>
+            <div>fadsfsd</div>
+            <div>fsdafsda</div>
+            <div>fsdafsa</div>
+            <div>fadfds</div>
             <Footer />
         </BrowserRouter>
     );

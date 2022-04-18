@@ -1,6 +1,5 @@
 .navbar {
   background-color: #1E6D98;
-
 }
 
 .btn_group {
@@ -12,7 +11,7 @@
 }
 
 .btn_nav {
-  padding: 1rem 0.125rem;
+  padding: 1em 0.125em 0em 0.125em;
   font-weight: 500;
   flex-grow: 1;
   text-align: center;
@@ -25,4 +24,35 @@
 
 .btn_nav_active {
   background-color: #2C97CC;
+}
+
+.btn_nav_image {
+  width: 40%;
+  height: 40%;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+}
+
+@media (max-width: 550px) {
+  .btn_group {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .btn_group {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn_group {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .btn_group {
+    font-size: 0.5rem;
+  }
 }
