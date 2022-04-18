@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #1E6D98;
+
+}
+
+.btn_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  color: white;
+}
+
+.btn_nav {
+  padding: 1rem 0.125rem;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: center;
+  color: white;
+}
+
+.btn_nav:hover {
+  background-color: #2C97CC;
+}
+
+.btn_nav_active {
+  background-color: #2C97CC;
+}

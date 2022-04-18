@@ -1,0 +1,49 @@
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.375rem;
+  color: #474747;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+
+.logo__image {
+  width: 2.175rem;
+  margin-right: 0.25rem;
+}
+
+.logo__text {
+  margin-left: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.profile__link {
+  display: flex;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.profile__image {
+  margin-right: 0.25rem;
+}
+
+.profile__text {
+  margin-left: 0.25rem;
+}
+
+@media (max-width: 240px) {
+  .profile__text {
+    font-size: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo__text {
+    font-size: 0;
+  }
+}
