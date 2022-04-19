@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\shared",
+    "\\src\\layouts",
+    "\\src\\layouts\\Footer",
+    "\\src\\layouts\\NavBar",
+    "\\src\\pages",
+    "\\src\\routers",
+    "\\src\\store",
+    "\\src\\utils"
+  ],
+  "SelectedNode": "\\src\\layouts\\NavBar\\NavBar.jsx",
+  "PreviewInSolutionExplorer": false
+}
