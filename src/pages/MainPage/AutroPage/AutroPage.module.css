@@ -1,0 +1,57 @@
+.wrapper{
+    min-height: 471px;
+    position: relative;
+    background-size: cover;
+    background: transparent url("../../../../public/images/autro.png") center center no-repeat;
+}
+
+.autro{
+    max-width: 1160px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page_text{
+    min-height: 400px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    color: #F2F2F2;
+
+    font-family: 'Montserrat';
+    font-size: 33px;
+}
+
+.text{
+    margin-top: 73px;
+}
+
+.autro_but{
+    margin-top: 104px;
+    height: 103px;
+    width: 468px;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.4);
+
+    background: #1A6B98;
+
+    border-radius: 10px;
+    border: 0;
+
+
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 40px;
+    color: #F2F2F2;
+}
+
+.autro_but:hover,.bot2:focus{
+    background-position: 0 -102%;
+}
+
+
+
+

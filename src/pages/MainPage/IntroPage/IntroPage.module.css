@@ -1,0 +1,85 @@
+.wrapper{
+    min-height: 483px;
+    position: relative;
+    background-size: cover;
+    background: transparent url("../../../../public/images/intro.png") center center no-repeat;
+}
+
+
+.intro{
+    max-width: 1160px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page_heading{
+    min-height: 400px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #F2F2F2;
+
+    font-family: 'Montserrat';
+    font-size: 32px;
+}
+
+.page_heading div:nth-child(1) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    margin-top: 70px;
+}
+
+.page_heading div:nth-child(2){
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 43px;
+    letter-spacing: 0.04em;
+}
+
+.form_search{
+    margin-top: 20px;
+}
+
+
+.input_intro {
+    width: 511px;
+    height: 67px;
+    padding-left: 44px;
+    background: rgba(255, 255, 255, 0.31);
+    border-radius: 43.5px;
+    outline: none;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    margin-top: 70px;
+    color: #F2F2F2;
+
+
+    border: 0px;
+}
+
+.input_intro::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #F2F2F2;
+
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 37px;
+    margin-top: 70px;
+}
+
+
+
+
+
+
