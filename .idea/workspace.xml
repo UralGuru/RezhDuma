@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0a709ae-83f0-4593-8c33-899b86c1dc6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/DocumentsPage/DocumentsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/DocumentsPage/DocumentsPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HistoryPage/HistoryPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HistoryPage/HistoryPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NewsPage/NewsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NewsPage/NewsPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/PollsPage/PollsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/PollsPage/PollsPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ProjectsPage/ProjectsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ProjectsPage/ProjectsPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/VotingsPage/VotingsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/VotingsPage/VotingsPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/NavBar/NavBar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/NavBar/NavBar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/autro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/documents.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/history.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/news.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/project.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/quiz.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons/voting.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/intro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/logIn.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +47,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/MainPage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\UralGuru\RezhDumaClient\src\pages\MainPage" />
       <recent name="C:\Users\UralGuru\RezhDumaClient\src\pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UralGuru\RezhDumaClient\public\images" />
+      <recent name="C:\Users\UralGuru\RezhDumaClient\src\pages\MainPage" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,7 +74,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1650352428602</updated>
-      <workItem from="1650352432957" duration="4186000" />
+      <workItem from="1650352432957" duration="14118000" />
+      <workItem from="1650424987553" duration="12800000" />
     </task>
     <servers />
   </component>
