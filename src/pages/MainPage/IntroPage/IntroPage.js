@@ -1,10 +1,11 @@
 import React from "react";
+import Container from "../../../components/shared/Container/Container";
 import s from './IntroPage.module.css'
 
 const IntroPage = (props) => {
     return(
-        <div className={s.wrapper}>
-            <div className={s.intro}>
+        <div className={s.intro}>
+            <Container>
                 <div className={s.page_heading}>
                     <div>Официальный сайт</div>
                     <div>Администрации<br />
@@ -17,9 +18,8 @@ const IntroPage = (props) => {
                         </form>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
-
     );
 }
 

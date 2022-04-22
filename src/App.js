@@ -11,7 +11,7 @@ import HistoryPage from './pages/HistoryPage/HistoryPage'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import PollsPage from './pages/PollsPage/PollsPage'
 import VotingsPage from './pages/VotingsPage/VotingsPage'
-import MainPage from './pages/MainPage/Main'
+import MainPage from './pages/MainPage/MainPage'
 
 
 function App() {

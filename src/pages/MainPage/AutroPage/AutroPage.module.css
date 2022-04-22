@@ -1,14 +1,9 @@
-.wrapper{
+.autro{
+    max-width: 100%;
     min-height: 471px;
     position: relative;
     background-size: cover;
     background: transparent url("../../../../public/images/autro.png") center center no-repeat;
-}
-
-.autro{
-    max-width: 1160px;
-    width: 100%;
-    margin: 0 auto;
 }
 
 .page_text{
@@ -29,7 +24,7 @@
 .autro_but{
     margin-top: 104px;
     height: 103px;
-    width: 468px;
+    width: 100%;
     text-align: center;
     box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.4);
 
