@@ -1,0 +1,38 @@
+.auth_title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth_form {
+  max-width: 70%;
+  margin: auto;
+  border-radius: 30px;
+  background-color: white;
+  padding: 2rem;
+}
+
+.auth_forgot {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #1A6B98;
+}
+
+.btn_row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+
+
+@media (max-width: 450px) {
+  .auth_form {
+    max-width: 100%;
+    padding: 1rem;
+  }
+}

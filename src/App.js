@@ -12,6 +12,9 @@ import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import PollsPage from './pages/PollsPage/PollsPage'
 import VotingsPage from './pages/VotingsPage/VotingsPage'
 import MainPage from './pages/MainPage/MainPage'
+import Login from './pages/Auth/Login';
+import Registration from './pages/Auth/Registration';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/constants';
 
 
 function App() {
@@ -19,10 +22,11 @@ function App() {
         <BrowserRouter>
             <Header />
             <NavBar />
-
             <Routes>
-                <Route path="/" element={<MainPage />}/>
+                <Route path="*" element={<MainPage />}/>
                 <Route path="/main" element={<MainPage />}/>
+                <Route path={LOGIN_ROUTE} element={<Login />}/>
+                <Route path={REGISTRATION_ROUTE} element={<Registration />}/>
 
                 <Route path="/news" element={<NewsPage />}/>
                 <Route path="/documents" element={<DocumentsPage />}/>
@@ -31,7 +35,6 @@ function App() {
                 <Route path="/polls" element={<PollsPage />}/>
                 <Route path="/projects" element={<ProjectsPage />}/>
             </Routes>
-
             <Footer />
         </BrowserRouter>
     );

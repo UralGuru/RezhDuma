@@ -22,3 +22,11 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+input {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+}

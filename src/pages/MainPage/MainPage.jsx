@@ -6,6 +6,8 @@ import AutroPage from "./AutroPage/AutroPage";
 const MainPage = (props) => {
     return(
         <div>
+            <IntroPage />
+            <AutroPage />
         </div>
     );
 }

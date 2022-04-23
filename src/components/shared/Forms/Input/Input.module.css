@@ -1,0 +1,30 @@
+.inp_field {
+  display:flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.inp_label {
+  font-size: 1.175em;
+  font-weight: 500;
+  margin: 0.25em;
+}
+
+.inp {
+  border: 1px solid #5F5F5F;
+  color: #5F5F5F;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+}
+
+.inp::placeholder {
+  color: #5F5F5F;
+  font-weight: 300;
+}
+
+.inp_error {
+  font-weight: 400;
+  color: red;
+  opacity: 90%;
+  margin: 0.175em 0.5em;
+}
