@@ -15,27 +15,28 @@ import MainPage from './pages/MainPage/MainPage'
 import Login from './pages/Auth/Login';
 import Registration from './pages/Auth/Registration';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/constants';
+import MainLayout from './layouts/MainLayout';
 
 
 function App() {
     return (
         <BrowserRouter>
-            <Header />
-            <NavBar />
             <Routes>
-                <Route path="*" element={<MainPage />}/>
-                <Route path="/main" element={<MainPage />}/>
-                <Route path={LOGIN_ROUTE} element={<Login />}/>
-                <Route path={REGISTRATION_ROUTE} element={<Registration />}/>
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<MainPage />}/>
+                    <Route path="login" element={<Login />}/>
+                    <Route path="registration" element={<Registration />}/>
 
-                <Route path="/news" element={<NewsPage />}/>
-                <Route path="/documents" element={<DocumentsPage />}/>
-                <Route path="/history" element={<HistoryPage />}/>
-                <Route path="/votings" element={<VotingsPage />}/>
-                <Route path="/polls" element={<PollsPage />}/>
-                <Route path="/projects" element={<ProjectsPage />}/>
+                    <Route path="news" element={<NewsPage />}/>
+                    <Route path="documents" element={<DocumentsPage />}/>
+                    <Route path="history" element={<HistoryPage />}/>
+                    <Route path="votings" element={<VotingsPage />}/>
+                    <Route path="polls" element={<PollsPage />}/>
+                    <Route path="projects" element={<ProjectsPage />}/>
+
+                    <Route path="*" element={<MainPage />} />
+                </Route>
             </Routes>
-            <Footer />
         </BrowserRouter>
     );
 }

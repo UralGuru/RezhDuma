@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { LOGIN_ROUTE, MAIN_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON } from '../../utils/constants';
+import { LOGIN_ROUTE, ROOT_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON } from '../../utils/constants';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   return ( 
       <Container>
         <div className={styles.header__inner}>
-          <a className={styles.header__logo} href={MAIN_ROUTE}>
+          <a className={styles.header__logo} href={ROOT_ROUTE}>
             <img className={styles.logo__image} src={REJH_ICON}/>
             <div className={styles.logo__text}><div>Официальный сайт</div><div>города Реж</div></div> 
           </a>
