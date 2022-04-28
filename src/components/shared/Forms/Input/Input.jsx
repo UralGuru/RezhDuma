@@ -37,7 +37,9 @@ Input.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   className: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  onBlur: PropTypes.func,
+  error: PropTypes.object
 };
 
 Input.defaultProps = {
@@ -46,7 +48,9 @@ Input.defaultProps = {
   onChange: () => {},
   value: '',
   className: '',
-  type: ''
+  type: '',
+  onBlur: () => {},
+  error: null
 };
 
 export default Input;

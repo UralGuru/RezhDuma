@@ -52,3 +52,7 @@ fieldset:disabled .btn {
   color: #fff;
   background-color: #216E97;
 }
+
+.secondary-outline {
+  border: 1px #8A8A8A solid;
+}

@@ -1,2 +1,9 @@
-
-
+.main {
+  background: #EDEDED;
+  background: -moz-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+  background: -webkit-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+  background: -webkit-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+  background: -o-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+  background: -ms-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+  background: linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
+}

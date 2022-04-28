@@ -1,0 +1,20 @@
+.outer {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: -5px 5px 50px rgba(145, 183, 228, 0.22);
+  margin: 3rem 0;
+  padding: 1rem;
+}
+
+.header {
+  color: #1A6B98;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: auto;
+  text-align: center;
+}
+
+.button_row {
+  display: flex;
+  flex-direction: row-reverse;
+}
