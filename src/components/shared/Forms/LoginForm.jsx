@@ -34,7 +34,7 @@ const LoginForm = ({}) => {
       <a href="#" className={styles.auth_forgot}>Забыли пароль?</a>
       <div className={styles.btn_row}>
         <Button 
-          className='btn-primary'
+          className='primary'
           onClick={() => onLogin()}
           >Войти
         </Button>

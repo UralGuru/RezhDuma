@@ -16,6 +16,7 @@ import Login from './pages/Auth/Login';
 import Registration from './pages/Auth/Registration';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/constants';
 import MainLayout from './layouts/MainLayout';
+import Profile from './pages/Profile/Profile';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                     <Route index element={<MainPage />}/>
                     <Route path="login" element={<Login />}/>
                     <Route path="registration" element={<Registration />}/>
+                    <Route path="profile" element={<Profile />}/>
 
                     <Route path="news" element={<NewsPage />}/>
                     <Route path="documents" element={<DocumentsPage />}/>

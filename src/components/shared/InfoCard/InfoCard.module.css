@@ -1,0 +1,42 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 20px rgba(40, 82, 132, 0.24);
+  border-radius: 2rem;
+  padding: 3em;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.description {
+  font-weight: 500;
+  color: #6B6B6B;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .card {
+    gap: 1em;
+    padding: 2em;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    border-radius: 1.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    font-size: 0.875em;
+  }
+}

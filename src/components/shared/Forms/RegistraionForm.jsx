@@ -65,7 +65,7 @@ const RegistrationForm = ({}) => {
       >Подтверждение пароля</Input>
       <div className={styles.btn_row}>
         <Button
-          className='btn-primary'
+          className='primary'
           onClick={() => onRegistration()}
         >Зарегистрироваться
         </Button>
