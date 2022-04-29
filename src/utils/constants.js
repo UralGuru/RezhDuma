@@ -3,6 +3,7 @@ export const ROOT_ROUTE = "/";
 export const LOGIN_ROUTE = "/login";
 export const REGISTRATION_ROUTE = "/registration";
 export const PROFILE_ROUTE = "/profile";
+export const REQUEST_ROUTE = "/request";
 
 
 export const NEWS_ROUTE = "/news";

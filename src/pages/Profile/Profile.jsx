@@ -4,7 +4,7 @@ import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
 import { useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/constants';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 
 const Profile = () => {
@@ -23,12 +23,12 @@ const Profile = () => {
               </div>
               <div className={styles.info_description}>
                 Если у вас есть вопросы, то можете посмотреть 
-                <a href="#"> <strong>список часто задаваемых вопросов</strong> </a> 
+                <a href=""> <strong>список часто задаваемых вопросов</strong> </a> 
                 либо задать его самостоятельно
               </div>
               <Button
                 className='primary'
-                onClick={() => {}}
+                onClick={() => {navigate(REQUEST_ROUTE)}}
                 >Отправить обращение
               </Button>
             </div>  

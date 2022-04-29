@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useInput from '../../../hooks/useInput';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
-import Input from './Input/Input';
+import Input from '../Input/Input';
 
 const RegistrationForm = ({}) => {
 

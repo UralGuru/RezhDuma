@@ -6,6 +6,10 @@
   color: #474747;
 }
 
+.header_outer {
+  background-color: white;
+}
+
 .header__logo {
   display: flex;
   align-items: center;

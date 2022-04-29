@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../..";
+import { fetchNews } from "../../http/newsApi";
 import s from './NewsPage.module.css'
+import { observer } from 'mobx-react-lite';
+import NewsCard from "../../components/shared/NewsCard/NewsCard";
+import Container from "../../components/shared/Container/Container";
 
-const NewsPage = (props) => {
+import styles from './NewsPage.module.css';
+
+const NewsPage = observer((props) => {
+    const {newsStore} = useContext(Context);
+
+    // useEffect(() => {
+    //     fetchNews().then(data => setNews(data));
+    // })
+
     return(
-        <div>
-            NewsPage
-        </div>
+        <Container>
+            <div className={styles.outer}>
+                {newsStore.News.map((n) => {
+                return <NewsCard 
+                    title={n.title}
+                    description={n.text}
+                    date={n.date}
+                    />
+                })}
+            </div>
+        </Container>
     );
-}
+})
 
 export default NewsPage;

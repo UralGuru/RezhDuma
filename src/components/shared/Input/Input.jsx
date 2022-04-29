@@ -7,7 +7,7 @@ import styles from './Input.module.css'
 let cx = classNames.bind(styles);
 
 const Input = ({
-  children, placeholder, className, type, onChange, value, onBlur, error
+  children, placeholder, className, type, onChange, value, onBlur, error, onClick
 }) => {
 
   const classes = cx(
@@ -25,6 +25,7 @@ const Input = ({
       value={value}
       onBlur={onBlur}
       placeholder={placeholder}
+      onClick={onClick}
     /> 
     {error && <div className={styles.inp_error}>{error}</div>}
     </div>
@@ -39,7 +40,8 @@ Input.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   onBlur: PropTypes.func,
-  error: PropTypes.object
+  error: PropTypes.object,
+  onClick: PropTypes.func
 };
 
 Input.defaultProps = {
@@ -50,7 +52,8 @@ Input.defaultProps = {
   className: '',
   type: '',
   onBlur: () => {},
-  error: null
+  error: null,
+  onClick: () => {}
 };
 
 export default Input;

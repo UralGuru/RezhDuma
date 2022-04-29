@@ -8,6 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return ( 
+    <div className={styles.header_outer}>
       <Container>
         <div className={styles.header__inner}>
           <a className={styles.header__logo} href={ROOT_ROUTE}>
@@ -20,6 +21,7 @@ const Header = () => {
           </a>
         </div>
       </Container>
+    </div>
    );
 }
 

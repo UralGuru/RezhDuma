@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import useInput from '../../../hooks/useInput';
 import { REGISTRATION_ROUTE } from '../../../utils/constants';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
 import styles from './Form.module.css';
-import Input from './Input/Input';
 
 const LoginForm = ({}) => {
   const navigate = useNavigate();

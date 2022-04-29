@@ -22,19 +22,15 @@ const InfoCard = ({
 }
 
 InfoCard.propTypes = {
-  children: PropTypes.node,
+  title: PropTypes.string,
   onClick: PropTypes.func,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  active: PropTypes.bool
+  description: PropTypes.string
 };
 
 InfoCard.defaultProps = {
-  children: '',
+  title: '',
   onClick: () => {},
-  className: '',
-  disabled: false,
-  active: false
+  description: ''
 };
 
 export default InfoCard;
