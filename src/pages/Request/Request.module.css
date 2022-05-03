@@ -1,12 +1,52 @@
 .header {
   color: #135B82;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin: 2rem 0;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   background-color: white;
   border-radius: 2rem;
   padding: 3rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: .5rem 0;
+}
+
+.text_field {
+  min-height: 150px;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid #8B8B8B;
+  border-radius: .5rem;
+  padding: .5rem 1.25rem;
+  font-weight: 500;
+  vertical-align: text-top;
+}
+
+.files_field {
+  display: inline-block;
+  border: 1px #1E6D98 solid;
+  border-radius: .5rem;
+  padding: .75rem 1.25rem;
+  color:#1E6D98;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.files_field input[type="file"] {
+  display: none;
+}
+
+.input_box {
+  width: 100%;
 }

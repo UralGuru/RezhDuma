@@ -23,6 +23,6 @@ export const PROJECTS_ICON = "images/nav_icons/projects.svg";
 
 export const VK_ICON = 'images/social_icons/vk.svg';
 export const TELEGRAM_ICON = 'images/social_icons/telegram.svg';
-export const PROFILE_ICON = "/images/header_icons/profile-icon.svg";
-export const REJH_ICON = "/images/header_icons/rejh-icon.svg";
+export const PROFILE_ICON = "images/header_icons/profile-icon.svg";
+export const REJH_ICON = "images/header_icons/rejh-icon.svg";
 

@@ -41,7 +41,7 @@ const RegistrationForm = ({}) => {
       >Фамилия</Input>
       <Input
         className=""
-        type='email'
+        type='text'
         placeholder='Введите отчество'
         {...fathername}
       >Отчество</Input>

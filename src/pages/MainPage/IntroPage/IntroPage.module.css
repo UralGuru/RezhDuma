@@ -3,7 +3,7 @@
     min-height: 483px;
     position: relative;
     background-size: cover;
-    background: transparent url("../../../../public/images/intro.png") center center no-repeat;
+    background: transparent url("./intro.png") center center no-repeat;
 }
 
 .page_heading{

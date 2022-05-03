@@ -5,9 +5,9 @@ import PropTypes, { string } from 'prop-types';
 
 import styles from './Dropdown.module.css';
 
-const Dropdown = ({title, placeholder, items, }) => {
+const Dropdown = ({title, placeholder, items, value, setValue}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState("");
+
 
   const handleValue = (newValue) => {
     setValue(newValue);
@@ -34,12 +34,13 @@ const Dropdown = ({title, placeholder, items, }) => {
       <div className={styles.dropdown_content}>
         {items
           .filter((dropdownItem) => dropdownItem.toLowerCase().indexOf(value.toLowerCase()) !== -1)
-          .map((droprownItem) => {
+          .map((dropdownItem) => {
             return (
               <button 
+                key={dropdownItem}
                 className={styles.dropdown_item}
-                onMouseDown={() => handleValue(droprownItem)}
-                >{droprownItem}
+                onMouseDown={() => handleValue(dropdownItem)}
+                >{dropdownItem}
               </button>
             )
         })}

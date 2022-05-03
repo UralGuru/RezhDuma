@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../..";
-import { fetchNews } from "../../http/newsApi";
-import s from './NewsPage.module.css'
 import { observer } from 'mobx-react-lite';
 import NewsCard from "../../components/shared/NewsCard/NewsCard";
 import Container from "../../components/shared/Container/Container";

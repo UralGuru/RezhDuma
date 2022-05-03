@@ -19,7 +19,7 @@ const Button = ({
   return ( 
     <button
       className={classes}
-      disable={disabled}
+      disabled={disabled}
       onClick={onClick}
     >{children}</button>
   );

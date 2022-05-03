@@ -13,6 +13,7 @@ body {
 a {
   text-decoration: none;
   color:#474747;
+  cursor: pointer;
 }
 
 button {
@@ -30,4 +31,11 @@ input {
   font: inherit;
   background-color: #FFFFFF;
   border: none;
+}
+
+textarea {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
 }

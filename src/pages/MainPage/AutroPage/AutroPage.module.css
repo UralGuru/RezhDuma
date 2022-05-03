@@ -3,7 +3,7 @@
     min-height: 471px;
     position: relative;
     background-size: cover;
-    background: transparent url("../../../../public/images/autro.png") center center no-repeat;
+    background: transparent url("./autro.png") center center no-repeat;
 }
 
 .page_text{

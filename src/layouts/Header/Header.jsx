@@ -11,11 +11,11 @@ const Header = () => {
     <div className={styles.header_outer}>
       <Container>
         <div className={styles.header__inner}>
-          <a className={styles.header__logo} href={ROOT_ROUTE}>
+          <a className={styles.header__logo} onClick={() => navigate(ROOT_ROUTE)}>
             <img className={styles.logo__image} src={REJH_ICON}/>
             <div className={styles.logo__text}><div>Официальный сайт</div><div>города Реж</div></div> 
           </a>
-          <a className={styles.profile__link} href={PROFILE_ROUTE}>
+          <a className={styles.profile__link} onClick={() => navigate(PROFILE_ROUTE)}>
             <img className={styles.profile__image} src={PROFILE_ICON}/>
             <div className={styles.profile__text}>{"Личный кабинет"}</div>
           </a>
