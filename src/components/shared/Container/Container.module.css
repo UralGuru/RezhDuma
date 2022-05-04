@@ -5,3 +5,10 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+}

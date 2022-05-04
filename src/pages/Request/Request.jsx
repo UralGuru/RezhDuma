@@ -77,7 +77,6 @@ const Request = () => {
           <Button 
             className='primary' 
             onClick={() => onSubmit()}
-            type="button"
           >Отправить обращение</Button>
         </form>
       </Container>

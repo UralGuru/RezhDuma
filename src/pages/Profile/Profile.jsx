@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 
+// сделать адаптивным
 const Profile = () => {
   const navigate = useNavigate();
 

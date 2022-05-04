@@ -9,7 +9,7 @@
 .auth_form {
   max-width: 70%;
   margin: auto;
-  border-radius: 30px;
+  border-radius: 2rem;
   background-color: white;
   padding: 2rem;
 }
@@ -28,11 +28,10 @@
   margin-top: 1rem;
 }
 
-
-
 @media (max-width: 450px) {
   .auth_form {
     max-width: 100%;
     padding: 1rem;
+    border-radius: 1rem;
   }
 }

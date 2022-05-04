@@ -6,6 +6,7 @@ import styles from './NewsCard.module.css';
 
 let cx = classNames.bind(styles);
 
+// сделать нормальные картинки и адаптивность
 const NewsCard = ({
   title, description, image, date, className
 }) => {
