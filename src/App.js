@@ -18,6 +18,7 @@ import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/constants';
 import MainLayout from './layouts/MainLayout';
 import Profile from './pages/Profile/Profile';
 import Request from './pages/Request/Request';
+import NewsItem from './pages/NewsItem/NewsItem';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
                     <Route path="registration" element={<Registration />}/>
                     <Route path="profile" element={<Profile />}/>
                     <Route path="request" element={<Request />}/>
+                    <Route path="newsitem">
+                        <Route path=":id" element={<NewsItem />}/>
+                    </Route>
 
                     <Route path="news" element={<NewsPage />}/>
                     <Route path="documents" element={<DocumentsPage />}/>

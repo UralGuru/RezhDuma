@@ -1,4 +1,12 @@
 .outer {
   background-color: white;
   border-radius: 2rem;
+  padding: 2rem;
+}
+
+.page_title {
+  color: #216E97;
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: 700;
 }

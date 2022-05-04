@@ -1,51 +1,47 @@
 .autro{
-    max-width: 100%;
-    min-height: 471px;
-    position: relative;
+    background: rgba(60, 60, 60, 0.3);
+    background: -moz-linear-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background: -webkit-linear-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background: -webkit-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background: -o-linear-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background: -ms-linear-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background: linear-gradient(to right, rgba(134, 134, 134, 0.2), rgba(134, 134, 134, 0.5)), url("./autro.png");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    background: transparent url("./autro.png") center center no-repeat;
 }
 
-.page_text{
-    min-height: 400px;
-    background-size: cover;
+.inner {
+    font-size: 1.75rem;
+    letter-spacing: 0.05rem;
     display: flex;
     flex-direction: column;
-    color: #F2F2F2;
-
-    font-family: 'Montserrat';
-    font-size: 33px;
-}
-
-.text{
-    margin-top: 73px;
-}
-
-.autro_but{
-    margin-top: 104px;
-    height: 103px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.4);
-
-    background: #1A6B98;
-
-    border-radius: 10px;
-    border: 0;
-
-
-
-    font-family: 'Montserrat';
-    font-style: normal;
+    align-items: flex-start;
+    color: white;
+    padding: 3rem 0;
+    gap: 4rem;
     font-weight: 700;
-    font-size: 33px;
-    line-height: 40px;
-    color: #F2F2F2;
 }
 
-.autro_but:hover,.bot2:focus{
-    background-position: 0 -102%;
+.request_btn {
+    text-align: center;
+    border-radius: .25em;
+    padding: .75em 1em;
+    background: #1a6b98;
+    transition: 400ms;
+    box-shadow: 0 0 5px 3px rgba(36, 91, 133, 0.4);
 }
+
+.request_btn:hover {
+    transition: 400ms;
+    box-shadow: 0 0 5px 5px rgba(36, 91, 133, 0.4);
+}
+
+.request_btn:active {
+    transition: 400ms;
+    box-shadow: 0 0 5px 1px rgba(36, 91, 133, 0.5)
+}
+
 
 
 

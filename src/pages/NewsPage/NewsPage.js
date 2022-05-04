@@ -5,6 +5,7 @@ import NewsCard from "../../components/shared/NewsCard/NewsCard";
 import Container from "../../components/shared/Container/Container";
 
 import styles from './NewsPage.module.css';
+import { Outlet } from "react-router-dom";
 
 const NewsPage = observer((props) => {
     const {newsStore} = useContext(Context);
@@ -15,9 +16,11 @@ const NewsPage = observer((props) => {
 
     return(
         <Container>
+            <div className={styles.page_title}>Новости</div>
             <div className={styles.outer}>
                 {newsStore.News.map((n) => {
                 return <NewsCard 
+                    id={n.id}
                     title={n.title}
                     description={n.text}
                     date={n.date}

@@ -1,22 +1,23 @@
 import React from "react";
 import Container from "../../../components/shared/Container/Container";
-import s from './IntroPage.module.css'
+import styles from './IntroPage.module.css'
 
 const IntroPage = (props) => {
     return(
-        <div className={s.intro}>
+        <div className={styles.intro}>
             <Container>
-                <div className={s.page_heading}>
+                <div className={styles.page_heading}>
                     <div>Официальный сайт</div>
-                    <div>Администрации<br />
+                    <div>   
+                        Администрации<br />
                         городского округа город Реж<br />
-                        Свердловской области</div>
-                    <div className={s.form_search}>
-                        <form>
-                            <input className={s.input_intro} type="text" placeholder="Поиск по сайту" />
-                            <button type="submit"></button>
-                        </form>
+                        Свердловской области
                     </div>
+                    <input 
+                        className={styles.search_btn} 
+                        type="text"
+                        placeholder="Поиск по сайту     &#10140;"
+                    />
                 </div>
             </Container>
         </div>

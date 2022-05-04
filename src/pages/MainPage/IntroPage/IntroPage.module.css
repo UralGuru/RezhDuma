@@ -1,79 +1,52 @@
 .intro{
-    max-width:100%;
-    min-height: 483px;
-    position: relative;
+    background: rgba(60, 60, 60, 0.3);
+    background: -moz-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: -webkit-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: -webkit-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: -o-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: -ms-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    background: transparent url("./intro.png") center center no-repeat;
+    padding: 5rem 0;
+    letter-spacing: 0.07rem;
 }
 
 .page_heading{
-    min-height: 400px;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     color: #F2F2F2;
-
-    font-family: 'Montserrat';
-    font-size: 32px;
-}
-
-.page_heading div:nth-child(1) {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 37px;
-    margin-top: 70px;
+    font-size: 2rem;
 }
 
 .page_heading div:nth-child(2){
-    font-family: 'Montserrat';
-    font-style: normal;
     font-weight: 600;
-    font-size: 35px;
-    line-height: 43px;
-    letter-spacing: 0.04em;
+    font-size: 1.125em;
 }
 
-.form_search{
-    margin-top: 20px;
-}
-
-
-.input_intro {
-    width: 100%;
-    height: 67px;
-    padding-left: 44px;
-    background: rgba(255, 255, 255, 0.31);
-    border-radius: 43.5px;
+.search_btn {
+    margin-top: 1.5em;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1.5em;
+    padding: 1em 2em;
+    color: white;
+    font-size: .75em;
     outline: none;
-
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 37px;
-    margin-top: 70px;
-    color: #F2F2F2;
-
-
-    border: 0px;
 }
 
-.input_intro::placeholder {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: #F2F2F2;
-
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 37px;
-    margin-top: 70px;
+.search_btn::placeholder {
+    color: white;
 }
 
+@media (max-width: 478px) {
+    .page_heading {
+        font-size: 1.5rem;
+    }
 
-
-
-
-
+    .intro {
+        padding: 3rem 0;
+    }
+}
