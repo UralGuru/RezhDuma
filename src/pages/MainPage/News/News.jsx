@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import NewsCard from '../../../components/shared/NewsCard/NewsCard';
 import { NEWS_ROUTE } from '../../../utils/constants';
+import { observer } from 'mobx-react-lite';
 
 import styles from "./News.module.css";
+import { Context } from '../../..';
 
 
-const News = () => {
+const News = observer(() => {
+  const {newsStore} = useContext(Context);
   const navigate = useNavigate();
 
   return ( 
@@ -21,21 +24,21 @@ const News = () => {
               >{"Все новости -->"}</Button>
           </div>
           <div className={styles.header}>Новости</div>
-          <NewsCard 
-            title="Кинолог рассказал, как помочь собаке снять стресс" 
-            description="Также жизнь собаки стоит окружить привычными для нее ритуалами, чтобы она понимала, что ее сейчас ждет. Выгуливать и кормить питомца лучше всегда в одно и то же время. Кроме того, не стоитзабывать хвалить собаку за соблюдение правил.Похвала – это еще один фактор, который создает вжизни питомца предсказуемость."
-            date="22.03.2022"
-            imageSrc="dsadas"
-            />
-          <NewsCard 
-            title="Кинолог рассказал, как помочь собаке снять стресс" 
-            description="Также жизнь собаки стоит окружить привычными для нее ритуалами, чтобы она понимала, что ее сейчас ждет. Выгуливать и кормить питомца лучше всегда в одно и то же время. Кроме того, не стоитзабывать хвалить собаку за соблюдение правил.Похвала – это еще один фактор, который создает вжизни питомца предсказуемость."
-            date="22.03.2022"
-            imageSrc="dsad"
-            />
+          <div className={styles.news_intro}>
+            {newsStore.News.map((newsItem) => {
+              return <NewsCard 
+                  id={newsItem.id}
+                  title={newsItem.title}
+                  description={newsItem.text}
+                  imageSrc={newsItem.imageSrc}
+                  date={newsItem.date}
+                  key={newsItem.id}
+                />
+              })}
+          </div>
         </div>
       </Container>
   );
-}
+})
 
 export default News;

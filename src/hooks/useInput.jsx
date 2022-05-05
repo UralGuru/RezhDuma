@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useInput = (initial, required) => {
+const useInput = (initial, required = false) => {
   const [value, setValue] = useState(initial);
   const [error, setError] = useState(null);
 

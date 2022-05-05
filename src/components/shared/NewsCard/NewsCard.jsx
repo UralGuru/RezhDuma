@@ -22,7 +22,7 @@ const NewsCard = ({
       <div className={styles.card_content}>
         {imageSrc && 
         <div className={styles.card_img}>
-          <img src={"/images/header_icons/rejh-icon.svg"}/>
+          <img src={imageSrc}/>
         </div>}
         <div className={styles.card_text}>
           <div className={styles.card_header}>{title}</div>

@@ -4,7 +4,7 @@ import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
 import { useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
+import { FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 
 // сделать адаптивным
@@ -24,7 +24,7 @@ const Profile = () => {
               </div>
               <div className={styles.info_description}>
                 Если у вас есть вопросы, то можете посмотреть 
-                <a href=""> <strong>список часто задаваемых вопросов</strong> </a> 
+                <a onClick={() => navigate(FAQ_ROUTE)}> <strong>список часто задаваемых вопросов</strong> </a> 
                 либо задать его самостоятельно
               </div>
               <Button

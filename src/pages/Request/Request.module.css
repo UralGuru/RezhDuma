@@ -34,8 +34,11 @@
 }
 
 .files_field {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   border: 1px #1E6D98 solid;
+  text-align: center;
   border-radius: .5rem;
   padding: .75rem 1.25rem;
   color:#1E6D98;
@@ -49,4 +52,15 @@
 
 .input_box {
   width: 100%;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown_label {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: .5rem 0;
 }

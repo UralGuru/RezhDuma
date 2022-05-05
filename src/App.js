@@ -19,6 +19,7 @@ import MainLayout from './layouts/MainLayout';
 import Profile from './pages/Profile/Profile';
 import Request from './pages/Request/Request';
 import NewsItem from './pages/NewsItem/NewsItem';
+import FAQPage from './pages/FAQPage/FAQPage';
 
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
                     <Route path="newsitem">
                         <Route path=":id" element={<NewsItem />}/>
                     </Route>
-
+                    <Route path="faq" element={<FAQPage />}/>
+                    
                     <Route path="news" element={<NewsPage />}/>
                     <Route path="documents" element={<DocumentsPage />}/>
                     <Route path="history" element={<HistoryPage />}/>

@@ -3,14 +3,19 @@ import Container from '../../components/shared/Container/Container';
 import Dropdown from '../../components/shared/Dropdown/Dropdown';
 import Input from '../../components/shared/Input/Input';
 import Button from '../../components/shared/Button/Button';
+import {HiOutlinePaperClip} from 'react-icons/hi'
+import Select from '../../components/shared/Select/Select';
 
 import styles from './Request.module.css';
+import { useNavigate } from 'react-router-dom';
+import { FAQ_ROUTE } from '../../utils/constants';
 
 const Request = () => {
+  const navigate = useNavigate();
 
-  const [district, setDistrict] = useState("");
-  const [sphere, setSphere] = useState("");
-  const [type, setType] = useState("");
+  const [district, setDistrict] = useState(null);
+  const [sphere, setSphere] = useState(null);
+  const [type, setType] = useState(null);
   const [requestText, setRequestText] = useState("");
   const [files, setFiles] = useState("");
 
@@ -29,9 +34,54 @@ const Request = () => {
       <Container>
         <div className={styles.header}>Обращение депутату</div>
         <form className={styles.form}>
-          <div>Перед тем, как задать вопрос, советуем Вам ознакомиться со списком <a href="#"><strong>часто задаваемых вопросов</strong></a></div>
+          <div>Перед тем, как задать вопрос, советуем Вам ознакомиться со списком <a onClick={() => navigate(FAQ_ROUTE)}><strong>часто задаваемых вопросов</strong></a></div>
+          
+          <div className={styles.dropdown}>
+            <div className={styles.dropdown_label}>Выберите район</div>
+            <Select
+              placeholder="Выберите район обращения" 
+              options={[
+                  {label: "Трубы", value: "Трубы"},
+                  {label: "Образование", value: "Образование"},
+                  {label: "Дороги", value: "Дороги"},
+                  {label: "Другое", value: "Другое"},
+              ]}
+              setValue={setDistrict}
+              value={district}
+              />
+          </div>
+          
+          <div className={styles.dropdown}>
+            <div className={styles.dropdown_label}>Выберите сферу</div>
+            <Select
+              placeholder="Выберите сферу обращения" 
+              options={[
+                  {label: "Трубы", value: "Трубы"},
+                  {label: "Образование", value: "Образование"},
+                  {label: "Дороги", value: "Дороги"},
+                  {label: "Другое", value: "Другое"},
+              ]}
+              setValue={setSphere}
+              value={sphere}
+              />
+          </div>
 
-          <Dropdown 
+          <div className={styles.dropdown}>
+            <div className={styles.dropdown_label}>Выберите тип</div>
+            <Select
+              placeholder="Выберите тип обращения" 
+              options={[
+                  {label: "Трубы", value: "Трубы"},
+                  {label: "Образование", value: "Образование"},
+                  {label: "Дороги", value: "Дороги"},
+                  {label: "Другое", value: "Другое"},
+              ]}
+              setValue={setType}
+              value={type}
+              />
+          </div>
+
+          {/* <Dropdown 
             title={"Микрорайон"}
             placeholder={"Выберите, к кому хотите обратиться"}
             items={["первый район", "второй район", "третий район", "четвертый район", "пятый район"]}
@@ -51,7 +101,7 @@ const Request = () => {
             items={["Предложение", "Заявление", "Жалоба"]}
             value={type}
             setValue={setType}
-            />
+            /> */}
           <div className={styles.input_box}>
             <div className={styles.label}>Содержание обращения</div>
             <textarea 
@@ -71,7 +121,7 @@ const Request = () => {
                 multiple
                 onChange={(e) => setFiles(e.target.value)}
               />
-              Прикрепить файлы
+              <div>Прикрепить файлы</div><HiOutlinePaperClip />
             </label>
           </div>
           <Button 
