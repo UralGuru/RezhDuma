@@ -30,9 +30,9 @@ const Request = () => {
   }
 
   return (
-    <div>
-      <Container>
-        <div className={styles.header}>Обращение депутату</div>
+    <Container>
+      <div className={styles.outer}>
+        <h2>Обращение депутату</h2>
         <form className={styles.form}>
           <div>Перед тем, как задать вопрос, советуем Вам ознакомиться со списком <a onClick={() => navigate(FAQ_ROUTE)}><strong>часто задаваемых вопросов</strong></a></div>
           
@@ -102,6 +102,7 @@ const Request = () => {
             value={type}
             setValue={setType}
             /> */}
+
           <div className={styles.input_box}>
             <div className={styles.label}>Содержание обращения</div>
             <textarea 
@@ -129,8 +130,8 @@ const Request = () => {
             onClick={() => onSubmit()}
           >Отправить обращение</Button>
         </form>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }
 

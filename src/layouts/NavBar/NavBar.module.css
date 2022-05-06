@@ -24,6 +24,7 @@
   position: absolute;
   transform: translateX(-110vw);
   flex-direction: column;
+  z-index: 10;
   transition: 850ms;
   box-shadow: 5px 5px 5px rgba(65, 65, 65, 0.3)
 }

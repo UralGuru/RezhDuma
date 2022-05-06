@@ -14,7 +14,6 @@ import VotingsPage from './pages/VotingsPage/VotingsPage'
 import MainPage from './pages/MainPage/MainPage'
 import Login from './pages/Auth/Login';
 import Registration from './pages/Auth/Registration';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/constants';
 import MainLayout from './layouts/MainLayout';
 import Profile from './pages/Profile/Profile';
 import Request from './pages/Request/Request';

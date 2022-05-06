@@ -1,8 +1,8 @@
-.header {
-  color: #135B82;
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 2rem 0;
+.outer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
 .form {

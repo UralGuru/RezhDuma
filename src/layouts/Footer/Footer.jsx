@@ -1,11 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { TELEGRAM_ICON, VK_ICON } from '../../utils/constants';
+import { DOCUMENTS_ROUTE, HISTORY_ROUTE, NEWS_ROUTE, POLLS_ROUTE, PROJECTS_ROUTE, TELEGRAM_ICON, VK_ICON, VOTINGS_ROUTE } from '../../utils/constants';
 
 
 import styles from './Footer.module.css';
 
 function Footer() {
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.footer}>
       <Container>
@@ -22,14 +26,14 @@ function Footer() {
         <div className={styles.footer_row}>
           <div className={styles.nav_row}>
             <div className={styles.nav_col}>
-              <a href="/news" className={styles.nav_item}>Новости</a>
-              <a href="/history" className={styles.nav_item}>История</a>
-              <a href="/documents" className={styles.nav_item}>Документы</a>
+              <a onClick={() => navigate(NEWS_ROUTE)} className={styles.nav_item}>Новости</a>
+              <a onClick={() => navigate(HISTORY_ROUTE)} className={styles.nav_item}>История</a>
+              <a onClick={() => navigate(DOCUMENTS_ROUTE)} className={styles.nav_item}>Документы</a>
             </div>
             <div className={styles.nav_col}>
-              <a href="/votings" className={styles.nav_item}>Голосования</a>
-              <a href="/polls" className={styles.nav_item}>Опросы</a>
-              <a href="/projects" className={styles.nav_item}>Проекты</a>
+              <a onClick={() => navigate(VOTINGS_ROUTE)} className={styles.nav_item}>Голосования</a>
+              <a onClick={() => navigate(POLLS_ROUTE)} className={styles.nav_item}>Опросы</a>
+              <a onClick={() => navigate(PROJECTS_ROUTE)} className={styles.nav_item}>Проекты</a>
             </div>
           </div>
           <div className={styles.contact_info}>

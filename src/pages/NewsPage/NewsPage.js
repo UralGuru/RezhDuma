@@ -16,16 +16,19 @@ const NewsPage = observer((props) => {
 
     return(
         <Container>
-            <div className={styles.page_title}>Новости</div>
             <div className={styles.outer}>
-                {newsStore.News.map((n) => {
-                return <NewsCard 
-                    id={n.id}
-                    title={n.title}
-                    description={n.text}
-                    date={n.date}
-                    />
-                })}
+                <h2>Новости</h2>
+                <div className={styles.inner}>
+                    {newsStore.News.map((n) => {
+                    return <NewsCard 
+                        id={n.id}
+                        title={n.title}
+                        description={n.text}
+                        date={n.date}
+                        imageSrc={n.imageSrc}
+                        />
+                    })}
+                </div>
             </div>
         </Container>
     );

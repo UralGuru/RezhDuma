@@ -9,25 +9,35 @@ const Select = ({ placeholder, options, setValue, value, isSearchable = true }) 
   const customStyles = {
     container: (provided, state) => ({
       ...provided,
+      color: '#585858',
+      fontWeight: '500',
     }),
 
     control: (provided, state) => ({
       ...provided,
       border: '1px solid #8B8B8B',
       borderRadius: '.5rem',
+      color: '#585858',
+      backgroundColor: 'rgba(0, 0, 0, 0)',
+      outline: state.isFocused ? '1px solid #1E6D98' : '0px solid #8B8B8B',
     }),
 
     menu: (provided, state) => ({
       ...provided,
-      
+      color: '#585858',
     }),
 
     option: (provided, state) => ({
       ...provided,
       color: '#585858',
       backgroundColor: (state.isSelected) ? '#E3E3E3' : 'white',
+      backgroundColor: (state.isFocused) ? '#E3E3E3' : 'white',
       padding: '.5rem 1rem'
-    })
+    }),
+
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+    }),
   }
 
 
@@ -51,16 +61,20 @@ const Select = ({ placeholder, options, setValue, value, isSearchable = true }) 
   )
 }
 
-// Select.propTypes = {
-//   title: PropTypes.string,
-//   placeholder: PropTypes.string,
-//   items: PropTypes.array
-// };
+Select.propTypes = {
+  placeholder: PropTypes.string,
+  setValue: PropTypes.func,
+  options: PropTypes.array,
+  value: PropTypes.string,
+  isSearchable: PropTypes.bool,
+};
 
-// Select.defaultProps = {
-//   title: "",
-//   placeholder: "",
-//   items: []
-// };
+Select.defaultProps = {
+  placeholder: "",
+  setValue: () => {},
+  options: [],
+  value: "",
+  isSearchable: true,
+};
 
 export default Select;
