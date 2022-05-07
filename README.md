@@ -23,13 +23,19 @@
     
 # Для взаимодействия с сервером
     1. Создаем в корне проекта файл .env
-    2. Указываем путь к API переменной REACT_APP_API_URL (например: `JS REACT_APP_API_URL='http://localhost:8080/'`)
+    2. Указываем путь к API переменной REACT_APP_API_URL 
+    Например: 
+    ```javascript
+    REACT_APP_API_URL='http://localhost:8080/'
+    ```
 
 
 # Пара слов о структуре проекта
 
 В папке public хранятся статические файлы такие как картинки, обращаться к ним нужно напрямую, например: 
-`HTML <img src="/images/rejh-icon.svg"/>`
+```HTML
+<img src="/images/rejh-icon.svg"/>
+```
 
 ### В папке src хранятся все файлы React проекта, тут и работаем
 
