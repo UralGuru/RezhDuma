@@ -13,7 +13,7 @@ const FAQPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const onSearchChange = (e) => {
-    setSearchQuery(e.value);
+    setSearchQuery(e.target.value);
   }
 
   return ( 
@@ -25,18 +25,18 @@ const FAQPage = () => {
             <Select 
               placeholder={'Выберите сферу вопроса'}
               options={[
-                {label: 'Дороги', value: 'Дороги'},
-                {label: 'Трубы', value: 'Трубы'},
-                {label: 'Образование', value: 'Образование'},
-                {label: 'Другое', value: 'Другое'},
+                  {label: 'Дороги', value: 'Дороги'},
+                  {label: 'Трубы', value: 'Трубы'},
+                  {label: 'Образование', value: 'Образование'},
+                  {label: 'Другое', value: 'Другое'},
                 ]}
                 value={sphere}
                 setValue={setSphere}
               />
           </div>
-          <input 
-            className={styles.search_field}
-            placeholder={'Поиск'}
+          <Input 
+            className='page_search-input'
+            placeholder='Поиск'
             value={searchQuery}
             onChange={onSearchChange}
             />

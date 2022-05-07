@@ -24,8 +24,10 @@
   position: absolute;
   transform: translateX(-110vw);
   flex-direction: column;
+  padding: 2rem 0 1rem 0;
   z-index: 10;
   transition: 850ms;
+  background-color: #2C97CC;
   box-shadow: 5px 5px 5px rgba(65, 65, 65, 0.3)
 }
 

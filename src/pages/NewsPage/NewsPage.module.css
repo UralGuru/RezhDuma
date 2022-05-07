@@ -1,8 +1,8 @@
 .outer {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
-  gap: 2rem;
+  padding: 3rem 0;
+  gap: .125rem;
 }
 
 .inner {
@@ -12,4 +12,16 @@
   border-radius: 2rem;
   padding: 2rem;
   gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 456px) {
+  .header {
+    flex-direction: column;
+  }
 }

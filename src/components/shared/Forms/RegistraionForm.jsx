@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import useInput from '../../../hooks/useInput';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
 import Input from '../Input/Input';
 
-const RegistrationForm = ({}) => {
+import { observer } from 'mobx-react-lite';
+import { Context } from '../../..';
+
+const RegistrationForm = () => {
+
+  const {userStore} = useContext(Context);
 
   const email = useInput('', true);
   const name = useInput('', true);
@@ -15,50 +20,57 @@ const RegistrationForm = ({}) => {
   const confirmPassword = useInput('', true);
 
   const onRegistration = () => {
-    console.log(email.value, password.value);
+    userStore.registration(
+      email.value, 
+      password.value,
+      telephone.value,
+      name.value,
+      surname.value,
+      fathername.value
+      );
   }
 
   return ( 
     <form className={styles.auth_form}>
       <div className={styles.auth_title}>{"Регистрация"}</div>
       <Input
-        className=""
+        className="form-input"
         type='email'
         placeholder='Введите Email'
         {...email}
       >Email</Input>
       <Input
-        className=""
+        className="form-input"
         type='text'
         placeholder='Введите имя'
         {...name}
       >Имя</Input>
       <Input
-        className=""
+        className="form-input"
         type='text'
         placeholder='Введите фамилию'
         {...surname}
       >Фамилия</Input>
       <Input
-        className=""
+        className="form-input"
         type='text'
         placeholder='Введите отчество'
         {...fathername}
       >Отчество</Input>
       <Input
-        className=""
-        type='phone'
+        className="form-input"
+        type='tel'
         placeholder='Введите телефон'
         {...telephone}
       >Телефон</Input>
       <Input
-        className=""
+        className="form-input"
         type='password'
         placeholder='Введите пароль'
         {...password}
       >Пароль</Input>
       <Input
-        className=""
+        className="form-input"
         type='password'
         placeholder='Подтвердите пароль'
         {...confirmPassword}
@@ -74,4 +86,4 @@ const RegistrationForm = ({}) => {
    );
 }
 
-export default RegistrationForm;
+export default observer(RegistrationForm);

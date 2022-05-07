@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Container from '../../components/shared/Container/Container';
 import styles from './NavBar.module.css';

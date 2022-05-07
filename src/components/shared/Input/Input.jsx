@@ -40,7 +40,7 @@ Input.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   onBlur: PropTypes.func,
-  error: PropTypes.object,
+  error: PropTypes.string,
   onClick: PropTypes.func
 };
 
