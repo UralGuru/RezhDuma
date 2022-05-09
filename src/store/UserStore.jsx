@@ -1,5 +1,6 @@
+import axios from "axios";
 import {makeAutoObservable} from "mobx"
-import AuthService from "../services/AuthService";
+import { login, registration } from "../http/userApi";
 
 export default class UserStore {
     constructor() {
@@ -26,11 +27,13 @@ export default class UserStore {
 
     async login(data) {
         try {
-            const response = await AuthService.login(data);
-            console.log(response);
-            localStorage.setItem('token', response.data.access_token);
-            this.setIsAuth(true);
-            this.setUser(response.data.user);
+            await login(data)
+            .then((res) => {
+                console.log(res);
+                localStorage.setItem('refresh-token', res.data.refresh_token);
+                localStorage.setItem('access-token', res.data.access_token);
+                this.setIsAuth(true);
+            });
         } catch(e) {
             console.log(e.response.data);
         }
@@ -38,7 +41,7 @@ export default class UserStore {
 
     async registration(email, password, phone, firstname, lastname, patronymic) {
         try {
-            const response = await AuthService.registration(email, password, phone, firstname, lastname, patronymic);
+            await registration(email, password, phone, firstname, lastname, patronymic);
         } catch(e) {
             console.log(e.response.data);
         }
@@ -46,9 +49,21 @@ export default class UserStore {
 
     async logout() {
         try {
-            localStorage.removeItem('token');
+            localStorage.removeItem('access-token');
             this.setIsAuth(false);
-            this.setUser({});
+        } catch(e) {
+            console.log(e.response.data);
+        }
+    }
+
+    async checkAuth() {
+        try {
+            await axios.get(`${process.env.REACT_APP_API_URL}api/token/refresh`)
+            .then(response => {
+                console.log(response);
+                localStorage.setItem('access-token', response.data.access_token);
+                this.setIsAuth(true);
+            });
         } catch(e) {
             console.log(e.response.data);
         }

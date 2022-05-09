@@ -9,26 +9,26 @@ const $authHost = axios.create({
 })
 
 $authHost.interceptors.request.use((config) => {
-  config.headers.authorization = `Rejh ${localStorage.getItem('token')}`
+  config.headers.authorization = `Rezh ${localStorage.getItem('access-token')}`
   return config;
 })
 
-$authHost.interceptors.response.use((config) => {
-  return config;
-  }, (async (error) => {
-    const originalRequest = error.config;
-    if (error.response.status == 401 && error.config && !error.config._isRetry) {
-      originalRequest._isRetry = true;
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}api/token/refresh`);
-        localStorage.setItem('token', response.data.access_token)
-        return $authHost.request(originalRequest)
-      } catch (e) {
-        console.log('Не авторизован');
-      }
-    }
-    throw error;
-  }))
+// $authHost.interceptors.response.use((config) => {
+//   return config;
+//   }, (async (error) => {
+//     const originalRequest = error.config;
+//     if (error.response.status == 401 && error.config && !error.config._isRetry) {
+//       originalRequest._isRetry = true;
+//       try {
+//         const response = await axios.get(`${process.env.REACT_APP_API_URL}api/token/refresh`);
+//         localStorage.setItem('token', response.data.access_token)
+//         return $authHost.request(originalRequest)
+//       } catch (e) {
+//         console.log('Пользователь не авторизован');
+//       }
+//     }
+//     throw error;
+//   }))
 
 
 export {

@@ -23,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .card_img img {
@@ -38,12 +39,14 @@
   flex-direction: column;
   flex-basis: 0;
   flex-grow: 1;
+  white-space: pre-line;
 }
 
-.card_header {
+.card_title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
 
 .card_description {
@@ -55,4 +58,12 @@
     flex-direction: column;
     gap: 2rem;
   }
+}
+
+.card_link {
+  padding: .5rem 1rem;
+  margin-left: auto;
+  cursor: pointer;
+  border: 1px solid #474747;
+  border-radius: .5rem;
 }

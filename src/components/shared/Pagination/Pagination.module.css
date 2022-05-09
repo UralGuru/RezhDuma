@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  min-height: 2rem;
+  display: flex;
+  outline: 1px solid #2C97CC;
+  border-radius: .5rem;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-width: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.toggle.active {
+  background-color: #2C97CC;
+  box-shadow: inset 1px 1px 1px .5px;
+}

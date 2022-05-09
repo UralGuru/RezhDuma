@@ -27,3 +27,5 @@ export const TELEGRAM_ICON = 'images/social_icons/telegram.svg';
 export const PROFILE_ICON = "images/header_icons/profile-icon.svg";
 export const REJH_ICON = "images/header_icons/rejh-icon.svg";
 
+// options
+export const NEWS_PER_ONE_PAGE = 5;

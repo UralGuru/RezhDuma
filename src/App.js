@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import {observer} from 'mobx-react-lite';
+import { Context } from '.';
 import Button from './components/shared/Button/Button';
 import Footer from './layouts/Footer/Footer';
 import Header from './layouts/Header/Header';
@@ -19,9 +21,19 @@ import Profile from './pages/Profile/Profile';
 import Request from './pages/Request/Request';
 import NewsItem from './pages/NewsItem/NewsItem';
 import FAQPage from './pages/FAQPage/FAQPage';
+import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
 
 
 function App() {
+
+    const {userStore} = useContext(Context);
+    
+    // useEffect(() => {
+    //     if (localStorage.getItem('token')) {
+    //         userStore.checkAuth();
+    //     }
+    // }, [])
+
     return (
         <BrowserRouter>
             <Routes>
@@ -31,7 +43,7 @@ function App() {
                     <Route path="registration" element={<Registration />}/>
                     <Route path="profile" element={<Profile />}/>
                     <Route path="request" element={<Request />}/>
-                    <Route path="newsitem">
+                    <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/>
                     </Route>
                     <Route path="faq" element={<FAQPage />}/>
@@ -50,4 +62,4 @@ function App() {
     );
 }
 
-export default App;
+export default observer(App);

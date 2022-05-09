@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
 import { LOGIN_ROUTE, ROOT_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON } from '../../utils/constants';
 import styles from './Header.module.css';
 
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+
 const Header = () => {
+  const {userStore} = useContext(Context);
   const navigate = useNavigate();
 
   return ( 
@@ -16,8 +20,8 @@ const Header = () => {
             <div className={styles.logo__text}><div>Официальный сайт</div><div>города Реж</div></div> 
           </a>
           <a className={styles.profile__link} onClick={() => navigate(PROFILE_ROUTE)}>
-            <img className={styles.profile__image} src={PROFILE_ICON}/>
-            <div className={styles.profile__text}>{"Личный кабинет"}</div>
+              <img className={styles.profile__image} src={PROFILE_ICON}/>
+              <div className={styles.profile__text}>{"Личный кабинет"}</div>
           </a>
         </div>
       </Container>
@@ -25,4 +29,4 @@ const Header = () => {
    );
 }
 
-export default Header;
+export default observer(Header);

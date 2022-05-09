@@ -7,11 +7,16 @@ import Container from "../../components/shared/Container/Container";
 import styles from './NewsPage.module.css';
 import { Outlet } from "react-router-dom";
 import Input from "../../components/shared/Input/Input";
-import { fetchNews } from "../../http/newsApi";
+import { fetchNews, fetchNewsWithPagination } from "../../http/newsApi";
+import usePagination from "../../hooks/usePagination";
+import { NEWS_PER_ONE_PAGE } from "../../utils/constants";
+import Pagination from "../../components/shared/Pagination/Pagination";
 
-const NewsPage = observer((props) => {
-    const {newsStore} = useContext(Context);
-    
+const NewsPage = (props) => {
+
+    const [news, setNews] = useState([]);
+    const [newsCount, setNewsCount] = useState(0);
+    const [page, setPage] = useState(1);
 
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -19,9 +24,19 @@ const NewsPage = observer((props) => {
       setSearchQuery(e.target.value);
     }
 
-    // useEffect(() => {
-    //     fetchNews().then(data => newsStore.setNews(data));
-    // })
+    const getNews = () => {
+        fetchNewsWithPagination(NEWS_PER_ONE_PAGE, page).then(data => {
+            setNews(data);
+        });
+    }
+
+    useEffect(() => {
+        getNews();
+    }, [page])
+
+    useEffect(() => {
+        fetchNews().then(data => setNewsCount(data.length))
+    }, [])
 
     return(
         <Container>
@@ -37,19 +52,27 @@ const NewsPage = observer((props) => {
                 </div>
                 
                 <div className={styles.inner}>
-                    {newsStore.News.map((n) => {
-                    return <NewsCard 
-                        id={n.id}
-                        title={n.title}
-                        description={n.text}
-                        date={n.date}
-                        imageSrc={n.imageSrc}
-                        />
-                    })}
+                    <div className={styles.news}>
+                        {news.map((n) => {
+                            return <NewsCard 
+                                id={n.id}
+                                title={n.title}
+                                description={n.text}
+                                date={n.newsDate}
+                                imageSrc={n.filesNames[0]}
+                            />
+                        })}
+                    </div>
+                    <Pagination 
+                        page={page}
+                        setPage={setPage}
+                        totalCount={newsCount}
+                        itemsPerPage={NEWS_PER_ONE_PAGE}
+                    />
                 </div>
             </div>
         </Container>
     );
-})
+}
 
 export default NewsPage;

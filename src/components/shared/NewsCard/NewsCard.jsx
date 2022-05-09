@@ -16,21 +16,20 @@ const NewsCard = ({
   const navigate = useNavigate();
   
   return ( 
-    <a className={styles.card}
-      onClick={() => navigate('/newsitem/' + id)}>
+    <div className={styles.card}>
       <div className={styles.card_date}>{date}</div>
       <div className={styles.card_content}>
         {imageSrc && 
-        <div className={styles.card_img}>
+        <div className={styles.card_img} onClick={() => navigate('/newsitem/' + id)}>
           <img src={imageSrc}/>
         </div>}
         <div className={styles.card_text}>
-          <div className={styles.card_header}>{title}</div>
-          <div className={styles.card_description}>{description}</div>
-          
+          <div className={styles.card_title} onClick={() => navigate('/newsitem/' + id)}>{title}</div>
+          <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
+          <div className={styles.card_link} onClick={() => navigate('/newsitem/' + id)}>Читать далее</div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 

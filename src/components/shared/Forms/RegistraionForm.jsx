@@ -6,9 +6,11 @@ import Input from '../Input/Input';
 
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../..';
+import { Navigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
 
+  
   const {userStore} = useContext(Context);
 
   const email = useInput('', true);
@@ -28,6 +30,7 @@ const RegistrationForm = () => {
       surname.value,
       fathername.value
       );
+      
   }
 
   return ( 

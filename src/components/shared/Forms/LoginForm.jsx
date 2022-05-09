@@ -24,46 +24,39 @@ const LoginForm = () => {
     const data = new FormData();
     data.append('email', email.value);
     data.append('password', password.value);
-    console.log(localStorage.getItem('token'));
     userStore.login(data);
   }
 
-  if (userStore.IsAuth) {
-    return (
-      <div>Пользователь зарегистрирован</div>
-    )
-  } else {
-    return ( 
-      <form className={styles.auth_form}>
-        <div className={styles.auth_title}>{"Личный кабинет"}</div>
-        <Input
-          className="form-input"
-          type='email'
-          placeholder='Введите Email'
-          {...email}
-        >Email</Input>
-        <Input
-          className="form-input"
-          type='password'
-          placeholder='Введите пароль'
-          {...password}
-        >Пароль</Input>
-        <a href="#" className={styles.auth_forgot}>Забыли пароль?</a>
-        <div className={styles.btn_row}>
-          <Button 
-            className='primary'
-            onClick={() => onLogin()}
-            >Войти
-          </Button>
-          <Button
-            className=''
-            onClick={() => navigate(REGISTRATION_ROUTE)}
-          >Регистрация
-          </Button>
-        </div>
-      </form>
-     );
-  }
+  return ( 
+    <div className={styles.auth_form}>
+      <div className={styles.auth_title}>{"Личный кабинет"}</div>
+      <Input
+        className="form-input"
+        type='email'
+        placeholder='Введите Email'
+        {...email}
+      >Email</Input>
+      <Input
+        className="form-input"
+        type='password'
+        placeholder='Введите пароль'
+        {...password}
+      >Пароль</Input>
+      <a href="#" className={styles.auth_forgot}>Забыли пароль?</a>
+      <div className={styles.btn_row}>
+        <Button 
+          className='primary'
+          onClick={() => onLogin()}
+          >Войти
+        </Button>
+        <Button
+          className=''
+          onClick={() => navigate(REGISTRATION_ROUTE)}
+        >Регистрация
+        </Button>
+      </div>
+    </div>
+  );
 }
 
 export default observer(LoginForm);

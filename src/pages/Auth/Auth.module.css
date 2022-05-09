@@ -12,3 +12,15 @@
   min-height: 500px;
   padding: 4rem 0;
 }
+
+.authorizated {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.authorizated a {
+  font-size: 1.25rem;
+}
