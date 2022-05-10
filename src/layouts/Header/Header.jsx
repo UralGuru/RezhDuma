@@ -21,17 +21,17 @@ const Header = () => {
           </a>
           <div className={styles.profile}>
             <a className={styles.profile__link} onClick={() => navigate(PROFILE_ROUTE)}>
-                <img className={styles.profile__image} src={PROFILE_ICON}/>
-                <div className={styles.profile__text}>
-                  Личный кабинет
-                </div>
+              <img className={styles.profile__image} src={PROFILE_ICON}/>
+              <div className={styles.profile__text}>
+                Личный кабинет
+              </div>
             </a>
-            {userStore.User.firstName && 
+            {/* {userStore.User.firstName && 
             <a className={styles.profile__link} onClick={() => userStore.logout()}>
               <div className={styles.profile__text}>
                 Выйти
               </div>
-            </a>}
+            </a>} */}
           </div>
         </div>
       </Container>

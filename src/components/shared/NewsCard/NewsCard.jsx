@@ -23,7 +23,7 @@ const NewsCard = ({
       <div className={styles.card_content}>
         {imageSrc && 
         <div className={styles.card_img} onClick={() => navigate('/newsitem/' + id)}>
-          <img src={imageSrc}/>
+          <img src={imageSrc} alt='Не удалось отобразить изображение'/>
         </div>}
         <div className={styles.card_text}>
           <div className={styles.card_title} onClick={() => navigate('/newsitem/' + id)}>{title}</div>

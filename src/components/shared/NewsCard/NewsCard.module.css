@@ -27,11 +27,36 @@
 }
 
 .card_img img {
+  position: relative;
   width: 100%;
   border-radius: 1.5rem;
   background-color: #ababab;
   object-fit: cover;
   aspect-ratio: 16/9;
+}
+
+.card_img img:before {  
+  content: " ";
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ababab;
+  border: 1px dotted rgb(200, 200, 200);
+}
+
+.card_img img:after {  
+  content: attr(alt);
+  display: block;
+  color: rgb(100, 100, 100);
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .card_text {
