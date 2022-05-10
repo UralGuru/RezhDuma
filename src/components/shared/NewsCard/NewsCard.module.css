@@ -61,9 +61,5 @@
 }
 
 .card_link {
-  padding: .5rem 1rem;
   margin-left: auto;
-  cursor: pointer;
-  border: 1px solid #474747;
-  border-radius: .5rem;
 }

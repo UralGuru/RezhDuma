@@ -35,8 +35,7 @@ const LoginForm = () => {
       setStatus('error');
     })
   }
-
-  console.log(status);
+  
   if (status == 'loading') {
     return (
       <div className={styles.auth_form}>Загрузка...</div>

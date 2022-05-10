@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import styles from './NewsCard.module.css';
 import { useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
 
 let cx = classNames.bind(styles);
 
@@ -27,7 +28,7 @@ const NewsCard = ({
         <div className={styles.card_text}>
           <div className={styles.card_title} onClick={() => navigate('/newsitem/' + id)}>{title}</div>
           <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
-          <div className={styles.card_link} onClick={() => navigate('/newsitem/' + id)}>Читать далее</div>
+          <div className={styles.card_link}><Button className='secondary-outline' onClick={() => navigate('/newsitem/' + id)}>Читать далее</Button></div>
         </div>
       </div>
     </div>

@@ -50,7 +50,9 @@ export default class UserStore {
     async logout() {
         try {
             localStorage.removeItem('access-token');
+            localStorage.removeItem('refresh-token');
             this.setIsAuth(false);
+            this.setUser({});
         } catch(e) {
             console.log(e);
         }
@@ -60,7 +62,6 @@ export default class UserStore {
         try {
             await checkAuth()
             .then(res => {
-                console.log(res);
                 localStorage.setItem('access-token', res.data[0].access_token);
                 this.setIsAuth(true);
                 this.setUser(res.data[1]);

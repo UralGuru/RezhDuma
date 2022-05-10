@@ -25,16 +25,25 @@
   margin-left: 0.25rem;
 }
 
+.profile {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+}
+
 .profile__link {
   display: flex;
+  flex-direction: row;
+  gap: .5rem;
   align-items: center;
   margin-left: 0.25rem;
 }
 
 .profile__image {
-  margin-right: 0.25rem;
+  
 }
 
 .profile__text {
-  margin-left: 0.25rem;
+
 }
