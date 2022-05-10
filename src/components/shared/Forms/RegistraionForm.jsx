@@ -6,12 +6,17 @@ import Input from '../Input/Input';
 
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../..';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { LOGIN_ROUTE } from '../../../utils/constants';
+import { Spinner } from 'react-bootstrap';
+
 
 const RegistrationForm = () => {
-
-  
+  const navigate = useNavigate();
   const {userStore} = useContext(Context);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isActivated, setIsActivated] = useState(true);
 
   const email = useInput('', true);
   const name = useInput('', true);
@@ -22,6 +27,7 @@ const RegistrationForm = () => {
   const confirmPassword = useInput('', true);
 
   const onRegistration = () => {
+    setIsLoading(true);
     userStore.registration(
       email.value, 
       password.value,
@@ -29,12 +35,27 @@ const RegistrationForm = () => {
       name.value,
       surname.value,
       fathername.value
-      );
-      
-  }
+      ).then(res => {
+        setIsActivated(false);
+      }).catch(res => {
+        console.log(res);
+        
+      }).finally(res => {
+        setIsLoading(false);
+      })}
+
+    if (!isActivated) {
+    return (
+      <div>{`Ссылка на подтверждение отправлена на email: ${email.value}`}</div>
+    )}
+
+    if (isLoading) {
+      return (
+        <div>Загрузка...</div>
+      )}
 
   return ( 
-    <form className={styles.auth_form}>
+    <div className={styles.auth_form}>
       <div className={styles.auth_title}>{"Регистрация"}</div>
       <Input
         className="form-input"
@@ -85,7 +106,7 @@ const RegistrationForm = () => {
         >Зарегистрироваться
         </Button>
       </div>
-    </form>
+    </div>
    );
 }
 

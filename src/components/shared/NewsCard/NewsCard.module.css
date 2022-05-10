@@ -40,12 +40,12 @@
   flex-basis: 0;
   flex-grow: 1;
   white-space: pre-line;
+  gap: 1rem;
 }
 
 .card_title {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   cursor: pointer;
 }
 

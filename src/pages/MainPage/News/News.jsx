@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
@@ -7,12 +7,19 @@ import { NEWS_ROUTE } from '../../../utils/constants';
 import { observer } from 'mobx-react-lite';
 
 import styles from "./News.module.css";
-import { Context } from '../../..';
+import { fetchNewsWithPagination } from '../../../http/newsApi';
 
 
 const News = observer(() => {
-  const {newsStore} = useContext(Context);
   const navigate = useNavigate();
+
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    fetchNewsWithPagination(3, 1).then(data => {
+      setNews(data);
+    })
+  }, [])
 
   return ( 
       <Container>
@@ -25,16 +32,15 @@ const News = observer(() => {
           </div>
           <div className={styles.header}>Новости</div>
           <div className={styles.news_intro}>
-            {newsStore.News.map((newsItem) => {
+            {news.map((n) => {
               return <NewsCard 
-                  id={newsItem.id}
-                  title={newsItem.title}
-                  description={newsItem.text}
-                  imageSrc={newsItem.imageSrc}
-                  date={newsItem.date}
-                  key={newsItem.id}
-                />
-              })}
+                id={n.id}
+                title={n.title}
+                description={n.text}
+                date={n.newsDate}
+                imageSrc={n.filesNames[0]}
+              />
+            })}
           </div>
         </div>
       </Container>

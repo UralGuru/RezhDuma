@@ -71,8 +71,6 @@ const NewsItem = () => {
       <Spinner />
     )}
 
-    console.log(news.text);
-
   return ( 
     <div className={styles.outer}>
       <div className={styles.date}>{moment(news.newsDate).format('DD.MM.YYYY')}</div>
@@ -82,7 +80,7 @@ const NewsItem = () => {
         data={news.filesNames.map((data) => {
           return {'image': data}
         })}
-        width="1000px"
+        width="700px"
         height="400px"
         captionStyle={{
           fontSize: '2rem',
@@ -104,7 +102,6 @@ const NewsItem = () => {
         style={{
           textAlign: "center",
           maxWidth: "100%",
-          margin: "auto",
         }}
       />}
       <div className={styles.description}>{news.text}</div>

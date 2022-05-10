@@ -1,6 +1,6 @@
 import axios from "axios";
 import {makeAutoObservable} from "mobx"
-import { login, registration } from "../http/userApi";
+import { checkAuth, login, registration } from "../http/userApi";
 
 export default class UserStore {
     constructor() {
@@ -29,13 +29,13 @@ export default class UserStore {
         try {
             await login(data)
             .then((res) => {
-                console.log(res);
-                localStorage.setItem('refresh-token', res.data.refresh_token);
-                localStorage.setItem('access-token', res.data.access_token);
+                localStorage.setItem('refresh-token', res.data[0].refresh_token);
+                localStorage.setItem('access-token', res.data[0].access_token);
                 this.setIsAuth(true);
+                this.setUser(res.data[1]);
             });
         } catch(e) {
-            console.log(e.response.data);
+            console.log(e);
         }
     }
 
@@ -43,7 +43,7 @@ export default class UserStore {
         try {
             await registration(email, password, phone, firstname, lastname, patronymic);
         } catch(e) {
-            console.log(e.response.data);
+            console.log(e);
         }
     }
 
@@ -52,20 +52,21 @@ export default class UserStore {
             localStorage.removeItem('access-token');
             this.setIsAuth(false);
         } catch(e) {
-            console.log(e.response.data);
+            console.log(e);
         }
     }
 
     async checkAuth() {
         try {
-            await axios.get(`${process.env.REACT_APP_API_URL}api/token/refresh`)
-            .then(response => {
-                console.log(response);
-                localStorage.setItem('access-token', response.data.access_token);
+            await checkAuth()
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('access-token', res.data[0].access_token);
                 this.setIsAuth(true);
+                this.setUser(res.data[1]);
             });
         } catch(e) {
-            console.log(e.response.data);
+            console.log(e);
         }
     }
 }

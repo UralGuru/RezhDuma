@@ -24,8 +24,8 @@
 
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(33, 110, 151, 0.25);
-          box-shadow: 0 0 0 0.25rem rgba(33, 110, 151, 0.25);
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(0, 140, 216, 0.2);
+          box-shadow: 0 0 0 0.25rem rgba(0, 140, 216, 0.2);
 }
 
 .btn-check:checked + .btn,
@@ -36,8 +36,8 @@
 
 .btn-check:checked + .btn:focus,
 .btn-check:active + .btn:focus, .btn:active:focus, .btn.active:focus {
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(33, 110, 151, 0.25);
-          box-shadow: 0 0 0 0.25rem rgba(33, 110, 151, 0.25);
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(0, 140, 216, 0.2);
+          box-shadow: 0 0 0 0.25rem rgba(0, 140, 216, 0.2);
 }
 
 .btn:disabled, .btn.disabled,
@@ -53,6 +53,25 @@ fieldset:disabled .btn {
   background-color: #216E97;
 }
 
+.primary:hover {
+  -webkit-box-shadow: 0 0 0 0.125rem rgba(0, 140, 216, 0.2);
+          box-shadow: 0 0 0 0.125rem rgba(0, 140, 216, 0.2);
+}
+
+.primary:active:focus {
+  -webkit-box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
 .secondary-outline {
   border: 1px #8A8A8A solid;
+}
+
+.secondary-outline:hover {
+  -webkit-box-shadow: 0 0 0 0.125rem rgba(0, 140, 216, 0.2);
+          box-shadow: 0 0 0 0.125rem rgba(0, 140, 216, 0.2);
+}
+
+.secondary-outline:active:focus {
+  
 }

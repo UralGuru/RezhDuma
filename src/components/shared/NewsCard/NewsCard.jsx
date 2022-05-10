@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import styles from './NewsCard.module.css';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +18,7 @@ const NewsCard = ({
   
   return ( 
     <div className={styles.card}>
-      <div className={styles.card_date}>{date}</div>
+      <div className={styles.card_date}>{moment(date).format('DD.MM.YYYY')}</div>
       <div className={styles.card_content}>
         {imageSrc && 
         <div className={styles.card_img} onClick={() => navigate('/newsitem/' + id)}>
@@ -37,18 +38,16 @@ NewsCard.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
-  date: PropTypes.string,
-  className: PropTypes.string,
+  imageSrc: PropTypes.string,
+  date: PropTypes.string
 };
 
 NewsCard.defaultProps = {
   id: 0,
   title: '',
   description: '',
-  image: '',
-  date: '',
-  className: '',
+  imageSrc: '',
+  date: ''
 };
 
 export default NewsCard;

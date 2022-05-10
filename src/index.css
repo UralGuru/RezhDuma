@@ -16,6 +16,10 @@ a {
   cursor: pointer;
 }
 
+a:hover {
+  color: inherit;
+}
+
 button {
   padding: 0;
   border: none;

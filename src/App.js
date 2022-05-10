@@ -28,11 +28,11 @@ function App() {
 
     const {userStore} = useContext(Context);
     
-    // useEffect(() => {
-    //     if (localStorage.getItem('token')) {
-    //         userStore.checkAuth();
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (localStorage.getItem('refresh-token')) {
+            userStore.checkAuth();
+        }
+    }, [])
 
     return (
         <BrowserRouter>

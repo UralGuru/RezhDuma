@@ -8,7 +8,6 @@ const NewsItemLayout = () => {
   return ( 
     <Container>
       <div className={styles.layout}>
-        <h2>Новости</h2>
         <Outlet />
       </div>
     </Container>
