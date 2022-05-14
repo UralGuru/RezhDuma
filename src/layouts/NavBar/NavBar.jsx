@@ -37,11 +37,11 @@ const NavBar = () => {
       <Container>
         <div className={styles.btn_group}>
           <NavLink className={"in-row"} to={'/news'} imageUrl={NEWS_ICON}>новости</NavLink>
-          <NavLink className={"in-row"} to={'/history'} imageUrl={HISTORY_ICON}>история</NavLink>
-          <NavLink className={"in-row"} to={'/documents'} imageUrl={DOCUMENTS_ICON}>документы</NavLink>
-          <NavLink className={"in-row"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>
           <NavLink className={"in-row"} to={'/polls'} imageUrl={POLLS_ICON}>опросы</NavLink>
+          <NavLink className={"in-row"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>
+          <NavLink className={"in-row"} to={'/documents'} imageUrl={DOCUMENTS_ICON}>документы</NavLink>
           <NavLink className={"in-row"} to={'/projects'} imageUrl={PROJECTS_ICON}>проекты</NavLink>
+          <NavLink className={"in-row"} to={'/history'} imageUrl={HISTORY_ICON}>история</NavLink>
         </div>
         {!showSideBar && 
           <Link to="#" className={styles.toggle} onClick={sideBarToggle}>
@@ -54,11 +54,11 @@ const NavBar = () => {
       </Container>
       <div className={cx('sidebar', {'active': showSideBar})}>
         <NavLink className={"in-line"} to={'/news'} imageUrl={NEWS_ICON}>новости</NavLink>
-        <NavLink className={"in-line"} to={'/history'} imageUrl={HISTORY_ICON}>история</NavLink>
-        <NavLink className={"in-line"} to={'/documents'} imageUrl={DOCUMENTS_ICON}>документы</NavLink>
-        <NavLink className={"in-line"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>
         <NavLink className={"in-line"} to={'/polls'} imageUrl={POLLS_ICON}>опросы</NavLink>
+        <NavLink className={"in-line"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>
+        <NavLink className={"in-line"} to={'/documents'} imageUrl={DOCUMENTS_ICON}>документы</NavLink>
         <NavLink className={"in-line"} to={'/projects'} imageUrl={PROJECTS_ICON}>проекты</NavLink>
+        <NavLink className={"in-line"} to={'/history'} imageUrl={HISTORY_ICON}>история</NavLink>
       </div>
     </div>
   )
