@@ -8,13 +8,13 @@ import Select from '../../components/shared/Select/Select';
 
 import styles from './Request.module.css';
 import { useNavigate } from 'react-router-dom';
-import { FAQ_ROUTE } from '../../utils/constants';
+import { FAQ_ROUTE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
 
 const Request = () => {
   const navigate = useNavigate();
 
   const [district, setDistrict] = useState(null);
-  const [sphere, setSphere] = useState(null);
+  const [topic, setTopic] = useState(null);
   const [type, setType] = useState(null);
   const [requestText, setRequestText] = useState("");
   const [files, setFiles] = useState("");
@@ -22,11 +22,11 @@ const Request = () => {
   const onSubmit = () => {
     const request = new FormData();
     request.append("district", district);
-    request.append("sphere", sphere);
+    request.append("topic", topic);
     request.append("type", type);
     request.append("requestText", requestText);
     request.append("files", files);
-    console.log(request);
+    
   }
 
   return (
@@ -40,12 +40,7 @@ const Request = () => {
             <div className={styles.dropdown_label}>Выберите район</div>
             <Select
               placeholder="Выберите район обращения" 
-              options={[
-                  {label: "Трубы", value: "Трубы"},
-                  {label: "Образование", value: "Образование"},
-                  {label: "Дороги", value: "Дороги"},
-                  {label: "Другое", value: "Другое"},
-              ]}
+              options={REQUEST_DISTRICTS}
               setValue={setDistrict}
               value={district}
               />
@@ -55,14 +50,9 @@ const Request = () => {
             <div className={styles.dropdown_label}>Выберите сферу</div>
             <Select
               placeholder="Выберите сферу обращения" 
-              options={[
-                  {label: "Трубы", value: "Трубы"},
-                  {label: "Образование", value: "Образование"},
-                  {label: "Дороги", value: "Дороги"},
-                  {label: "Другое", value: "Другое"},
-              ]}
-              setValue={setSphere}
-              value={sphere}
+              options={REQUEST_TOPICS}
+              setValue={setTopic}
+              value={topic}
               />
           </div>
 
@@ -70,12 +60,7 @@ const Request = () => {
             <div className={styles.dropdown_label}>Выберите тип</div>
             <Select
               placeholder="Выберите тип обращения" 
-              options={[
-                  {label: "Трубы", value: "Трубы"},
-                  {label: "Образование", value: "Образование"},
-                  {label: "Дороги", value: "Дороги"},
-                  {label: "Другое", value: "Другое"},
-              ]}
+              options={REQUEST_TYPES}
               setValue={setType}
               value={type}
               />

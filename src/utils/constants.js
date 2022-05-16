@@ -27,5 +27,27 @@ export const TELEGRAM_ICON = 'images/social_icons/telegram.svg';
 export const PROFILE_ICON = "images/header_icons/profile-icon.svg";
 export const REJH_ICON = "images/header_icons/rejh-icon.svg";
 
+
+export const REQUEST_TOPICS = [
+  {value: 'Образование', label: 'Образование'}, 
+  {value: 'Дороги', label: 'Дороги'}, 
+  {value: 'Трубы', label: 'Трубы'}, 
+  {value: 'Другое', label: 'Другое'}, 
+]
+
+export const REQUEST_TYPES = [
+  {value: 'Жалоба', label: 'Жалоба'}, 
+  {value: 'Обращение', label: 'Обращение'}, 
+  {value: 'Заявка', label: 'Заявка'}, 
+  {value: 'Другое', label: 'Другое'}, 
+]
+
+export const REQUEST_DISTRICTS = [
+  {value: 'ЖБИ', label: 'ЖБИ'}, 
+  {value: 'Ленинский', label: 'Ленинский'}, 
+  {value: 'Виз', label: 'Виз'}, 
+  {value: 'Другой', label: 'Другой'}, 
+]
+
 // options
 export const NEWS_PER_ONE_PAGE = 5;
