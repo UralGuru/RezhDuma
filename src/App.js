@@ -38,6 +38,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<MainLayout />}>
+                    
+                    {/* common routes */}
                     <Route index element={<MainPage />}/>
                     <Route path="login" element={<Login />}/>
                     <Route path="registration" element={<Registration />}/>
