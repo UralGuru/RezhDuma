@@ -3,7 +3,6 @@ import Button from '../../components/shared/Button/Button';
 import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
-import LKgrad from './LKgrag.png';
 import { useNavigate } from 'react-router-dom';
 import { FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
@@ -18,7 +17,7 @@ const Profile = () => {
 
   return ( 
     <>
-      <div className={styles.header_outer}  style={{backgroundImage: `url(${LKgrad})`}}>
+      <div className={styles.header_outer}>
         <Container>
           <div className={styles.header_inner}>
             <div className={styles.info}>

@@ -1,6 +1,6 @@
 .header_outer {
-  background: linear-gradient(75deg, rgba(5, 38, 78, 0.76) 10%, rgba(55, 55, 55, 0) 600%);
-  /*background-image: ;*/
+  background: rgb(27,101,187);
+  background: linear-gradient(50deg, rgba(27,101,187,1) 35%, rgba(5,207,181,1) 100%);
   color: white;
 }
 
