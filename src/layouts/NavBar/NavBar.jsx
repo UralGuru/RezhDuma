@@ -52,7 +52,7 @@ const NavBar = () => {
             <AiOutlineClose />
           </Link> }
       </Container>
-      <div className={cx('sidebar', {'active': showSideBar})}>
+      <div className={cx('sidebar', {'active': showSideBar})} onClick={() => sideBarToggle()}>
         <NavLink className={"in-line"} to={'/news'} imageUrl={NEWS_ICON}>новости</NavLink>
         <NavLink className={"in-line"} to={'/polls'} imageUrl={POLLS_ICON}>опросы</NavLink>
         <NavLink className={"in-line"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>

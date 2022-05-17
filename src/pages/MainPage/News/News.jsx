@@ -34,6 +34,7 @@ const News = observer(() => {
           <div className={styles.news_intro}>
             {news.map((n) => {
               return <NewsCard 
+                key={n.id}
                 id={n.id}
                 title={n.title}
                 description={n.text}

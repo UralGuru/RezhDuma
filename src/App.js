@@ -22,6 +22,7 @@ import Request from './pages/Request/Request';
 import NewsItem from './pages/NewsItem/NewsItem';
 import FAQPage from './pages/FAQPage/FAQPage';
 import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
+import AuthRequired from './pages/AuthRequired/AuthRequired';
 
 
 function App() {
@@ -41,18 +42,23 @@ function App() {
                     <Route path="login" element={<Login />}/>
                     <Route path="registration" element={<Registration />}/>
                     <Route path="profile" element={<Profile />}/>
-                    <Route path="request" element={<Request />}/>
                     <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/>
                     </Route>
                     <Route path="faq" element={<FAQPage />}/>
                     
+                    {/* navbar routes */}
                     <Route path="news" element={<NewsPage />}/>
                     <Route path="documents" element={<DocumentsPage />}/>
                     <Route path="history" element={<HistoryPage />}/>
                     <Route path="votings" element={<VotingsPage />}/>
                     <Route path="polls" element={<PollsPage />}/>
                     <Route path="projects" element={<ProjectsPage />}/>
+                    
+                    {/* authorizated routes */}
+                    <Route element={<AuthRequired />}>
+                        <Route path="request" element={<Request />}/>
+                    </Route>
 
                     <Route path="*" element={<MainPage />} />
                 </Route>

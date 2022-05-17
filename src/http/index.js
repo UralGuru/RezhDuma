@@ -10,27 +10,26 @@ const $authHost = axios.create({
 })
 
 $authHost.interceptors.request.use((config) => {
-  config.headers.Authorization = `Rezh ${localStorage.getItem('refresh-token')}`
+  config.headers.Authorization = `Rezh ${localStorage.getItem('access-token')}`
   return config;
 })
 
-$authHost.interceptors.response.use((config) => {
-  return config;
-  }, (async (error) => {
-    const originalRequest = error.config;
-    console.log(error);
-    if (error.response.status == 401 && error.config && !error.config._isRetry) {
-      originalRequest._isRetry = true;
-      try {
-        const response = await checkAuth();
-        localStorage.setItem('access-token', response.data[0].access_token)
-        return $authHost.request(originalRequest)
-      } catch (e) {
-        console.log('Пользователь не авторизован');
-      }
-    }
-    throw error;
-  }))
+// $authHost.interceptors.response.use((config) => {
+//   return config;
+//   }, (async (error) => {
+//     const originalRequest = error.config;
+//     if (error.response.status == 403 && error.config && !error.config._isRetry) {
+//       originalRequest._isRetry = true;
+//       try {
+//         const response = await checkAuth();
+//         localStorage.setItem('access-token', response.data[0].access_token)
+//         return $authHost.request(originalRequest)
+//       } catch (e) {
+//         console.log('Пользователь не авторизован');
+//       }
+//     }
+//     throw error;
+//   }))
 
 
 export {

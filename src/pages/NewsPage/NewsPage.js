@@ -55,6 +55,7 @@ const NewsPage = (props) => {
                     <div className={styles.news}>
                         {news.map((n) => {
                             return <NewsCard 
+                                key={n.id}
                                 id={n.id}
                                 title={n.title}
                                 description={n.text}

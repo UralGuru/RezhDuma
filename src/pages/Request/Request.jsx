@@ -31,7 +31,8 @@ const Request = () => {
     request.append("requestText", requestText);
     request.append("files", files);
     createRequest(request, userStore.User.id).then((data) => {
-    console.log(data);
+      console.log(data);
+      console.log(request.getAll());
     });
   }
 
@@ -39,7 +40,7 @@ const Request = () => {
     <Container>
       <div className={styles.outer}>
         <h2>Обращение депутату</h2>
-        <form className={styles.form}>
+        <div className={styles.form}>
           <div>Перед тем, как задать вопрос, советуем Вам ознакомиться со списком <a onClick={() => navigate(FAQ_ROUTE)}><strong>часто задаваемых вопросов</strong></a></div>
           
           <div className={styles.dropdown}>
@@ -120,7 +121,7 @@ const Request = () => {
             className='primary' 
             onClick={() => onSubmit()}
           >Отправить обращение</Button>
-        </form>
+        </div>
       </div>
     </Container>
   );
