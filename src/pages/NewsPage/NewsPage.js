@@ -1,19 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../..";
-import { observer } from 'mobx-react-lite';
 import NewsCard from "../../components/shared/NewsCard/NewsCard";
 import Container from "../../components/shared/Container/Container";
 
 import styles from './NewsPage.module.css';
-import { Outlet } from "react-router-dom";
 import Input from "../../components/shared/Input/Input";
 import { fetchNews, fetchNewsWithPagination } from "../../http/newsApi";
-import usePagination from "../../hooks/usePagination";
 import { NEWS_PER_ONE_PAGE } from "../../utils/constants";
 import Pagination from "../../components/shared/Pagination/Pagination";
 
 const NewsPage = (props) => {
-
     const [news, setNews] = useState([]);
     const [newsCount, setNewsCount] = useState(0);
     const [page, setPage] = useState(1);

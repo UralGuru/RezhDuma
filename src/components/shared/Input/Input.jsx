@@ -7,7 +7,7 @@ import styles from './Input.module.css'
 let cx = classNames.bind(styles);
 
 const Input = ({
-  children, placeholder, className, type, onChange, value, onBlur, error, onClick
+  id, children, placeholder, className, type, onChange, value, onBlur, error, onClick
 }) => {
 
   const classes = cx(

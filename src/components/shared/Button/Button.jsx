@@ -7,7 +7,7 @@ import styles from './Button.module.css'
 let cx = classNames.bind(styles);
 
 const Button = ({
-  children, onClick, className, disabled, active,
+  children, onClick, className, disabled, active, type
 }) => {
 
   const classes = cx(
@@ -18,6 +18,7 @@ const Button = ({
 
   return ( 
     <button
+      type={type}
       className={classes}
       disabled={disabled}
       onClick={onClick}
@@ -30,7 +31,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  type: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -38,7 +40,8 @@ Button.defaultProps = {
   onClick: () => {},
   className: '',
   disabled: false,
-  active: false
+  active: false,
+  type: 'button'
 };
 
 export default Button;

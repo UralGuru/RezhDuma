@@ -12,6 +12,7 @@ import { FAQ_ROUTE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../
 import { createRequest } from '../../http/requestApi';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
+import * as Yup from 'yup';
 
 const Request = () => {
   const { userStore } = useContext(Context);
@@ -21,7 +22,7 @@ const Request = () => {
   const [topic, setTopic] = useState(null);
   const [type, setType] = useState(null);
   const [requestText, setRequestText] = useState("");
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState(null);
 
   const onSubmit = () => {
     const request = new FormData();
@@ -30,10 +31,10 @@ const Request = () => {
     request.append("type", type);
     request.append("requestText", requestText);
     request.append("files", files);
-    createRequest(request, userStore.User.id).then((data) => {
-      console.log(data);
-      console.log(request.getAll());
-    });
+    // createRequest(request, userStore.User.id).then((data) => {
+    //   console.log(data);
+      console.log(request.getAll('files'));
+    // });
   }
 
   return (
@@ -72,29 +73,6 @@ const Request = () => {
               value={type}
               />
           </div>
-
-          {/* <Dropdown 
-            title={"Микрорайон"}
-            placeholder={"Выберите, к кому хотите обратиться"}
-            items={["первый район", "второй район", "третий район", "четвертый район", "пятый район"]}
-            value={district}
-            setValue={setDistrict}
-            />
-          <Dropdown 
-            title={"Сфера обращения"}
-            placeholder={"Выберите сферу обращения"}
-            items={["Образование", "Дороги", "Трубы", "Коммунальные услуги", "Другое"]}
-            value={sphere}
-            setValue={setSphere}
-            />
-          <Dropdown 
-            title={"Вид обращения"}
-            placeholder={"Выберите вид обращения"}
-            items={["Предложение", "Заявление", "Жалоба"]}
-            value={type}
-            setValue={setType}
-            /> */}
-
           <div className={styles.input_box}>
             <div className={styles.label}>Содержание обращения</div>
             <textarea 
@@ -109,10 +87,9 @@ const Request = () => {
             <div className={styles.label}>Приложения к обращению</div>
             <label className={styles.files_field}>
               <input
-                value={files}
                 type="file"
                 multiple
-                onChange={(e) => setFiles(e.target.value)}
+                onChange={(e) => setFiles(e.target.files)}
               />
               <div>Прикрепить файлы</div><HiOutlinePaperClip />
             </label>
@@ -128,3 +105,18 @@ const Request = () => {
 }
 
 export default observer(Request);
+
+const RequestSchema = Yup.object().shape({
+  district: Yup.string(),
+  topic: Yup.string(),
+  type: Yup.string(),
+  text: Yup.string()
+  .required("Required"),
+  files: Yup.mixed()
+  .nullable()
+  .notRequired()
+  // .test("FILE_SIZE", "Uploaded file is too big.", 
+  //     value => !value || (value && value.size <= FILE_SIZE))
+  // .test("FILE_FORMAT", "Uploaded file has unsupported format.", 
+  //     value => !value || (value && SUPPORTED_FORMATS.includes(value.type)))
+});

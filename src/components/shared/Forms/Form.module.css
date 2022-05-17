@@ -7,6 +7,9 @@
 }
 
 .auth_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   max-width: 70%;
   margin: auto;
   border-radius: 2rem;
@@ -20,12 +23,16 @@
   color: #1A6B98;
 }
 
+.error {
+  font-weight: 600;
+  color: red;
+}
+
 .btn_row {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 1rem;
 }
 
 @media (max-width: 450px) {

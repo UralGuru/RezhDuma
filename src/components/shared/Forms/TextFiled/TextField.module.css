@@ -1,0 +1,31 @@
+.text_field {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.text_field input {
+  color: #5F5F5F;
+  border: 1px solid #5F5F5F;
+  padding: 0.5em 1em;
+  border-radius: .5rem;
+}
+
+.text_field input::placeholder {
+  font-weight: 300;
+}
+
+.text_field label {
+  font-size: 1.175em;
+  font-weight: 500;
+}
+
+.error {
+  font-weight: 400;
+  color: red;
+  opacity: 90%;
+}
+
+.is-invalid {
+  opacity: 75%;
+}

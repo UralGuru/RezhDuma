@@ -5,8 +5,6 @@ import { Context } from '../..';
 import Container from '../../components/shared/Container/Container';
 import LoginForm from '../../components/shared/Forms/LoginForm';
 import { PROFILE_ROUTE } from '../../utils/constants';
-
-
 import styles from './Auth.module.css';
 
 const Login = () => {
