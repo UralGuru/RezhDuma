@@ -1,12 +1,13 @@
 import { $authHost, $host } from ".";
 
 
-export const createNews = async () => {
-  return;
+export const createRequest = async (data, userId) => {
+  const dat = $authHost.post(`api/appeals/user/${userId}`, data);
+  return dat;
 }
 
-export const fetchNews = async () => {
-  const {data} = await $host.get('api/news');
+export const fetchPopularRequests = async () => {
+  const {data} = await $host.get('api/appeals/popular');
   return data;
 }
 

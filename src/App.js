@@ -25,7 +25,6 @@ import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
 
 
 function App() {
-
     const {userStore} = useContext(Context);
     
     useEffect(() => {

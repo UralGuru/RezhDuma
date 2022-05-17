@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from '../../components/shared/Container/Container';
 import Dropdown from '../../components/shared/Dropdown/Dropdown';
 import Input from '../../components/shared/Input/Input';
@@ -9,8 +9,12 @@ import Select from '../../components/shared/Select/Select';
 import styles from './Request.module.css';
 import { useNavigate } from 'react-router-dom';
 import { FAQ_ROUTE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
+import { createRequest } from '../../http/requestApi';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
 
 const Request = () => {
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
 
   const [district, setDistrict] = useState(null);
@@ -26,7 +30,9 @@ const Request = () => {
     request.append("type", type);
     request.append("requestText", requestText);
     request.append("files", files);
-    
+    createRequest(request, userStore.User.id).then((data) => {
+    console.log(data);
+    });
   }
 
   return (
@@ -120,4 +126,4 @@ const Request = () => {
   );
 }
 
-export default Request;
+export default observer(Request);
