@@ -3,7 +3,7 @@ import { $authHost, $host } from ".";
 
 export const createNews = async () => {
   
-  return data;
+  return ;
 }
 
 export const fetchNews = async () => {
