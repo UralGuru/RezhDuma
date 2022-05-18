@@ -27,6 +27,7 @@ import HistoryItemLayout from "./pages/HistoryItem/HistoryItemLayout/HistoryItem
 import HistoryItem from "./pages/HistoryItem/HistoryItem";
 import AdminRequired from './pages/AdminRequired/AdminRequired';
 import Requests from './pages/AdminPages/Requests/Requests';
+import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     
-                    {/* common routes */}
+                    {/* public routes */}
                     <Route index element={<MainPage />}/>
                     <Route path="login" element={<Login />}/>
                     <Route path="registration" element={<Registration />}/>
@@ -71,6 +72,7 @@ function App() {
 
                     {/* admin routes */}
                     <Route element={<AdminRequired />}>
+                        <Route path="profile_admin" element={<AdminProfile/>}/>
                         <Route path="requests" element={<Requests/>}/>
                     </Route>
 
