@@ -9,7 +9,7 @@ import { Context } from '../../..';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { TextField } from './TextFiled/TextField';
+import { TextField } from './TextField/TextField';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();

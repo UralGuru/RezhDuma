@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../../..';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { TextField } from './TextFiled/TextField';
+import { TextField } from './TextField/TextField';
 
 const LoginForm = () => {
   const navigate = useNavigate();

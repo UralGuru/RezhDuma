@@ -1,0 +1,51 @@
+.form_control {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.form_control input {
+color: #5F5F5F;
+border: 1px solid #5F5F5F;
+padding: 0.5em 1em;
+border-radius: .5rem;
+}
+
+.form_control input::placeholder {
+font-weight: 300;
+}
+
+.form_control label {
+font-size: 1.25rem;
+font-weight: 600;
+}
+
+.form_control textarea {
+  min-height: 150px;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid #8B8B8B;
+  border-radius: .5rem;
+  padding: .5rem 1.25rem;
+  font-weight: 500;
+  vertical-align: text-top;
+}
+
+.form_control textarea {
+  min-height: 150px;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid #8B8B8B;
+  border-radius: .5rem;
+  padding: .5rem 1.25rem;
+  font-weight: 500;
+  vertical-align: text-top;
+}
+
+.form_control textarea:focus {
+  outline: 1px solid #1E6D98;
+}

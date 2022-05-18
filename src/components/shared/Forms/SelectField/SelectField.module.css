@@ -1,0 +1,16 @@
+.select_field {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.select_label {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.error {
+  font-weight: 400;
+  color: red;
+  opacity: 90%;
+}
