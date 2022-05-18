@@ -30,7 +30,6 @@ const Select = ({ placeholder, options, setValue, value, isSearchable = true }) 
     option: (provided, state) => ({
       ...provided,
       color: '#585858',
-      backgroundColor: (state.isSelected) ? '#E3E3E3' : 'white',
       backgroundColor: (state.isFocused) ? '#E3E3E3' : 'white',
       padding: '.5rem 1rem'
     }),

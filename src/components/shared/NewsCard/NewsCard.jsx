@@ -16,6 +16,7 @@ const NewsCard = ({
   id, title, description, imageSrc, date
 }) => {
   const navigate = useNavigate();
+
   
   return ( 
     <div className={styles.card}>

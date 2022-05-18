@@ -23,6 +23,8 @@ import NewsItem from './pages/NewsItem/NewsItem';
 import FAQPage from './pages/FAQPage/FAQPage';
 import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
 import AuthRequired from './pages/AuthRequired/AuthRequired';
+import HistoryItemLayout from "./pages/HistoryItem/HistoryItemLayout/HistoryItemLayout";
+import HistoryItem from "./pages/HistoryItem/HistoryItem";
 
 
 function App() {
@@ -46,6 +48,9 @@ function App() {
                     <Route path="profile" element={<Profile />}/>
                     <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/>
+                    </Route>
+                    <Route path="historyitem" element={<HistoryItemLayout />}>
+                        <Route path=":id" element={<HistoryItem />}/>
                     </Route>
                     <Route path="faq" element={<FAQPage />}/>
                     

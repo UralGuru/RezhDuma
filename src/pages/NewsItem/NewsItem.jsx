@@ -11,6 +11,7 @@ import styles from './NewsItem.module.css';
 // получает новость из бэка по id переданному в роуте.
 
 const NewsItem = () => {
+
   const params = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
