@@ -25,6 +25,8 @@ import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
 import AuthRequired from './pages/AuthRequired/AuthRequired';
 import HistoryItemLayout from "./pages/HistoryItem/HistoryItemLayout/HistoryItemLayout";
 import HistoryItem from "./pages/HistoryItem/HistoryItem";
+import ProjectsItemLayout from "./pages/ProjectsItem/ProjectsItemLayout/ProjectsItemLayout";
+import ProjectsItem from "./pages/ProjectsItem/ProjectsItem";
 
 
 function App() {
@@ -48,6 +50,9 @@ function App() {
                     <Route path="profile" element={<Profile />}/>
                     <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/>
+                    </Route>
+                    <Route path="ptojectsitem" element={<ProjectsItemLayout />}>
+                        <Route path=":id" element={<ProjectsItem />}/>
                     </Route>
                     <Route path="historyitem" element={<HistoryItemLayout />}>
                         <Route path=":id" element={<HistoryItem />}/>
