@@ -1,0 +1,25 @@
+.outer {
+  background-color: white;
+  border-radius: 2rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.date {
+  color: #7D7C84;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #226F98;
+}
+
+.description {
+  font-weight: 600;
+  color: #606060;
+  white-space: pre-line;
+}

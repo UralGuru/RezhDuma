@@ -39,10 +39,10 @@ const NewsPage = (props) => {
                 <div className={styles.header}>
                     <h2>Новости</h2>
                     <Input 
-                    className="page_search-input"
-                    placeholder="Поиск"
-                    value={searchQuery}
-                    onChange={onSearchChange}
+                        className="page_search-input"
+                        placeholder="Поиск"
+                        value={searchQuery}
+                        onChange={onSearchChange}
                     />
                 </div>
                 
