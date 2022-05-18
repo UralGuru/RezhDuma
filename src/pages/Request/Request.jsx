@@ -1,10 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Container from '../../components/shared/Container/Container';
-import Dropdown from '../../components/shared/Dropdown/Dropdown';
-import Input from '../../components/shared/Input/Input';
 import Button from '../../components/shared/Button/Button';
-import {HiOutlinePaperClip} from 'react-icons/hi'
-import Select from 'react-select';
 
 import styles from './Request.module.css';
 import { useNavigate } from 'react-router-dom';
@@ -16,30 +12,13 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import SelectField from '../../components/shared/Forms/SelectField/SelectField';
 import TextAreaField from '../../components/shared/Forms/TextAreaField/TextAreaField';
+import FilesField from '../../components/shared/Forms/FilesField/FilesField';
 
 const Request = () => {
   const { userStore } = useContext(Context);
   const navigate = useNavigate();
   const [status, setStatus] = useState('')
 
-  // const [district, setDistrict] = useState(null);
-  // const [topic, setTopic] = useState(null);
-  // const [type, setType] = useState(null);
-  // const [requestText, setRequestText] = useState("");
-  // const [files, setFiles] = useState(null);
-
-  // const onSubmit = () => {
-  //   const request = new FormData();
-  //   request.append("district", district);
-  //   request.append("topic", topic);
-  //   request.append("type", type);
-  //   request.append("requestText", requestText);
-  //   request.append("files", files);
-  //   // createRequest(request, userStore.User.id).then((data) => {
-  //   //   console.log(data);
-  //     console.log(request.getAll('files'));
-  //   // });
-  // }
   if (status == 'sending') {
     return <div className={styles.outer}>Обращение отправляется...</div>
   }
@@ -73,8 +52,10 @@ const Request = () => {
           request.append("district", values.district);
           request.append("topic", values.topic);
           request.append("type", values.type);
-          request.append("requestText", values.text);
-          request.append("files", values.files);
+          request.append("text", values.text);
+          for (let i = 0; i < values.files.length; i++) {
+            request.append("files", values.files[i]);
+          }
           createRequest(request, userStore.User.id).then((data) => {
             setStatus('sended');
           }).catch((data) => {
@@ -120,10 +101,11 @@ const Request = () => {
               label='Введите текст обращения'
               placeholder='Введите текст обращения'
             />
-            <input
+            <FilesField
               id="files"
-              name="profile"
+              name="files"
               type="file"
+              label="Прикрепить файл"
               onChange={(event) => {
                 const files = event.target.files;
                 let myFiles = Array.from(files);
@@ -131,27 +113,7 @@ const Request = () => {
               }}
               multiple
             />
-            {/* <div className={styles.input_box}>
-              <div className={styles.label}>Содержание обращения</div>
-              <textarea 
-                className={styles.text_field}
-                value={formik.values.text}
-                placeholder="Введите содержание Вашего сообщения"
-                onChange={formik.handleChange}
-                type="text"
-                />
-            </div>
-            <div className={styles.input_box}>
-              <div className={styles.label}>Приложения к обращению</div>
-              <label className={styles.files_field}>
-                <input
-                  type="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                />
-                <div>Прикрепить файлы</div><HiOutlinePaperClip />
-              </label>
-            </div> */}
+            <div></div>
             <Button 
               className='primary' 
               type='submit'

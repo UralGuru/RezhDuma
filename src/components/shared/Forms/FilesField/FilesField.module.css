@@ -1,0 +1,32 @@
+.files_field {
+  display: none;
+  
+}
+
+.field_label {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1px #1E6D98 solid;
+  text-align: center;
+  margin-right: auto;
+  border-radius: .5rem;
+  padding: .75rem 1.25rem;
+  color:#1E6D98;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.files_form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  word-wrap: break-word;
+  font-weight: 300;
+}
