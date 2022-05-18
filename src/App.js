@@ -26,6 +26,7 @@ import AuthRequired from './pages/AuthRequired/AuthRequired';
 import HistoryItemLayout from "./pages/HistoryItem/HistoryItemLayout/HistoryItemLayout";
 import HistoryItem from "./pages/HistoryItem/HistoryItem";
 import AdminRequired from './pages/AdminRequired/AdminRequired';
+import Requests from './pages/AdminPages/Requests/Requests';
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
 
                     {/* admin routes */}
                     <Route element={<AdminRequired />}>
-                        <Route path="requests" element={}
+                        <Route path="requests" element={<Requests/>}/>
                     </Route>
 
                     <Route path="*" element={<MainPage />} />
