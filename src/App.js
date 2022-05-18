@@ -25,8 +25,13 @@ import NewsItemLayout from './pages/NewsItem/NewsItemLayout/NewsItemLayout';
 import AuthRequired from './pages/AuthRequired/AuthRequired';
 import HistoryItemLayout from "./pages/HistoryItem/HistoryItemLayout/HistoryItemLayout";
 import HistoryItem from "./pages/HistoryItem/HistoryItem";
+
 import ProjectsItemLayout from "./pages/ProjectsItem/ProjectsItemLayout/ProjectsItemLayout";
 import ProjectsItem from "./pages/ProjectsItem/ProjectsItem";
+
+import AdminRequired from './pages/AdminRequired/AdminRequired';
+import Requests from './pages/AdminPages/Requests/Requests';
+
 
 
 function App() {
@@ -70,6 +75,11 @@ function App() {
                     {/* authorizated routes */}
                     <Route element={<AuthRequired />}>
                         <Route path="request" element={<Request />}/>
+                    </Route>
+
+                    {/* admin routes */}
+                    <Route element={<AdminRequired />}>
+                        <Route path="requests" element={<Requests/>}/>
                     </Route>
 
                     <Route path="*" element={<MainPage />} />

@@ -9,5 +9,5 @@ export const registration = async (email, password, phone, firstName, lastName, 
 }
 
 export const checkAuth = async () => {
-  return $authHost.get('api/token/refresh');
+  return $host.get(`api/token/refresh`, { headers: {'Authorization': `Rezh ${localStorage.getItem('refresh-token')}` }});
 }
