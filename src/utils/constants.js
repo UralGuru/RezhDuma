@@ -61,5 +61,6 @@ export const REQUEST_STATUS = [
 // options
 export const NEWS_PER_ONE_PAGE = 5;
 export const HISTORY_PER_ONE_PAGE = 5;
+export const PROJECTS_PER_ONE_PAGE = 5;
 export const REQUESTS_PER_ONE_PAGE = 5;
 
