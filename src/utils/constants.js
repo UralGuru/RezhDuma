@@ -51,6 +51,6 @@ export const REQUEST_DISTRICTS = [
 
 // options
 export const NEWS_PER_ONE_PAGE = 5;
-export const HISTORIES_PER_ONE_PAGE = 5;
+export const HISTORY_PER_ONE_PAGE = 5;
 export const REQUESTS_PER_ONE_PAGE = 5;
 

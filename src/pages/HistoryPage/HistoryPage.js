@@ -3,8 +3,11 @@ import styles from "../HistoryPage/HistoryPage.module.css";
 import Input from "../../components/shared/Input/Input";
 import Container from "../../components/shared/Container/Container";
 import {fetchHistory, fetchHistoryWithPagination} from "../../http/historyApi";
-import {HISTORIES_PER_ONE_PAGE} from "../../utils/constants";
+import {HISTORY_PER_ONE_PAGE} from "../../utils/constants";
 import HistoryCard from "../../components/shared/HistoryCard/HistoryCard";
+import Pagination from "../../components/shared/Pagination/Pagination";
+import {Breadcrumb} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const HistoryPage = (props) => {
     const [history, setHistory] = useState([]);
@@ -18,7 +21,7 @@ const HistoryPage = (props) => {
     }
 
     const getHistories = () => {
-        fetchHistoryWithPagination(HISTORIES_PER_ONE_PAGE, page).then(data => {
+        fetchHistoryWithPagination(HISTORY_PER_ONE_PAGE, page).then(data => {
             setHistory(data);
         });
     }
@@ -32,11 +35,23 @@ const HistoryPage = (props) => {
     }, [])
 
 
+    const navigate = useNavigate();
+
     return(
         <Container>
             <div className={styles.outer}>
+
+                <ul className={styles.breadcrumb}>
+                    <li>
+                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная /</div>
+                    </li>
+                    <li>
+                        <div>История думы</div>
+                    </li>
+                </ul>
+
                 <div className={styles.header}>
-                    <h2>История</h2>
+                    <h2>История думы</h2>
                     <Input
                         className="page_search-input"
                         placeholder="Поиск"
@@ -59,6 +74,13 @@ const HistoryPage = (props) => {
                         }
                     </div>
                 </div>
+
+                <Pagination
+                    page={page}
+                    setPage={setPage}
+                    totalCount={historyCount}
+                    itemsPerPage={HISTORY_PER_ONE_PAGE}
+                />
             </div>
         </Container>
     );
