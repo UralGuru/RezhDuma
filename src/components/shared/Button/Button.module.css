@@ -63,6 +63,12 @@ fieldset:disabled .btn {
           box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+.primary-outline {
+  color: #1A6B98;
+  background-color: #fff;
+  border: 1px solid #1A6B98;
+}
+
 .secondary-outline {
   border: 1px #8A8A8A solid;
 }

@@ -24,7 +24,10 @@
 }
 
 .requests {
-  width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   background-color: white;
   border-radius: 2rem;
 }

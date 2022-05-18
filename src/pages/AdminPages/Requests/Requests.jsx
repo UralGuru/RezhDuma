@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../../../components/shared/Container/Container';
 import Input from '../../../components/shared/Input/Input';
+import RequestCard from '../../../components/shared/RequestCard/RequestCard';
 import Select from '../../../components/shared/Select/Select';
 import { fetchAllRequests } from '../../../http/requestApi';
 import { REQUEST_DISTRICTS, REQUEST_STATUS, REQUEST_TOPICS, REQUEST_TYPES } from '../../../utils/constants';
@@ -18,10 +19,9 @@ const Requests = () => {
 
   useEffect(() => {
     fetchAllRequests(typeQuery, topicQuery, districtQuery).then(data => {
-      console.log(data);
       setRequests(data);
     })
-  }, [])
+  }, [statusQuery, searchQuery, districtQuery, topicQuery, typeQuery])
 
 
   return ( 
@@ -63,7 +63,12 @@ const Requests = () => {
           />
           <div className={styles.requests}>
             {requests.map((req) => {
-              return <div>{req.id} {req.text}</div>
+              return <RequestCard 
+                key={req.id}
+                id={req.id}
+                text={req.text}
+                date={req.appealDate}
+              />
             })}
           </div>
         </div>
