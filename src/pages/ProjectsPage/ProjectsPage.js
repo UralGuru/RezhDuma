@@ -3,7 +3,7 @@ import styles from "./ProjectsPage.module.css"
 import Input from "../../components/shared/Input/Input";
 import Container from "../../components/shared/Container/Container";
 import {fetchProjects, fetchProjectsWithPagination} from "../../http/projectsApi";
-import {HISTORY_PER_ONE_PAGE, PROJECTS_PER_ONE_PAGE} from "../../utils/constants";
+import {PROJECTS_PER_ONE_PAGE} from "../../utils/constants";
 
 import ProjectsCard from "../../components/shared/ProjectsCard/ProjectsCard";
 import Pagination from "../../components/shared/Pagination/Pagination";
@@ -45,10 +45,10 @@ const ProjectsPage = (props) => {
 
                 <ul className={styles.breadcrumb}>
                     <li>
-                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная /</div>
+                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная</div>
                     </li>
                     <li>
-                        <div>Проекты</div>
+                        <div>/ Проекты</div>
                     </li>
                 </ul>
 

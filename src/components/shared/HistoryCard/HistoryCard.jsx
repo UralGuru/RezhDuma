@@ -20,14 +20,14 @@ const HistoryCard = ({ id, title, description, imageSrc, date }) => {
             <div className={styles.card_date}>{moment(date).format('DD.MM.YYYY')}</div>
             <div className={styles.card_content}>
                 {imageSrc &&
-                    <div className={styles.card_img} onClick={() => navigate('/history/' + id)}>
+                    <div className={styles.card_img} onClick={() => navigate('/historyitem/' + id)}>
                         <img src={imageSrc} alt='Не удалось отобразить изображение'/>
                     </div>}
                 <div className={styles.card_text}>
-                    <div className={styles.card_title} onClick={() => navigate('/history/' + id)}>{title}</div>
+                    <div className={styles.card_title} onClick={() => navigate('/historyitem/' + id)}>{title}</div>
                     <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
                     <div className={styles.card_link}>
-                        <Button className='secondary-outline' onClick={ () => navigate('/historyItem/' + id) }>
+                        <Button className='secondary-outline' onClick={ () => navigate('/historyitem/' + id) }>
                           Читать далее
                         </Button>
                     </div>

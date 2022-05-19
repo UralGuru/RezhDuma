@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
-import styles from "../HistoryPage/HistoryPage.module.css";
+import styles from "./HistoryPage.module.css";
 import Input from "../../components/shared/Input/Input";
 import Container from "../../components/shared/Container/Container";
 import {fetchHistory, fetchHistoryWithPagination} from "../../http/historyApi";
 import {HISTORY_PER_ONE_PAGE} from "../../utils/constants";
 import HistoryCard from "../../components/shared/HistoryCard/HistoryCard";
 import Pagination from "../../components/shared/Pagination/Pagination";
-import {Breadcrumb} from "react-bootstrap";
+
 import {useNavigate} from "react-router-dom";
 
 const HistoryPage = (props) => {
@@ -43,10 +43,10 @@ const HistoryPage = (props) => {
 
                 <ul className={styles.breadcrumb}>
                     <li>
-                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная /</div>
+                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная</div>
                     </li>
                     <li>
-                        <div>История думы</div>
+                        <div>/ История думы</div>
                     </li>
                 </ul>
 

@@ -23,3 +23,25 @@
   color: #606060;
   white-space: pre-line;
 }
+
+ul.breadcrumb {
+  margin: 0;
+  padding: 0;
+}
+ul.breadcrumb li {
+  display: inline-block;
+  line-height: 20px;
+  margin-bottom: 0px;
+  padding-right: 5px;
+  position: relative;
+  font-family: Montserrat, sans-serif;
+}
+
+ul.breadcrumb li div.notActive {
+  color: #4B485E;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+ul.breadcrumb li div.notActive:hover {
+  color: #2c97cc;
+}
