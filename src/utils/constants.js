@@ -5,6 +5,8 @@ export const REGISTRATION_ROUTE = "/registration";
 export const PROFILE_ROUTE = "/profile";
 export const REQUEST_ROUTE = "/request";
 export const FAQ_ROUTE = "/faq";
+export const REQUESTS_ROUTE = "/requests";
+export const ADMIN_PROFILE_ROUTE = "/profile_admin";
 
 
 export const NEWS_ROUTE = "/news";
@@ -47,6 +49,13 @@ export const REQUEST_DISTRICTS = [
   {value: 'Ленинский', label: 'Ленинский'}, 
   {value: 'Виз', label: 'Виз'}, 
   {value: 'Другой', label: 'Другой'}, 
+]
+
+export const REQUEST_STATUS = [
+  {value: 'Ожидающие ответа', label: "Ожидающие ответа"},
+  {value: 'Отвеченные', label: "Отвеченные"},
+  {value: 'В обработке', label: "В обработке"},
+  {value: 'Все', label: "Все"},
 ]
 
 // options

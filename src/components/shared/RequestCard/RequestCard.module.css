@@ -1,0 +1,27 @@
+.request {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 1px #CECFD0 solid;
+}
+
+.request_header {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.request_date {
+  font-weight: 600;
+  font-size: .875rem;
+  color: #7D7C84;
+}
+
+.request_text {
+  font-weight: 600;
+  word-wrap: break-word;
+  word-break: break-all;
+}

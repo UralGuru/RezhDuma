@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '../../components/shared/Button/Button';
 import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
-import { useNavigate } from 'react-router-dom';
-import { FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { ADMIN_PROFILE_ROUTE, FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -14,7 +14,17 @@ import ProfileEntryCard from './ProfileEntryCard/ProfileEntryCard';
 const Profile = () => {
   const navigate = useNavigate();
   const {userStore} = useContext(Context);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    setIsLoading(true);
+    if (userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) {
+      navigate(`..${ADMIN_PROFILE_ROUTE}`, { replace: true });
+    }
+    setIsLoading(false);
+  }, [])
+
+  if (!isLoading) {
   return ( 
     <>
       <div className={styles.header_outer}>
@@ -67,7 +77,11 @@ const Profile = () => {
         </Container>
       </div>
     </>
-   );
+   )}
+
+  return (
+    <div>Идет переадресация в профиль...</div>
+  )
 }
 
 export default observer(Profile);
