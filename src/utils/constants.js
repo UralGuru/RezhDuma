@@ -29,38 +29,41 @@ export const TELEGRAM_ICON = 'images/social_icons/telegram.svg';
 export const PROFILE_ICON = "images/header_icons/profile-icon.svg";
 export const REJH_ICON = "images/header_icons/rejh-icon.svg";
 
+//select-options
 
 export const REQUEST_TOPICS = [
+  {value: '', label: 'Все'}, 
   {value: 'Образование', label: 'Образование'}, 
   {value: 'Дороги', label: 'Дороги'}, 
   {value: 'Трубы', label: 'Трубы'}, 
-  {value: 'Другое', label: 'Другое'}, 
+
 ]
 
 export const REQUEST_TYPES = [
+  {value: '', label: 'Все'}, 
   {value: 'Жалоба', label: 'Жалоба'}, 
   {value: 'Обращение', label: 'Обращение'}, 
   {value: 'Заявка', label: 'Заявка'}, 
-  {value: 'Другое', label: 'Другое'}, 
+
 ]
 
 export const REQUEST_DISTRICTS = [
+  {value: '', label: 'Все'}, 
   {value: 'ЖБИ', label: 'ЖБИ'}, 
   {value: 'Ленинский', label: 'Ленинский'}, 
   {value: 'Виз', label: 'Виз'}, 
-  {value: 'Другой', label: 'Другой'}, 
+
 ]
 
 export const REQUEST_STATUS = [
-  {value: 'Ожидающие ответа', label: "Ожидающие ответа"},
-  {value: 'Отвеченные', label: "Отвеченные"},
-  {value: 'В обработке', label: "В обработке"},
-  {value: 'Все', label: "Все"},
+  {value: '', label: "Все"},
+  {value: "Ожидающие ответа", label: "Ожидающие ответа"},
+  {value: "Рассмотренные", label: "Рассмотренные"},
+
 ]
 
-// options
+// count-options
 export const NEWS_PER_ONE_PAGE = 5;
 export const HISTORY_PER_ONE_PAGE = 5;
 export const PROJECTS_PER_ONE_PAGE = 5;
 export const REQUESTS_PER_ONE_PAGE = 5;
-

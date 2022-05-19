@@ -13,8 +13,7 @@ function AdminRequired() {
     return ( 
       <Outlet/>
     );
-  }
-
+  } 
   return (
     <div className={styles.outer}>
       <Container>

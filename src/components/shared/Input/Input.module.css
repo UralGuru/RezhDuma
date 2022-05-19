@@ -1,7 +1,6 @@
 .inp_field {
   display:flex;
   flex-direction: column;
-  margin: 1rem 0;
 }
 
 .inp_label {
@@ -41,6 +40,10 @@
   border: 1px solid #8B8B8B;
   padding: .25rem 1rem;
   border-radius: .5rem;
+}
+
+.inp.page_search-input::placeholder {
+  font-weight: 500;
 }
 
 .inp.page_search-input:focus {

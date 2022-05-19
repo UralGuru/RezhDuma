@@ -1,11 +1,17 @@
+.request_card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-bottom: 1px #CECFD0 solid;
+  padding-bottom: 2rem;
+}
+
 .request {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding-bottom: 2rem;
-  border-bottom: 1px #CECFD0 solid;
 }
 
 .request_header {
@@ -26,94 +32,31 @@
   word-break: break-all;
 }
 
-.form_modal {
-  margin: .5rem;
+.response {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .25rem;
+  margin-left: 1rem;
 }
 
-.request_modal {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+.response_date {
+  font-weight: 600;
+  font-size: .875rem;
+  color: #7D7C84;
 }
 
-.frequent_button {
-  display: flex;
-  flex-direction: row;
+.response_author {
   font-weight: 600;
 }
 
-.frequent_button input[type="checkbox"]:checked, 
-.frequent_button input[type="checkbox"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+.response_text {
+  font-weight: 300;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.frequent_button input[type="checkbox"]:checked + label, 
-.frequent_button input[type="checkbox"]:not(:checked) + label{
-    display: inline-block;
-    position: relative;
-    padding-left: 28px;
-    line-height: 20px;
-    cursor: pointer;
-}
-
-.frequent_button input[type="checkbox"]:checked + label:after, 
-.frequent_button input[type="checkbox"]:not(:checked) + label:after {
-    content: "";
-    position: absolute;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-
-.frequent_button input[type="checkbox"]:checked + label:before, 
-.frequent_button input[type="checkbox"]:not(:checked) + label:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #dddddd;
-    background-color: #ffffff;
-}
-
-.frequent_button input[type="checkbox"]:checked + label:before, 
-.frequent_button input[type="checkbox"]:not(:checked) + label:before {
-    border-radius: 2px;
-}
-
-.frequent_button input[type="checkbox"]:checked + label:after, 
-.frequent_button input[type="checkbox"]:not(:checked) + label:after {
-    left: 3px;
-    top: 4px;
-    width: 10px;
-    height: 5px;
-    border-radius: 1px;
-    border-left: 4px solid #1A6B98;
-    border-bottom: 4px solid #1A6B98;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-input[type="checkbox"]:not(:checked) + label:after {
-    opacity: 0;
-}
-
-input[type="checkbox"]:checked + label:after{
-    opacity: 1;
-}
-
-
-.button_row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.edit_button {
+  font-weight: 600;
+  cursor: pointer;
+  color: #1A6B98;
 }
