@@ -72,9 +72,11 @@ const ProjectsItem = () => {
         )
     }
 
+    debugger;
+
     return (
         <div className={styles.outer}>
-            <div className={styles.date}>{moment(projects.projectsDate).format('DD.MM.YYYY')}</div>
+            <div className={styles.date}>{moment(projects.projectDate).format('DD.MM.YYYY')}</div>
             <div className={styles.title}>{projects.title}</div>
             {projects.filesNames.length != 0 &&
                 <Carousel

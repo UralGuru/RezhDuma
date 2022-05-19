@@ -27,7 +27,7 @@ const ProjectsCard = ({ id, title, description, imageSrc, date }) => {
                     <div className={styles.card_title} onClick={() => navigate('/projects/' + id)}>{title}</div>
                     <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
                     <div className={styles.card_link}>
-                        <Button className='secondary-outline' onClick={ () => navigate('/projectsItem/' + id) }>
+                        <Button className='secondary-outline' onClick={ () => navigate('/projectsitem/' + id) }>
                           Читать далее
                         </Button>
                     </div>
