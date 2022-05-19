@@ -17,3 +17,8 @@ export const fetchAllRequests = async (type, topic, district) => {
     (district != '' ? `district=${district}` : ''))
   return data;
 }
+
+export const createAnswerToRequest = async (req, reqId) => {
+  const {data} = await $authHost.patch(`api/appeals/admin/${reqId}`, req);
+  return data;
+}
