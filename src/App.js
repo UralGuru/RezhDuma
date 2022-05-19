@@ -32,6 +32,8 @@ import ProjectsItem from "./pages/ProjectsItem/ProjectsItem";
 import AdminRequired from './pages/AdminRequired/AdminRequired';
 import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
+import DocumentsItem from "./pages/DocumentsItem/DocumentsItem";
+import DocumentsItemLayout from "./pages/DocumentsItem/DocumentsItemLayout/DocumentsItemLayout";
 
 
 
@@ -55,14 +57,13 @@ function App() {
                     <Route path="registration" element={<Registration />}/>
                     <Route path="profile" element={<Profile />}/>
                     <Route path="newsitem" element={<NewsItemLayout />}>
-                        <Route path=":id" element={<NewsItem />}/>
-                    </Route>
+                        <Route path=":id" element={<NewsItem />}/></Route>
+                    <Route path="documentsitem" element={<DocumentsItemLayout />}>
+                        <Route path=":id" element={<DocumentsItem />}/></Route>
                     <Route path="projectsitem" element={<ProjectsItemLayout />}>
-                        <Route path=":id" element={<ProjectsItem />}/>
-                    </Route>
+                        <Route path=":id" element={<ProjectsItem />}/></Route>
                     <Route path="historyitem" element={<HistoryItemLayout />}>
-                        <Route path=":id" element={<HistoryItem />}/>
-                    </Route>
+                        <Route path=":id" element={<HistoryItem />}/></Route>
                     <Route path="faq" element={<FAQPage />}/>
                     
                     {/* navbar routes */}
