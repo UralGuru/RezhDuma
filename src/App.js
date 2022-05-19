@@ -56,7 +56,7 @@ function App() {
                     <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/>
                     </Route>
-                    <Route path="ptojectsitem" element={<ProjectsItemLayout />}>
+                    <Route path="projectsitem" element={<ProjectsItemLayout />}>
                         <Route path=":id" element={<ProjectsItem />}/>
                     </Route>
                     <Route path="historyitem" element={<HistoryItemLayout />}>
