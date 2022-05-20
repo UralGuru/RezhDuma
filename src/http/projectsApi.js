@@ -10,13 +10,12 @@ export const editProjects = async (editData) => {
   const {data} = await $authHost.patch('api/projects', editData);
 }
 
-export const fetchProjects = async () => {
-  const {data} = await $host.get('api/projects');
-  return data;
-}
-
-export const fetchProjectsWithPagination = async (count, page) => {
-  const {data} = await $host.get(`api/projects?count=${count}&page=${page}`);
+export const fetchProjects = async (count, page, find) => {
+  const {data} = await $host.get(`api/projects?` +
+    (count && count !== '' ? `count=${count}&` : '') +
+    (page && page !== '' ? `page=${page}&` : '') +
+    (find && find !== '' ? `find=${find}&` : '')
+  );
   return data;
 }
 

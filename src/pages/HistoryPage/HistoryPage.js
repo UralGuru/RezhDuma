@@ -21,19 +21,21 @@ const HistoryPage = (props) => {
     }
 
     const getHistories = () => {
-        fetchHistoryWithPagination(HISTORY_PER_ONE_PAGE, page).then(data => {
+        fetchHistory(HISTORY_PER_ONE_PAGE, page, searchQuery).then(data => {
             setHistory(data);
         });
     }
 
     useEffect(() => {
         getHistories();
-    }, [page])
+    }, [page, searchQuery])
 
     useEffect(() => {
-        fetchHistory().then(data => setHistoryCount(data.length))
-    }, [])
-
+        fetchHistory('', '', searchQuery).then(data => {
+            setPage(1);
+            setHistoryCount(data.length);
+        })
+    }, [searchQuery])
 
     const navigate = useNavigate();
 

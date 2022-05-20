@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./ProjectsPage.module.css"
 import Input from "../../components/shared/Input/Input";
 import Container from "../../components/shared/Container/Container";
-import {fetchProjects, fetchProjectsWithPagination} from "../../http/projectsApi";
+import {fetchProjects} from "../../http/projectsApi";
 import {PROJECTS_PER_ONE_PAGE} from "../../utils/constants";
 
 import ProjectsCard from "../../components/shared/ProjectsCard/ProjectsCard";
@@ -23,18 +23,21 @@ const ProjectsPage = (props) => {
     }
 
     const getProjects = () => {
-        fetchProjectsWithPagination(PROJECTS_PER_ONE_PAGE, page).then(data => {
+        fetchProjects(PROJECTS_PER_ONE_PAGE, page, searchQuery).then(data => {
             setProjects(data);
         });
     }
 
     useEffect(() => {
         getProjects();
-    }, [page])
+    }, [page, searchQuery])
 
     useEffect(() => {
-        fetchProjects().then(data => setProjectsCount(data.length))
-    }, [])
+        fetchProjects('', '', searchQuery).then(data => {
+            setPage(1)
+            setProjectsCount(data.length)
+        })
+    }, [searchQuery])
 
 
     const navigate = useNavigate();
