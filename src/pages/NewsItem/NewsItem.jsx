@@ -38,7 +38,6 @@ const NewsItem = () => {
         data={news.filesNames.map((data) => {
           return {'image': data}
         })}
-        width="700px"
         height="400px"
         captionStyle={{
           fontSize: '2rem',
@@ -60,6 +59,7 @@ const NewsItem = () => {
         style={{
           textAlign: "center",
           maxWidth: "100%",
+          margin: "0 auto"
         }}
       />}
       <div className={styles.description}>{news.text}</div>

@@ -33,7 +33,6 @@ const Request = () => {
 
   return (
     <Container>
-      <div className={styles.outer}>
       <Formik
         initialValues={{
           district: '',
@@ -64,7 +63,7 @@ const Request = () => {
         }}
       > 
       { formik => (
-        <Form>
+        <Form className={styles.outer}>
           <h2>Обращение депутату</h2>
           <div className={styles.form}>
             <div>Перед тем, как задать вопрос, советуем Вам ознакомиться со списком <a onClick={() => navigate(FAQ_ROUTE)}><strong>часто задаваемых вопросов</strong></a></div>
@@ -122,7 +121,6 @@ const Request = () => {
         </Form>
         )}
         </Formik>
-      </div>
     </Container>
   );
 }
@@ -130,12 +128,9 @@ const Request = () => {
 export default observer(Request);
 
 const RequestSchema = Yup.object().shape({
-  district: Yup.string()
-  .required('Необходимое поле'),
-  topic: Yup.string()
-  .required('Необходимое поле'),
-  type: Yup.string()
-  .required('Необходимое поле'),
+  district: Yup.string(),
+  topic: Yup.string(),
+  type: Yup.string(),
   text: Yup.string()
   .required('Введите текст обращения')
   .min(20, 'Текст обращения должен содержать не менее 20 символов'),

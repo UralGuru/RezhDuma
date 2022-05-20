@@ -1,8 +1,8 @@
 import { $authHost, $host } from ".";
 
 
-export const createDocuments = async (history) => {
-  const {data} = await $authHost.post('api/documents', history);
+export const createDocuments = async (documents) => {
+  const {data} = await $authHost.post('api/documents', documents);
   return data;
 }
 
@@ -20,7 +20,7 @@ export const fetchDocumentsWithPagination = async (count, page) => {
   return data;
 }
 
-export const fetchOneDocuments = async (historyId) => {
-  const {data} = await $host.get(`api/documents/${historyId}`);
+export const fetchOneDocuments = async (documents) => {
+  const {data} = await $host.get(`api/documents/${documents}`);
   return data;
 }

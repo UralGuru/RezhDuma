@@ -1,3 +1,10 @@
+.profile_outer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
 .card_row {
   display: flex;
   flex-direction: row;
@@ -6,7 +13,7 @@
   scrollbar-width: thin;
   justify-content: space-between;
   gap: 2em;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .card_row::-webkit-scrollbar {

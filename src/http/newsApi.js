@@ -10,13 +10,17 @@ export const editNews = async (editData) => {
   const {data} = await $authHost.patch('api/news', editData);
 }
 
-export const fetchNews = async () => {
+export const fetchAllNews = async () => {
   const {data} = await $host.get('api/news');
   return data;
 }
 
-export const fetchNewsWithPagination = async (count, page) => {
-  const {data} = await $host.get(`api/news?count=${count}&page=${page}`);
+export const fetchNews = async (count, page, find) => {
+  const {data} = await $host.get(`api/news?` +
+    (count && count != '' ? `count=${count}&` : '') +
+    (page && page != '' ? `page=${page}&` : '') +
+    (find && find != '' ? `find=${find}&` : '')
+  );
   return data;
 }
 

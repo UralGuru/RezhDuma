@@ -74,6 +74,7 @@ const ProjectsItem = () => {
                     style={{
                         textAlign: "center",
                         maxWidth: "100%",
+                        margin: "0 auto"
                     }}
                 />}
             <div className={styles.description}>{projects.text}</div>

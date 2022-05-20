@@ -3,9 +3,9 @@ import Container from '../../../components/shared/Container/Container';
 import Input from '../../../components/shared/Input/Input';
 import RequestCard from '../../../components/shared/RequestCard/RequestCard';
 import Select from '../../../components/shared/Select/Select';
-import { fetchAllRequests } from '../../../http/requestApi';
+import { fetchRequests } from '../../../http/requestApi';
 import { REQUESTS_PER_ONE_PAGE, REQUEST_DISTRICTS, REQUEST_STATUS, REQUEST_TOPICS, REQUEST_TYPES } from '../../../utils/constants';
-import {FiChevronRight} from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 
 import styles from './Requests.module.css';
 import Pagination from '../../../components/shared/Pagination/Pagination';
@@ -23,7 +23,7 @@ const Requests = () => {
   const [typeQuery, setTypeQuery] = useState('');
 
   useEffect(() => {
-    fetchAllRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery)
+    fetchRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery)
     .then(data => {
       setRequestsCount(data.length);
       setPage(1);
@@ -31,7 +31,7 @@ const Requests = () => {
   }, [statusQuery, searchQuery, districtQuery, topicQuery, typeQuery])
 
   const getRequests = () => {
-    fetchAllRequests(
+    fetchRequests(
       typeQuery, 
       topicQuery, 
       districtQuery, 
@@ -55,16 +55,18 @@ const Requests = () => {
         <div className={styles.selectors}>
           <div 
             role={'button'}
-            className={styles.toggle}
+            className={styles.toggle_open}
             ><FiChevronRight />
           </div>
-          <Select
-            options={REQUEST_STATUS}
-            isSearchable={false}
-            value={statusQuery}
-            setValue={setStatusQuery}
-            placeholder={"Статус обращения"}
-          />
+          <div className={styles.option_select}>
+            <Select
+              options={REQUEST_STATUS}
+              isSearchable={false}
+              value={statusQuery}
+              setValue={setStatusQuery}
+              placeholder={"Статус обращения"}
+            />
+          </div>
         </div>
         <div className={styles.wrapper}>  
           <div className={styles.filtration}>

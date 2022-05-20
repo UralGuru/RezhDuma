@@ -17,11 +17,11 @@ export const POLLS_ROUTE = "/polls";
 export const PROJECTS_ROUTE = "/projects";
 
 //image-exports
+export const MAIN_ICON = "images/nav_icons/main.svg";
 export const NEWS_ICON = "images/nav_icons/news.svg";
 export const HISTORY_ICON = "images/nav_icons/history.svg";
 export const DOCUMENTS_ICON = "images/nav_icons/documents.svg";
 export const VOTINGS_ICON = "images/nav_icons/votings.svg";
-export const POLLS_ICON = "images/nav_icons/polls.svg";
 export const PROJECTS_ICON = "images/nav_icons/projects.svg";
 
 export const VK_ICON = 'images/social_icons/vk.svg';

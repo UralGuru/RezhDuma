@@ -37,6 +37,11 @@ const Select = ({ placeholder, options, setValue, value, isSearchable = true }) 
     dropdownIndicator: (provided, state) => ({
       ...provided,
     }),
+
+    indicatorSeparator: (provided, state) => ({
+      ...provided,
+      display: 'none'
+    }),
   }
 
 

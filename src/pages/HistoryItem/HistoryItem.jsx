@@ -71,6 +71,7 @@ const HistoryItem = () => {
                         style={{
                             textAlign: "center",
                             maxWidth: "100%",
+                            margin: "0 auto"
                         }}
                     />}
                 <div className={styles.description}>{history.text}</div>

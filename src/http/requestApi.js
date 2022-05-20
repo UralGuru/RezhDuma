@@ -10,7 +10,7 @@ export const fetchPopularRequests = async () => {
   return data;
 }
 
-export const fetchAllRequests = async (type, topic, district, answered, find, page, count) => {
+export const fetchRequests = async (type, topic, district, answered, find, page, count) => {
   const {data} = await $authHost.get(`api/appeals/admin?` + 
     (type && type != '' ? `type=${type}&` : '') +
     (topic && topic != '' ? `topic=${topic}&` : '') +

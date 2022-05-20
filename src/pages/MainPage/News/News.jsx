@@ -7,7 +7,7 @@ import { NEWS_ROUTE } from '../../../utils/constants';
 import { observer } from 'mobx-react-lite';
 
 import styles from "./News.module.css";
-import { fetchNewsWithPagination } from '../../../http/newsApi';
+import { fetchNews } from '../../../http/newsApi';
 
 
 const News = observer(() => {
@@ -16,7 +16,7 @@ const News = observer(() => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetchNewsWithPagination(3, 1).then(data => {
+    fetchNews(3, 1).then(data => {
       setNews(data);
     })
   }, [])

@@ -32,6 +32,21 @@
   word-break: break-all;
 }
 
+.request_topics {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+.request_topic {
+  padding: .25rem .75rem;
+  border: 1px solid #1a6c987d;
+  border-radius: .5rem;
+  color: #1A6B98;
+}
+
 .response {
   display: flex;
   flex-direction: column;
@@ -60,3 +75,11 @@
   cursor: pointer;
   color: #1A6B98;
 }
+
+@media(max-width: 523px) {
+  /* .request {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  } */
+}
+

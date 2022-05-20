@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #2C97CC;
+  background-color: #1E6D98;
   
 }
 
@@ -17,7 +17,7 @@
   padding: .5rem;
   font-size: 1.5rem;
   color: white;
-  background-color: #2C97CC;
+  background-color: #1E6D98;
 }
 
 .sidebar {
@@ -27,7 +27,7 @@
   padding: 2rem 0 1rem 0;
   z-index: 10;
   transition: 850ms;
-  background-color: #2C97CC;
+  background-color: #1E6D98;
   box-shadow: 5px 5px 5px rgba(65, 65, 65, 0.3)
 }
 
@@ -48,15 +48,15 @@
   flex-grow: 1;
   text-align: center;
   color: white;
-  background-color: #2C97CC;
+  background-color: #1E6D98;
 }
 
 .btn_nav:hover {
-  background-color: #1A6B98;
+  background-color: #2C97CC;
 }
 
 .btn_nav_active {
-  background-color: #1A6B98;
+  background-color: #2C97CC;
 }
 
 .in-row {

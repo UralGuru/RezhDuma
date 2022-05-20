@@ -63,6 +63,12 @@ fieldset:disabled .btn {
           box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+@media(max-width: 523px) {
+  .btn {
+    padding: .5rem 1rem;
+  }
+}
+
 .primary-outline {
   color: #1A6B98;
   background-color: #fff;

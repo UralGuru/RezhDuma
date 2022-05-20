@@ -47,8 +47,16 @@ const RequestCard = ({id}) => {
           <div className={styles.request_date}>
             {moment(requestData?.appealDate).format('DD.MM.YYYY')}
           </div>
+          <div>
+            От: {requestData?.requesterName}
+          </div>
           <div className={styles.request_text}>
             {requestData?.text}
+          </div>
+          <div className={styles.request_topics}>
+            {requestData?.district && <div className={styles.request_topic}>{requestData?.district}</div>}
+            {requestData?.topic && <div className={styles.request_topic}>{requestData?.topic}</div>}
+            {requestData?.type && <div className={styles.request_topic}>{requestData?.type}</div>}
           </div>
         </div>
         <div className={styles.button_column}>

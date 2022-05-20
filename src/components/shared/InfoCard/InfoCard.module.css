@@ -29,14 +29,8 @@
   }
 }
 
-@media (max-width: 700px) {
-  .card {
-    border-radius: 1.5em;
-  }
-}
-
 @media (max-width: 600px) {
   .card {
-    font-size: 0.875em;
+    min-width: 150px;
   }
 }

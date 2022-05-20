@@ -13,7 +13,7 @@ function AdminProfile() {
   const { userStore } = useContext(Context);
 
   return ( 
-    <>
+    <div className={styles.profile_outer}>
       <div className={styles.header}>
         <Container>
           {userStore.User.id != null &&
@@ -40,9 +40,23 @@ function AdminProfile() {
               description={"Контроль за ходом рассмотрения обращения"}
               onClick={() => navigate(REGISTRATION_ROUTE)}/>
           </div>
+          <div className={styles.card_row}>
+            <InfoCard 
+              title={"Новости"}
+              description={"Добавление, редактирование, удаление новостей"}
+              onClick={() => navigate(REQUESTS_ROUTE)}/>
+            <InfoCard 
+              title={"Проекты"}
+              description={"Добавление, редактирование, удаление проектов"}
+              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+            <InfoCard 
+              title={"История"}
+              description={"Добавление, редактирование, удаление историй"}
+              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+          </div>
         </Container>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import Container from "../../components/shared/Container/Container";
 
 import styles from './NewsPage.module.css';
 import Input from "../../components/shared/Input/Input";
-import { fetchNews, fetchNewsWithPagination } from "../../http/newsApi";
+import { fetchAllNews, fetchNews } from "../../http/newsApi";
 import { NEWS_PER_ONE_PAGE } from "../../utils/constants";
 import Pagination from "../../components/shared/Pagination/Pagination";
 
@@ -20,14 +20,14 @@ const NewsPage = (props) => {
     }
 
     const getNews = () => {
-        fetchNewsWithPagination(NEWS_PER_ONE_PAGE, page).then(data => {
+        fetchNews(NEWS_PER_ONE_PAGE, page, searchQuery).then(data => {
             setNews(data);
         });
     }
 
     useEffect(() => {
         getNews();
-    }, [page])
+    }, [page, searchQuery])
 
     useEffect(() => {
         fetchNews().then(data => setNewsCount(data.length))

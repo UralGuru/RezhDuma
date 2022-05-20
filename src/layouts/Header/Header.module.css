@@ -23,6 +23,7 @@
 
 .logo__text {
   margin-left: 0.25rem;
+  font-size: .8rem;
 }
 
 .profile {
@@ -45,5 +46,5 @@
 }
 
 .profile__text {
-
+  font-size: .9rem;
 }
