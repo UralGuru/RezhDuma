@@ -20,11 +20,13 @@ const RequestCard = ({id}) => {
   const {userStore} = useContext(Context);
 
   const [requestData, setRequestData] = useState({});
+
   useEffect(() => {
+    console.log('сделан запрос');
     getRequestById(id).then((data) => {
       setRequestData(data);
     });
-  }, [closeModal]);
+  }, [modalIsOpen]);
 
 
   return ( 
@@ -54,7 +56,7 @@ const RequestCard = ({id}) => {
           </Button>
         </div>
         <AnswerModal 
-          reqId={id}
+          requestData={requestData}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
         />

@@ -10,7 +10,7 @@ import { Context } from '../../../..';
 import TextAreaField from '../../Forms/TextAreaField/TextAreaField';
 import Button from '../../Button/Button';
 
-const AnswerModal = ({reqId, modalIsOpen, closeModal}) => {
+const AnswerModal = ({requestData, modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
   const customStyles = {
     content: {
@@ -24,15 +24,9 @@ const AnswerModal = ({reqId, modalIsOpen, closeModal}) => {
       transform: 'translate(-50%, -50%)',
     },
   };
-  const [requestData, setRequestData] = useState({});
 
   const {userStore} = useContext(Context);
 
-  useEffect(() => {
-    getRequestById(reqId).then((data) => {
-      setRequestData(data);
-    });
-  }, [closeModal]);
 
   return ( 
     <Modal
@@ -53,7 +47,7 @@ const AnswerModal = ({reqId, modalIsOpen, closeModal}) => {
           request.append('id', userStore.User.id);
           request.append('response', values.response);
           request.append('frequent', values.frequent);
-          createAnswerToRequest(request, reqId).then((data) => {
+          createAnswerToRequest(request, requestData.id).then((data) => {
             closeModal();
           })
         }}

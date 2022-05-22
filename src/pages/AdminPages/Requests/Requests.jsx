@@ -25,11 +25,17 @@ const Requests = () => {
 
   useEffect(() => {
     let unmounted = false;
-    fetchRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery, '', '')
+    fetchRequests(
+      typeQuery, 
+      topicQuery, 
+      districtQuery, 
+      statusQuery, 
+      searchQuery, 
+      '', 
+      '')
     .then(data => {
       if (!unmounted) {
         setRequestsCount(data.length);
-        setPage(1);
       }
     });
     return () => unmounted = true;
@@ -52,6 +58,10 @@ const Requests = () => {
     });
     return () => unmounted = true;
   }, [page, statusQuery, searchQuery, districtQuery, topicQuery, typeQuery])
+
+  useEffect(() => {
+    setPage(1);
+  }, [statusQuery, searchQuery, districtQuery, topicQuery, typeQuery]);
 
   return ( 
     <Container>

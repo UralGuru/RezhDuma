@@ -32,14 +32,12 @@ const NewsPage = (props) => {
     useEffect(() => {
         fetchNews(NEWS_PER_ONE_PAGE, page, searchQuery).then(data => {
             setNews(data);
-            console.log('сделан запрос');
         });
     }, [page, searchQuery])
 
     useEffect(() => {
         fetchNews('', '', searchQuery).then(data => {
             setNewsCount(data.length);
-            console.log('сделан запрос');
         })
     }, [searchQuery, closeModal])
 

@@ -65,7 +65,7 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
       >
         {(formik) => (
           <Form className={styles.form_modal}>
-            <h2>Создать новость</h2>
+            <h2>Редактирование новости</h2>
             <div className={styles.create_fields}>
               <TextField 
                 name='title'
