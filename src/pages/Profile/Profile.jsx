@@ -14,15 +14,7 @@ import ProfileEntryCard from './ProfileEntryCard/ProfileEntryCard';
 const Profile = () => {
   const navigate = useNavigate();
   const {userStore} = useContext(Context);
-
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   if (userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) {
-  //     navigate(`..${ADMIN_PROFILE_ROUTE}`, { replace: true });
-  //   }
-  //   setIsLoading(false);
-  // }, [])
-
+  
   return ( 
     <>
       <div className={styles.header_outer}>
@@ -46,10 +38,8 @@ const Profile = () => {
               </Button>
             </div>  
             {localStorage.getItem('access-token') ?
-            <div className={styles.profile}>
-              <div className={styles.profile_text}>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
-              <a className={styles.profile_link} onClick={() => userStore.logout()}>Выйти</a>
-            </div> 
+            <div>
+            </div>
             :
             <ProfileEntryCard />
             }

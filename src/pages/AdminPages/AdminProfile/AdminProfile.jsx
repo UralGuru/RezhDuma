@@ -36,11 +36,6 @@ function AdminProfile() {
               </Button>
             </div>  
           </div>
-          {/* {userStore.User.id != null &&
-          <div className={styles.profile}>
-            <div className={styles.profile_text}>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
-            <a className={styles.profile_link} onClick={() => userStore.logout()}>Выйти</a>
-          </div>  */}
         </Container>
       </div>
       <div className={styles.main}>

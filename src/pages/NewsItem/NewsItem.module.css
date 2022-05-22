@@ -23,3 +23,10 @@
   color: #606060;
   white-space: pre-line;
 }
+
+.button_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+}

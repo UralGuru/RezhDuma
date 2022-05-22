@@ -7,48 +7,66 @@ import Input from "../../components/shared/Input/Input";
 import { fetchNews } from "../../http/newsApi";
 import { NEWS_PER_ONE_PAGE } from "../../utils/constants";
 import Pagination from "../../components/shared/Pagination/Pagination";
+import Button from "../../components/shared/Button/Button";
+import CreateNews from "../../components/shared/NewsModals/CreateNews/CreateNews";
+import { observer } from "mobx-react-lite";
+import { Context } from "../..";
 
 const NewsPage = (props) => {
+    const {userStore} = useContext(Context);
+
     const [news, setNews] = useState([]);
     const [newsCount, setNewsCount] = useState(0);
     const [page, setPage] = useState(1);
 
     const [searchQuery, setSearchQuery] = useState("");
 
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+
     const onSearchChange = (e) => {
       setSearchQuery(e.target.value);
     }
 
-    const getNews = () => {
+    useEffect(() => {
         fetchNews(NEWS_PER_ONE_PAGE, page, searchQuery).then(data => {
             setNews(data);
+            console.log('сделан запрос');
         });
-    }
-
-    useEffect(() => {
-        getNews();
     }, [page, searchQuery])
 
     useEffect(() => {
         fetchNews('', '', searchQuery).then(data => {
-            setPage(1);
             setNewsCount(data.length);
+            console.log('сделан запрос');
         })
+    }, [searchQuery, closeModal])
+
+    useEffect(() => {
+        setPage(1);
     }, [searchQuery])
 
     return(
         <Container>
             <div className={styles.outer}>
-                <div className={styles.header}>
-                    <h2>Новости</h2>
+                <h2>Новости</h2>
+                <div className={styles.nav_fields}>
                     <Input 
                         className="page_search-input"
                         placeholder="Поиск"
                         value={searchQuery}
                         onChange={onSearchChange}
                     />
+                    <div>
+                        {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+                        <Button
+                            className='primary'
+                            onClick={openModal}
+                        >Создать новость
+                        </Button>}
+                    </div>
                 </div>
-                
                 <div className={styles.inner}>
                     <div className={styles.news}>
                         {news.map((n) => {
@@ -70,8 +88,10 @@ const NewsPage = (props) => {
                     />
                 </div>
             </div>
+            {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+                <CreateNews modalIsOpen={modalIsOpen} closeModal={closeModal}/>}
         </Container>
     );
 }
 
-export default NewsPage;
+export default observer(NewsPage);

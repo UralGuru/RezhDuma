@@ -23,7 +23,7 @@
   justify-content: flex-end;
   align-items: flex-start;
   gap: 1.5rem;
-  flex-basis: 50%;
+  flex-grow: 70%;
 }
 
 .info button {

@@ -104,7 +104,7 @@ const Request = () => {
               id="files"
               name="files"
               type="file"
-              label="Прикрепить файл"
+              label="Прикрепить файлы"
               onChange={(event) => {
                 const files = event.target.files;
                 let myFiles = Array.from(files);

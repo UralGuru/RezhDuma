@@ -6,8 +6,14 @@ export const createNews = async (news) => {
   return data;
 }
 
-export const editNews = async (editData) => {
-  const {data} = await $authHost.patch('api/news', editData);
+export const editNews = async (editData, id) => {
+  const {data} = await $authHost.patch(`api/news/${id}`, editData);
+  return data;
+}
+
+export const deleteNews = async (id) => {
+  const {data} = await $authHost.delete(`api/news/${id}`)
+  return data;
 }
 
 export const fetchNews = async (count, page, find) => {

@@ -20,7 +20,7 @@ const FilesField = ( props ) => {
         />
       </label>
       {field[0].value && <div className={styles.files}>{field[0].value.map((file) => {
-        return <div>{file.name}</div>
+        return <div key={file.name}>{file.name}</div>
         })}
       </div>}
     </div>

@@ -1,5 +1,4 @@
 .profile_entry {
-  flex-basis: 30%;
   display: flex;
   gap: .5rem;
   flex-direction: column;
@@ -23,4 +22,10 @@
   margin-bottom: 1rem;
   font-weight: 500;
   color: #7D7C84;
+}
+
+@media (max-width: 523px) {
+  .profile_entry {
+    display: none;
+  }
 }

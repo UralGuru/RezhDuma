@@ -1,18 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { Carousel } from 'react-carousel-minimal';
 import { useParams } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { fetchOneNews } from '../../http/newsApi';
+import { deleteNews, fetchOneNews } from '../../http/newsApi';
 import moment from 'moment';
 
 import styles from './NewsItem.module.css';
+import Button from '../../components/shared/Button/Button';
+import EditNews from '../../components/shared/NewsModals/EditNews/EditNews';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import DeleteNews from '../../components/shared/NewsModals/DeleteNews/DeleteNews';
 
 // получает новость из бэка по id переданному в роуте.
 
 const NewsItem = () => {
+  const {userStore} = useContext(Context);
 
   const params = useParams();
+
+  const [editIsOpen, setEditIsOpen] = useState(false);
+  const openEditModal = () => setEditIsOpen(true);
+  const closeEditModal = () => setEditIsOpen(false);
+
+  const [deleteIsOpen, setDeleteIsOpen] = useState(false);
+  const openDeleteModal = () => setDeleteIsOpen(true);
+  const closeDeleteModal = () => setDeleteIsOpen(false);
 
   const [isLoading, setIsLoading] = useState(true);
   const [news, setNews] = useState({});
@@ -63,8 +77,23 @@ const NewsItem = () => {
         }}
       />}
       <div className={styles.description}>{news.text}</div>
+      
+      {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+        <div className={styles.button_row}>
+          <Button
+            onClick={openEditModal}
+            className='primary-outline'
+          >Редактировать</Button>
+          <Button
+            onClick={openDeleteModal}
+            className='primary-outline'
+          >Удалить новость</Button>
+          <EditNews id={params.id} modalIsOpen={editIsOpen} closeModal={closeEditModal}/>
+          <DeleteNews id={params.id} modalIsOpen={deleteIsOpen} closeModal={closeDeleteModal}/>
+        </div>
+      }
     </div>
   );
 }
 
-export default NewsItem;
+export default observer(NewsItem);

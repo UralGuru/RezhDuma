@@ -33,10 +33,10 @@ const Header = () => {
               <img className={styles.profile__image} src={PROFILE_ICON}/>
               {userStore.User?.id 
               ? 
-              <>
-                <span>{`${userStore.User.firstName} ${userStore.User.lastName} ${userStore.User.patronymic}`}</span>
-                <span>{isExpanded ? <RiArrowUpSLine/> : <RiArrowDownSLine/>}</span>
-              </>
+              <div className={styles.authorizated}>
+                <div>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
+                <div>{isExpanded ? <RiArrowUpSLine/> : <RiArrowDownSLine/>}</div>
+              </div>
               : 
               <div onClick={() => collapseMenu(() => navigate(LOGIN_ROUTE))}>{'Авторизоваться'}</div>} 
             </button>
@@ -50,18 +50,12 @@ const Header = () => {
         </div>
         <div className={styles.menu_container}>
           <div className={cx('profile_menu', {'expanded': isExpanded}, {'not_expanded': !isExpanded})}>
-            {userStore.User?.id 
-              ? 
-              <>
-                <div role="button" onBlur={() => setIsExpanded(false)} onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</div>
-                <div role="button" onBlur={() => setIsExpanded(false)} onClick={() => collapseMenu(() => navigate())} className={styles.menu_item}>Личные данные</div>
-                <div role="button" onBlur={() => setIsExpanded(false)} onClick={() => collapseMenu(() => userStore.logout())} className={styles.menu_item}>Выйти</div>
-              </>
-              :
-              <>
+            {userStore.User?.id && <>
+                <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
+                <button onClick={() => collapseMenu(() => navigate())} className={styles.menu_item}>Личные данные</button>
+                <button onClick={() => collapseMenu(() => userStore.logout())} className={styles.menu_item}>Выйти</button>
               </>
             }
-            
           </div>
         </div>
       </Container>
