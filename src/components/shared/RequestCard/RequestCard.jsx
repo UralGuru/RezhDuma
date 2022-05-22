@@ -12,19 +12,6 @@ import { createAnswerToRequest, getRequestById } from '../../../http/requestApi'
 import AnswerModal from './AnswerModal/AnswerModal';
 
 const RequestCard = ({id}) => {
-  Modal.setAppElement('#root');
-
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      borderRadius: '1rem',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);

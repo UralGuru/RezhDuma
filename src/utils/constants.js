@@ -4,9 +4,10 @@ export const LOGIN_ROUTE = "/login";
 export const REGISTRATION_ROUTE = "/registration";
 export const PROFILE_ROUTE = "/profile";
 export const REQUEST_ROUTE = "/request";
-export const FAQ_ROUTE = "/faq";
 export const REQUESTS_ROUTE = "/requests";
-export const ADMIN_PROFILE_ROUTE = "/profile_admin";
+export const FAQ_ROUTE = "/faq";
+export const ADMIN_REQUESTS_ROUTE = "/admin/requests";
+export const ADMIN_PROFILE_ROUTE = "/admin/profile";
 
 
 export const NEWS_ROUTE = "/news";

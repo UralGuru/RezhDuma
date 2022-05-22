@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import Container from '../../../components/shared/Container/Container';
-import Input from '../../../components/shared/Input/Input';
-import RequestCard from '../../../components/shared/RequestCard/RequestCard';
-import Select from '../../../components/shared/Select/Select';
-import { fetchRequests } from '../../../http/requestApi';
-import { REQUESTS_PER_ONE_PAGE, REQUEST_DISTRICTS, REQUEST_STATUS, REQUEST_TOPICS, REQUEST_TYPES } from '../../../utils/constants';
+import React, { useContext, useEffect, useState } from 'react';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
+import styles from './UserRequests.module.css';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import { fetchUserRequests } from '../../http/requestApi';
+import { REQUESTS_PER_ONE_PAGE, REQUEST_DISTRICTS, REQUEST_STATUS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
+import RequestCard from '../../components/shared/RequestCard/RequestCard';
+import Pagination from '../../components/shared/Pagination/Pagination';
+import Select from '../../components/shared/Select/Select';
+import Input from '../../components/shared/Input/Input';
+import Container from '../../components/shared/Container/Container';
 
-import styles from './Requests.module.css';
-import Pagination from '../../../components/shared/Pagination/Pagination';
-import axios from 'axios';
-
-const Requests = () => {
+const UserRequests = () => {
+  const {userStore} = useContext(Context);
 
   const [requests, setRequests] = useState([]);
   const [requestsCount, setRequestsCount] = useState(0);
@@ -25,7 +26,7 @@ const Requests = () => {
 
   useEffect(() => {
     let unmounted = false;
-    fetchRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery, '', '')
+    fetchUserRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery, '', '', userStore.User.id)
     .then(data => {
       if (!unmounted) {
         setRequestsCount(data.length);
@@ -37,14 +38,15 @@ const Requests = () => {
 
   useEffect(() => {
     let unmounted = false;
-    fetchRequests(
+    fetchUserRequests(
       typeQuery, 
       topicQuery, 
       districtQuery, 
       statusQuery, 
       searchQuery, 
       page, 
-      REQUESTS_PER_ONE_PAGE)
+      REQUESTS_PER_ONE_PAGE, 
+      userStore.User.id)
     .then(data => {
       if (!unmounted) {
         setRequests(data);
@@ -131,4 +133,4 @@ const Requests = () => {
   );
 }
 
-export default Requests;
+export default observer(UserRequests);

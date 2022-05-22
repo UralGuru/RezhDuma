@@ -2,9 +2,10 @@ import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../..';
+import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import InfoCard from '../../../components/shared/InfoCard/InfoCard';
-import { REGISTRATION_ROUTE, REQUESTS_ROUTE } from '../../../utils/constants';
+import { REGISTRATION_ROUTE, ADMIN_REQUESTS_ROUTE, FAQ_ROUTE } from '../../../utils/constants';
 
 import styles from './AdminProfile.module.css';
 
@@ -14,14 +15,32 @@ function AdminProfile() {
 
   return ( 
     <div className={styles.profile_outer}>
-      <div className={styles.header}>
+      <div className={styles.header_outer}>
         <Container>
-          {userStore.User.id != null &&
+        <div className={styles.header_inner}>
+            <div className={styles.info}>
+              <div className={styles.info_title}>Электронная приемная обращений граждан</div>
+              <div className={styles.info_description}>
+                Сервис предоставляет возможность отправить сообщение в форме электронного документа и 
+                получить информацию о ходе расссмотрения поданных ранее обращений
+              </div>
+              <div className={styles.info_description}>
+                Если у вас есть вопросы, то можете посмотреть 
+                <a onClick={() => navigate(FAQ_ROUTE)}> <strong>список часто задаваемых вопросов</strong> </a> 
+                либо задать его самостоятельно
+              </div>
+              <Button
+                className='primary'
+                onClick={() => {navigate(ADMIN_REQUESTS_ROUTE)}}
+                >Посмотреть обращения граждан
+              </Button>
+            </div>  
+          </div>
+          {/* {userStore.User.id != null &&
           <div className={styles.profile}>
             <div className={styles.profile_text}>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
             <a className={styles.profile_link} onClick={() => userStore.logout()}>Выйти</a>
-          </div> 
-          }
+          </div>  */}
         </Container>
       </div>
       <div className={styles.main}>
@@ -30,28 +49,10 @@ function AdminProfile() {
             <InfoCard 
               title={"Вопросы и заявки"}
               description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REQUESTS_ROUTE)}/>
-            <InfoCard 
-              title={"Обсуждения"}
-              description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+              onClick={() => navigate(ADMIN_REQUESTS_ROUTE)}/>
             <InfoCard 
               title={"Голосования"}
               description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
-          </div>
-          <div className={styles.card_row}>
-            <InfoCard 
-              title={"Новости"}
-              description={"Добавление, редактирование, удаление новостей"}
-              onClick={() => navigate(REQUESTS_ROUTE)}/>
-            <InfoCard 
-              title={"Проекты"}
-              description={"Добавление, редактирование, удаление проектов"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
-            <InfoCard 
-              title={"История"}
-              description={"Добавление, редактирование, удаление историй"}
               onClick={() => navigate(REGISTRATION_ROUTE)}/>
           </div>
         </Container>

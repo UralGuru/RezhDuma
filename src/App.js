@@ -34,6 +34,7 @@ import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
 import DocumentsItem from "./pages/DocumentsItem/DocumentsItem";
 import DocumentsItemLayout from "./pages/DocumentsItem/DocumentsItemLayout/DocumentsItemLayout";
+import UserRequests from './pages/UserRequests/UserRequests';
 
 
 
@@ -55,7 +56,7 @@ function App() {
                     <Route index element={<MainPage />}/>
                     <Route path="login" element={<Login />}/>
                     <Route path="registration" element={<Registration />}/>
-                    <Route path="profile" element={<Profile />}/>
+                    <Route path="profile" element={(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) ? <AdminProfile/> : <Profile />}/>
                     <Route path="newsitem" element={<NewsItemLayout />}>
                         <Route path=":id" element={<NewsItem />}/></Route>
                     <Route path="documentsitem" element={<DocumentsItemLayout />}>
@@ -77,11 +78,11 @@ function App() {
                     {/* authorizated routes */}
                     <Route element={<AuthRequired />}>
                         <Route path="request" element={<Request />}/>
+                        <Route path="requests" element={<UserRequests/>}/>
                     </Route>
 
                     {/* admin routes */}
-                    <Route element={<AdminRequired />}>
-                        <Route path="profile_admin" element={<AdminProfile/>}/>
+                    <Route path="admin/" element={<AdminRequired />}>
                         <Route path="requests" element={<Requests/>}/>
                     </Route>
 

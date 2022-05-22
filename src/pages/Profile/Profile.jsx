@@ -4,7 +4,7 @@ import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { ADMIN_PROFILE_ROUTE, FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
+import { ADMIN_PROFILE_ROUTE, FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUESTS_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -14,17 +14,15 @@ import ProfileEntryCard from './ProfileEntryCard/ProfileEntryCard';
 const Profile = () => {
   const navigate = useNavigate();
   const {userStore} = useContext(Context);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setIsLoading(true);
-    if (userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) {
-      navigate(`..${ADMIN_PROFILE_ROUTE}`, { replace: true });
-    }
-    setIsLoading(false);
-  }, [])
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   if (userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) {
+  //     navigate(`..${ADMIN_PROFILE_ROUTE}`, { replace: true });
+  //   }
+  //   setIsLoading(false);
+  // }, [])
 
-  if (!isLoading) {
   return ( 
     <>
       <div className={styles.header_outer}>
@@ -47,7 +45,7 @@ const Profile = () => {
                 >Отправить обращение
               </Button>
             </div>  
-            {userStore.User.id != null ?
+            {localStorage.getItem('access-token') ?
             <div className={styles.profile}>
               <div className={styles.profile_text}>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
               <a className={styles.profile_link} onClick={() => userStore.logout()}>Выйти</a>
@@ -64,7 +62,7 @@ const Profile = () => {
             <InfoCard 
               title={"Мои вопросы и заявки"}
               description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+              onClick={() => navigate(REQUESTS_ROUTE)}/>
             <InfoCard 
               title={"Обсуждения"}
               description={"Контроль за ходом рассмотрения обращения"}
@@ -77,11 +75,7 @@ const Profile = () => {
         </Container>
       </div>
     </>
-   )}
-
-  return (
-    <div>Идет переадресация в профиль...</div>
-  )
+   )
 }
 
 export default observer(Profile);

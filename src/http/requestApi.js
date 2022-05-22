@@ -11,16 +11,27 @@ export const fetchPopularRequests = async () => {
 }
 
 export const fetchRequests = async (type, topic, district, answered, find, page, count) => {
-  const {data} = await $authHost.get(`api/appeals/admin?` + 
+  const { data } = await $authHost.get(`api/appeals/admin?` + 
     (type && type != '' ? `type=${type}&` : '') +
     (topic && topic != '' ? `topic=${topic}&` : '') +
     (district && district != '' ? `district=${district}&` : '') +
     (answered && answered != '' ? `answered=${answered === "Рассмотренные" ? true : false}&` : '') +
     (page && page != '' ? `page=${page}&` : '') +
     (count && count != '' ? `count=${count}&` : '') +
-    (find && find != '' ? `find=${find}` : '')
-    )
+    (find && find != '' ? `find=${find}` : ''))
   return data;
+}
+
+export const fetchUserRequests = async (userId, type, topic, district, answered, find, page, count) => {
+  const { data } = await $authHost.get(`api/appeals/user/${userId}?` + 
+  (type && type != '' ? `type=${type}&` : '') +
+  (topic && topic != '' ? `topic=${topic}&` : '') +
+  (district && district != '' ? `district=${district}&` : '') +
+  (answered && answered != '' ? `answered=${answered === "Рассмотренные" ? true : false}&` : '') +
+  (page && page != '' ? `page=${page}&` : '') +
+  (count && count != '' ? `count=${count}&` : '') +
+  (find && find != '' ? `find=${find}` : ''))
+return data;
 }
 
 export const createAnswerToRequest = async (req, reqId) => {
