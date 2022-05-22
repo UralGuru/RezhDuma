@@ -33,4 +33,8 @@
   .header {
     flex-direction: column;
   }
+
+  .inner {
+    padding: 0;
+  }
 }

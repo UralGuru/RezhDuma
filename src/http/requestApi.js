@@ -5,8 +5,14 @@ export const createRequest = async (data, userId) => {
   await $authHost.post(`api/appeals/user/${userId}`, data);
 }
 
-export const fetchPopularRequests = async () => {
-  const {data} = await $host.get('api/appeals/popular');
+export const fetchPopularRequests = async (type, topic, district, find, page, count) => {
+  const { data } = await $host.get(`api/appeals/popular?` + 
+    (type && type != '' ? `type=${type}&` : '') +
+    (topic && topic != '' ? `topic=${topic}&` : '') +
+    (district && district != '' ? `district=${district}&` : '') +
+    (page && page != '' ? `page=${page}&` : '') +
+    (count && count != '' ? `count=${count}&` : '') +
+    (find && find != '' ? `find=${find}` : ''))
   return data;
 }
 

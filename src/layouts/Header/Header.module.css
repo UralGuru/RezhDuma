@@ -64,6 +64,7 @@
   top: 0;
   right: 0;
   display: flex;
+  z-index: 100;
   flex-direction: column;
   min-width: 200px;
   background-color: white;

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Container from '../../components/shared/Container/Container';
-import FAQCard from '../../components/shared/FAQCard/FAQCard';
-import Input from '../../components/shared/Input/Input';
-import Pagination from '../../components/shared/Pagination/Pagination';
-import Select from '../../components/shared/Select/Select';
-import useInput from '../../hooks/useInput';
-import { fetchPopularRequests } from '../../http/requestApi';
-import { REQUESTS_PER_ONE_PAGE, REQUEST_TOPICS } from '../../utils/constants';
-
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import styles from './FAQPage.module.css';
+import axios from 'axios';
+import classNames from 'classnames/bind';
+import { fetchPopularRequests } from '../../http/requestApi';
+import Input from '../../components/shared/Input/Input';
+import Select from '../../components/shared/Select/Select';
+import { REQUESTS_PER_ONE_PAGE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
+import Container from '../../components/shared/Container/Container';
+import Pagination from '../../components/shared/Pagination/Pagination';
+import FAQCard from './FAQCard/FAQCard';
+
+let cx = classNames.bind(styles);
 
 const FAQPage = () => {
 
@@ -16,70 +19,165 @@ const FAQPage = () => {
   const [requestsCount, setRequestsCount] = useState(0);
   const [page, setPage] = useState(1);
 
-  const [sphere, setSphere] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [statusQuery, setStatusQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [districtQuery, setDistrictQuery] = useState('');
+  const [topicQuery, setTopicQuery] = useState('');
+  const [typeQuery, setTypeQuery] = useState('');
 
-  const onSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  }
-
-  const getRequests = () => {
-    // fetchRequestsWithPagination(REQUESTS_PER_ONE_PAGE, page).then(data => {
-    //   setRequests(data);
-    // });
-    fetchPopularRequests().then(data => setRequests(data))
-  }
+  const [sidebarToggle, setSidebarToggle] = useState(false);
 
   useEffect(() => {
-    getRequests();
-  }, [page])
+    let unmounted = false;
+    fetchPopularRequests(
+      typeQuery, 
+      topicQuery, 
+      districtQuery,
+      searchQuery, 
+      '', 
+      '')
+    .then(data => {
+      if (!unmounted) {
+        setRequestsCount(data.length);
+      }
+    });
+    return () => unmounted = true;
+  }, [searchQuery, districtQuery, topicQuery, typeQuery])
 
   useEffect(() => {
-    fetchPopularRequests().then(data => setRequestsCount(data.length))
-  }, [])
+    let unmounted = false;
+    fetchPopularRequests(
+      typeQuery, 
+      topicQuery, 
+      districtQuery,
+      searchQuery, 
+      page, 
+      REQUESTS_PER_ONE_PAGE)
+    .then(data => {
+      if (!unmounted) {
+        setRequests(data);
+      }
+    });
+    return () => unmounted = true;
+  }, [page, searchQuery, districtQuery, topicQuery, typeQuery])
+
+  useEffect(() => {
+    setPage(1);
+  }, [searchQuery, districtQuery, topicQuery, typeQuery]);
 
   return ( 
-    <Container>
-      <div className={styles.inner}>
-        <h2>Часто задаваемые вопросы</h2>
-        <div className={styles.navigation}>
-          <div className={styles.dropdown}>
-            <Select 
-              placeholder={'Выберите сферу вопроса'}
-              options={REQUEST_TOPICS}
-                value={sphere}
-                setValue={setSphere}
+    <>
+      <div className={cx('sidebar', {'expanded': sidebarToggle}, {'not_expanded': !sidebarToggle})}>
+          <div className={styles.sidebar_inner}>
+            <h2>Вопросы</h2>
+            <Input
+              className="page_search-input"
+              placeholder="Поиск"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+            />
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Микрорайон</div>
+              <Select
+                options={REQUEST_DISTRICTS}
+                value={districtQuery}
+                setValue={setDistrictQuery}
+                placeholder={"Район обращения"}
               />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Сфера обращения</div>
+              <Select
+                options={REQUEST_TOPICS}
+                value={topicQuery}
+                setValue={setTopicQuery}
+                placeholder={"Сфера деятельности"}
+              />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Тип обращения</div>
+              <Select
+                options={REQUEST_TYPES}
+                value={typeQuery}
+                setValue={setTypeQuery}
+                placeholder={"Тип обращения"}
+              />
+            </div>
           </div>
-          <Input 
-            className='page_search-input'
-            placeholder='Поиск'
-            value={searchQuery}
-            onChange={onSearchChange}
-            />
+          <div 
+            role={'button'}
+            onClick={() => setSidebarToggle(false)}
+            className={styles.toggle_close}
+            ><FiChevronLeft />
+          </div>
         </div>
-        <div className={styles.outer}>
-          {requests.map((n) => {
-            return <FAQCard 
-              key={n.id}
-              id={n.id} 
-              text={n.text} 
-              appealDate={n.appealDate}
-              responsibleName={n.responsibleName} 
-              response={n.response} 
-              responseDate={n.responseDate}
-              filesNames={n.filesNames}
+    <Container>
+      <div className={styles.container}>
+        <h2>Вопросы</h2>
+        <div className={styles.selectors}>
+          <div 
+            role={'button'}
+            onClick={() => setSidebarToggle(true)}
+            className={styles.toggle_open}
+            ><FiChevronRight />
+          </div>
+          <div>
+
+          </div>
+        </div>
+        <div className={styles.wrapper}>  
+          <div className={styles.filtration}>
+            <Input
+              className="page_search-input"
+              placeholder="Поиск"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
             />
-          })}
-          <Pagination
-            page={page}
-            setPage={setPage}
-            totalCount={requestsCount}
-            itemsPerPage={REQUESTS_PER_ONE_PAGE}
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Микрорайон</div>
+              <Select
+                options={REQUEST_DISTRICTS}
+                value={districtQuery}
+                setValue={setDistrictQuery}
+                placeholder={"Район обращения"}
+              />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Сфера обращения</div>
+              <Select
+                options={REQUEST_TOPICS}
+                value={topicQuery}
+                setValue={setTopicQuery}
+                placeholder={"Сфера деятельности"}
+              />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Тип обращения</div>
+              <Select
+                options={REQUEST_TYPES}
+                value={typeQuery}
+                setValue={setTypeQuery}
+                placeholder={"Тип обращения"}
+              />
+            </div>
+          </div>
+          <div className={styles.main}>
+            <div className={styles.requests}>
+              {requests.map((req) => {
+                return <FAQCard requestData={req} key={req.id}/>
+              })}
+            </div>
+            <Pagination 
+              page={page}
+              setPage={setPage}
+              totalCount={requestsCount}
+              itemsPerPage={REQUESTS_PER_ONE_PAGE}
             />
+          </div>
         </div>
       </div>
     </Container>
+    </>
   );
 }
 

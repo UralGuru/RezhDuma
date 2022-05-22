@@ -10,6 +10,9 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import styles from './Requests.module.css';
 import Pagination from '../../../components/shared/Pagination/Pagination';
 import axios from 'axios';
+import classNames from 'classnames/bind';
+
+let cx = classNames.bind(styles);
 
 const Requests = () => {
 
@@ -22,6 +25,8 @@ const Requests = () => {
   const [districtQuery, setDistrictQuery] = useState('');
   const [topicQuery, setTopicQuery] = useState('');
   const [typeQuery, setTypeQuery] = useState('');
+
+  const [sidebarToggle, setSidebarToggle] = useState(false);
 
   useEffect(() => {
     let unmounted = false;
@@ -64,12 +69,58 @@ const Requests = () => {
   }, [statusQuery, searchQuery, districtQuery, topicQuery, typeQuery]);
 
   return ( 
+    <>
+      <div className={cx('sidebar', {'expanded': sidebarToggle}, {'not_expanded': !sidebarToggle})}>
+          <div className={styles.sidebar_inner}>
+            <h2>Вопросы</h2>
+            <Input
+              className="page_search-input"
+              placeholder="Поиск"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+            />
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Микрорайон</div>
+              <Select
+                options={REQUEST_DISTRICTS}
+                value={districtQuery}
+                setValue={setDistrictQuery}
+                placeholder={"Район обращения"}
+              />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Сфера обращения</div>
+              <Select
+                options={REQUEST_TOPICS}
+                value={topicQuery}
+                setValue={setTopicQuery}
+                placeholder={"Сфера деятельности"}
+              />
+            </div>
+            <div className={styles.filter_select}>
+              <div className={styles.filter_header}>Тип обращения</div>
+              <Select
+                options={REQUEST_TYPES}
+                value={typeQuery}
+                setValue={setTypeQuery}
+                placeholder={"Тип обращения"}
+              />
+            </div>
+          </div>
+          <div 
+            role={'button'}
+            onClick={() => setSidebarToggle(false)}
+            className={styles.toggle_close}
+            ><FiChevronLeft />
+          </div>
+        </div>
     <Container>
       <div className={styles.container}>
         <h2>Вопросы</h2>
         <div className={styles.selectors}>
           <div 
             role={'button'}
+            onClick={() => setSidebarToggle(true)}
             className={styles.toggle_open}
             ><FiChevronRight />
           </div>
@@ -138,6 +189,7 @@ const Requests = () => {
         </div>
       </div>
     </Container>
+    </>
   );
 }
 

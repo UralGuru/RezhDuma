@@ -22,12 +22,10 @@ const RequestCard = ({id}) => {
   const [requestData, setRequestData] = useState({});
 
   useEffect(() => {
-    console.log('сделан запрос');
     getRequestById(id).then((data) => {
       setRequestData(data);
     });
   }, [modalIsOpen]);
-
 
   return ( 
     <div className={styles.request_card}>
