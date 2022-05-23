@@ -29,17 +29,20 @@ const Header = () => {
             <div className={styles.logo__text}><div>Официальный сайт<br/>города Реж</div></div> 
           </a>
           <div className={styles.profile}>
+            {userStore.User?.id ?
             <button className={styles.profile__text} onClick={() => setIsExpanded(!isExpanded)}>
               <img className={styles.profile__image} src={PROFILE_ICON}/>
-              {userStore.User?.id 
-              ? 
               <div className={styles.authorizated}>
                 <div>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
                 <div>{isExpanded ? <RiArrowUpSLine/> : <RiArrowDownSLine/>}</div>
-              </div>
-              : 
-              <div onClick={() => collapseMenu(() => navigate(LOGIN_ROUTE))}>{'Авторизоваться'}</div>} 
+              </div> 
             </button>
+            :
+            <button className={styles.profile__text} onClick={() => collapseMenu(() => navigate(LOGIN_ROUTE))}>
+              <img className={styles.profile__image} src={PROFILE_ICON}/>
+              <div>{'Авторизоваться'}</div>
+            </button>
+            } 
             {/* {userStore.User.firstName && 
             <a className={styles.profile__link} onClick={() => userStore.logout()}>
               <div className={styles.profile__text}>
@@ -53,7 +56,7 @@ const Header = () => {
             {userStore.User?.id && <>
                 <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
                 <button onClick={() => collapseMenu(() => navigate())} className={styles.menu_item}>Личные данные</button>
-                <button onClick={() => collapseMenu(() => userStore.logout())} className={styles.menu_item}>Выйти</button>
+                <button onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выйти</button>
               </>
             }
           </div>

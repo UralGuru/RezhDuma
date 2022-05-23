@@ -36,7 +36,7 @@ const NewsItem = () => {
       setNews(data);
       setIsLoading(false);
     })
-  }, [])
+  }, [editIsOpen])
 
   if (isLoading) {
     return (

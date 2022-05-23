@@ -33,7 +33,7 @@ const NewsPage = (props) => {
         fetchNews(NEWS_PER_ONE_PAGE, page, searchQuery).then(data => {
             setNews(data);
         });
-    }, [page, searchQuery])
+    }, [page, searchQuery, closeModal])
 
     useEffect(() => {
         fetchNews('', '', searchQuery).then(data => {

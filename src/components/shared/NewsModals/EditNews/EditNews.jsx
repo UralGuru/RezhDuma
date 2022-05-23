@@ -33,7 +33,7 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
     fetchOneNews(id).then((data) => {
       setNewsData(data);
     })
-  }, []);
+  }, [closeModal]);
 
   return ( 
     <Modal
@@ -46,7 +46,7 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
           title: newsData.title,
           text: newsData.text,
           event: 0,
-          files: newsData.files
+          files: ''
         }}
         validationSchema={NewsSchema}
         validateOnBlur={true}
@@ -94,6 +94,7 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
                 options={NEWS_TYPE}
               />
               <FilesField 
+                accept='image/*'
                 name='files'
                 type='file'
                 onBlur={formik.handleBlur}

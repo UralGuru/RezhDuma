@@ -56,7 +56,7 @@ const Profile = () => {
             <InfoCard 
               title={"Обсуждения"}
               description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+              onClick={() => {}}/>
             <InfoCard 
               title={"Голосования"}
               description={"Контроль за ходом рассмотрения обращения"}

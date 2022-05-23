@@ -34,7 +34,9 @@ import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
 import DocumentsItem from "./pages/DocumentsItem/DocumentsItem";
 import DocumentsItemLayout from "./pages/DocumentsItem/DocumentsItemLayout/DocumentsItemLayout";
-import UserRequests from './pages/UserRequests/UserRequests';
+import UserVotings from './pages/UserPages/UserVotings/UserVotings';
+import Votings from './pages/AdminPages/Votings/Votings';
+import UserRequests from './pages/UserPages/UserRequests/UserRequests';
 
 
 
@@ -79,11 +81,13 @@ function App() {
                     <Route element={<AuthRequired />}>
                         <Route path="request" element={<Request />}/>
                         <Route path="requests" element={<UserRequests/>}/>
+                        <Route path="votings" element={<UserVotings/>}/>
                     </Route>
 
                     {/* admin routes */}
                     <Route path="admin/" element={<AdminRequired />}>
                         <Route path="requests" element={<Requests/>}/>
+                        <Route path="votings" element={<Votings/>}/>
                     </Route>
 
                     <Route path="*" element={<MainPage />} />

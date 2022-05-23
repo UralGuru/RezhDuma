@@ -5,7 +5,6 @@ import { useField } from 'formik';
 
 const FilesField = ( props ) => {
   const field = useField(props.name);
-
   return ( 
     <div className={styles.files_form}>
       <label className={styles.field_label}>
@@ -16,6 +15,7 @@ const FilesField = ( props ) => {
           name={props.name}
           type={props.type}
           onChange={props.onChange}
+          accept={props.accept}
           multiple
         />
       </label>

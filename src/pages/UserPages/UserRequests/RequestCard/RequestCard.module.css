@@ -1,0 +1,106 @@
+.request_card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 1px #CECFD0 solid;
+  padding-bottom: 2rem;
+}
+
+.request {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.request_header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  color: #7D7C84;
+  gap: 1rem;
+}
+
+.request_date {
+  font-size: .75rem;
+}
+
+.request_text {
+  text-indent: 2rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.answered {
+  padding: .25rem .75rem;
+  border-radius: .5rem;
+  font-size: 0.75rem;
+  color: #1E6D98;
+  border: 1px solid #1E6D98;
+}
+
+.waiting {
+  padding: .25rem .75rem;
+  border-radius: .5rem;
+  font-size: 0.75rem;
+  color: #7D7C84;
+  border: 1px solid #7D7C84;
+}
+
+.edit_button {
+  margin-right: auto;
+  color: #1E6D98;
+}
+
+.request_topics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .5rem;
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+.request_topic {
+  padding: .25rem .75rem;
+  border: 1px solid #1a6c987d;
+  border-radius: .5rem;
+  color: #1A6B98;
+}
+
+.response {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.response_header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.response_date {
+  font-size: .875rem;
+  color: #7D7C84;
+}
+
+.response_author {
+  margin-right: auto;
+  font-weight: 700;
+  padding-bottom: .125rem;
+  border-bottom: 1px solid #82A4B6;
+}
+
+.response_text {
+  padding-left: 2rem;
+  font-size: .9rem;
+  color: #7D7C84;
+  word-wrap: break-word;
+  word-break: break-all;
+}

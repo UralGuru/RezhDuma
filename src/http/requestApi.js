@@ -5,6 +5,14 @@ export const createRequest = async (data, userId) => {
   await $authHost.post(`api/appeals/user/${userId}`, data);
 }
 
+export const editRequest = async (data, userId, requestId) => {
+  await $authHost.patch(`api/appeals/user/${userId}?appeal=${requestId}`, data);
+}
+
+export const deleteRequest = async (userId, requestId) => {
+  await $authHost.delete(`api/appeals/user/${userId}?appeal=${requestId}`);
+}
+
 export const fetchPopularRequests = async (type, topic, district, find, page, count) => {
   const { data } = await $host.get(`api/appeals/popular?` + 
     (type && type != '' ? `type=${type}&` : '') +

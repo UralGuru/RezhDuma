@@ -1,0 +1,11 @@
+.form_modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
