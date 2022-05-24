@@ -31,7 +31,7 @@ const UserRequests = () => {
 
   useEffect(() => {
     let unmounted = false;
-    fetchUserRequests(userStore.User?.id, typeQuery, topicQuery, districtQuery, statusQuery, searchQuery, '', '', userStore.User.id)
+    fetchUserRequests(typeQuery, topicQuery, districtQuery, statusQuery, searchQuery, '', '')
     .then(data => {
       if (!unmounted) {
         setRequestsCount(data.length);
@@ -43,15 +43,14 @@ const UserRequests = () => {
 
   useEffect(() => {
     let unmounted = false;
-    fetchUserRequests(userStore.User?.id, 
+    fetchUserRequests(
       typeQuery, 
       topicQuery, 
       districtQuery, 
       statusQuery, 
       searchQuery, 
       page, 
-      REQUESTS_PER_ONE_PAGE, 
-      userStore.User.id)
+      REQUESTS_PER_ONE_PAGE)
     .then(data => {
       if (!unmounted) {
         setRequests(data);
@@ -167,7 +166,7 @@ const UserRequests = () => {
               {requests.map((req) => {
                 return <RequestCard 
                   key={req.id}
-                  requestData={req}
+                  id={req.id}
                 />
               })}
             </div>

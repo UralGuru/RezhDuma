@@ -55,7 +55,7 @@ const Request = () => {
           for (let i = 0; i < values.files.length; i++) {
             request.append("files", values.files[i]);
           }
-          createRequest(request, userStore.User.id).then((data) => {
+          createRequest(request).then((data) => {
             setStatus('sended');
             openModal();
             resetForm({values: ''});

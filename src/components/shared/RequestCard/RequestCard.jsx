@@ -31,9 +31,9 @@ const RequestCard = ({id}) => {
 
   return ( 
     <div className={styles.request_card}>
-      <button onClick={() => navigate('/admin/requestitem/'+ id)}>Посмотреть</button>
       <div className={styles.request}>
         <div className={styles.request_header}>
+          <button className={styles.request_link} onClick={() => navigate('/admin/requestitem/'+ id)}>Посмотреть</button>
           <div className={styles.request_date}>
             {moment(requestData?.appealDate).format('DD.MM.YYYY')}
           </div>

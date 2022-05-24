@@ -5,7 +5,7 @@ import { deleteRequest } from '../../../../../../http/requestApi';
 
 import styles from './DeleteModal.module.css';
 
-const DeleteModal = ({userId, reqId, modalIsOpen, closeModal, closeNextModal}) => {
+const DeleteModal = ({reqId, modalIsOpen, closeModal, closeNextModal}) => {
   Modal.setAppElement('#root');
   const customStyles = {
     content: {
@@ -20,7 +20,7 @@ const DeleteModal = ({userId, reqId, modalIsOpen, closeModal, closeNextModal}) =
   };
 
   const deleteAndClose = () => {
-    deleteRequest(userId, reqId).then(data => {
+    deleteRequest(reqId).then(data => {
       closeModal();
       closeNextModal();
     })

@@ -1,16 +1,21 @@
 import { $authHost, $host } from ".";
 
 
-export const createRequest = async (data, userId) => {
-  await $authHost.post(`api/appeals/user/${userId}`, data);
+export const createRequest = async (data) => {
+  await $authHost.post(`api/appeals/user`, data);
 }
 
-export const editRequest = async (data, userId, requestId) => {
-  await $authHost.patch(`api/appeals/user/${userId}?appeal=${requestId}`, data);
+export const editRequest = async (data, requestId) => {
+  await $authHost.patch(`api/appeals/user/?appeal=${requestId}`, data);
 }
 
-export const deleteRequest = async (userId, requestId) => {
-  await $authHost.delete(`api/appeals/user/${userId}?appeal=${requestId}`);
+export const deleteRequest = async (requestId) => {
+  await $authHost.delete(`api/appeals/user/?appeal=${requestId}`);
+}
+
+export const getUserRequestById = async (requestId) => {
+  const {data} = await $authHost.get(`api/appeals/user/${requestId}`);
+  return data;
 }
 
 export const fetchPopularRequests = async (type, topic, district, find, page, count) => {
@@ -36,8 +41,8 @@ export const fetchRequests = async (type, topic, district, answered, find, page,
   return data;
 }
 
-export const fetchUserRequests = async (userId, type, topic, district, answered, find, page, count) => {
-  const { data } = await $authHost.get(`api/appeals/user/${userId}?` + 
+export const fetchUserRequests = async (type, topic, district, answered, find, page, count) => {
+  const { data } = await $authHost.get(`api/appeals/user/?` + 
   (type && type != '' ? `type=${type}&` : '') +
   (topic && topic != '' ? `topic=${topic}&` : '') +
   (district && district != '' ? `district=${district}&` : '') +

@@ -62,7 +62,7 @@ const RequestModal = ({modalIsOpen, closeModal, requestData}) => {
           for (let i = 0; i < values.files.length; i++) {
             request.append("files", values.files[i]);
           }
-          editRequest(request, userStore.User.id, requestData.id).then((data) => {
+          editRequest(request, requestData.id).then((data) => {
             closeModal()
           })
         }}
