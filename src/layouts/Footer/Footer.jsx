@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
 import { DOCUMENTS_ROUTE, HISTORY_ROUTE, NEWS_ROUTE, POLLS_ROUTE, PROJECTS_ROUTE, TELEGRAM_ICON, VK_ICON, VOTINGS_ROUTE } from '../../utils/constants';
-
+import {FaTelegramPlane, FaTiktok} from 'react-icons/fa';
 
 import styles from './Footer.module.css';
 
@@ -18,8 +18,8 @@ function Footer() {
             {"Официальный сайт города Реж"}
           </div>
           <div className={styles.media_icons}>
-            <a className={styles.media_icon} href="/"><img src={VK_ICON}/></a>
-            <a className={styles.media_icon} href="/"><img src={TELEGRAM_ICON}/></a>
+            <a className={styles.media_icon} href="/"><FaTiktok/></a>
+            <a className={styles.media_icon} href="/"><FaTelegramPlane /></a>
           </div>
         </div>
 

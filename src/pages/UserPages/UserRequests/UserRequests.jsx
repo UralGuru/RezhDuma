@@ -64,7 +64,7 @@ const UserRequests = () => {
     <>
       <div className={cx('sidebar', {'expanded': sidebarToggle}, {'not_expanded': !sidebarToggle})}>
           <div className={styles.sidebar_inner}>
-            <h2>Вопросы</h2>
+            <h2>Мои вопросы</h2>
             <Input
               className="page_search-input"
               placeholder="Поиск"
@@ -108,7 +108,7 @@ const UserRequests = () => {
         </div>
     <Container>
       <div className={styles.container}>
-        <h2>Вопросы</h2>
+        <h2>Мои вопросы</h2>
         <div className={styles.selectors}>
           <div 
             role={'button'}

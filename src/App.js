@@ -37,6 +37,7 @@ import DocumentsItemLayout from "./pages/DocumentsItem/DocumentsItemLayout/Docum
 import UserVotings from './pages/UserPages/UserVotings/UserVotings';
 import Votings from './pages/AdminPages/Votings/Votings';
 import UserRequests from './pages/UserPages/UserRequests/UserRequests';
+import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
 
 
 
@@ -79,6 +80,8 @@ function App() {
                     
                     {/* authorizated routes */}
                     <Route element={<AuthRequired />}>
+                        <Route path="requestitem" element={<UserRequestItemLayout />}>
+                            <Route path=":id" element={<UserRequestItem />}/></Route>
                         <Route path="request" element={<Request />}/>
                         <Route path="requests" element={<UserRequests/>}/>
                         <Route path="votings" element={<UserVotings/>}/>
@@ -86,8 +89,11 @@ function App() {
 
                     {/* admin routes */}
                     <Route path="admin/" element={<AdminRequired />}>
+                        <Route path="requestitem" element={<AdminRequestItemLayout />}>
+                                <Route path=":id" element={<AdminRequestItem />}/></Route>
                         <Route path="requests" element={<Requests/>}/>
                         <Route path="votings" element={<Votings/>}/>
+                        <Route path='create_voting' element={<CreateVoting />}/>
                     </Route>
 
                     <Route path="*" element={<MainPage />} />

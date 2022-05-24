@@ -4,7 +4,7 @@ import Button from '../../components/shared/Button/Button';
 
 import styles from './Request.module.css';
 import { useNavigate } from 'react-router-dom';
-import { FAQ_ROUTE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
+import { FAQ_ROUTE, REQUESTS_ROUTE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
 import { createRequest } from '../../http/requestApi';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -13,19 +13,19 @@ import { Formik, Form } from 'formik';
 import SelectField from '../../components/shared/Forms/SelectField/SelectField';
 import TextAreaField from '../../components/shared/Forms/TextAreaField/TextAreaField';
 import FilesField from '../../components/shared/Forms/FilesField/FilesField';
+import Modal from 'react-modal/lib/components/Modal';
 
 const Request = () => {
+
+  Modal.setAppElement('#root');
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   const { userStore } = useContext(Context);
   const navigate = useNavigate();
   const [status, setStatus] = useState('')
-
-  if (status == 'sending') {
-    return <div className={styles.outer}>Обращение отправляется...</div>
-  }
-
-  if (status == 'sended') {
-    return <div className={styles.outer}>Обращение отправлено...</div>
-  }
 
   if (status == 'error') {
     return <div className={styles.outer}>При отправке обращения возникла ошибка...</div>
@@ -45,7 +45,7 @@ const Request = () => {
         validateOnBlur={true}
         validateOnChange={false}
         
-        onSubmit={(values) => {
+        onSubmit={(values, {resetForm}) => {
           setStatus('sending');
           const request = new FormData();
           request.append("district", values.district);
@@ -57,6 +57,8 @@ const Request = () => {
           }
           createRequest(request, userStore.User.id).then((data) => {
             setStatus('sended');
+            openModal();
+            resetForm({values: ''});
           }).catch((data) => {
             setStatus('error')
           })
@@ -121,6 +123,37 @@ const Request = () => {
         </Form>
         )}
         </Formik>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={{
+            overlay: {
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.4)'
+            },
+            content: {
+              top: '50%',
+              left: '50%',
+              right: 'auto',
+              bottom: 'auto',
+              borderRadius: '1rem',
+              marginRight: '-50%',
+              transform: 'translate(-50%, -50%)',
+            },
+          }}
+        >
+          <div className={styles.submit_modal}>
+            <div className={styles.submit_modal_header}>Ваше обращение отправлено</div>
+            <div className={styles.submit_modal_content}>
+              <div>Посмотреть статус обращения можно во вкладке</div>
+              <button onClick={() => navigate(REQUESTS_ROUTE)}>Ваши вопросы и заявки</button>
+            </div>
+          </div>
+        </Modal>
     </Container>
   );
 }

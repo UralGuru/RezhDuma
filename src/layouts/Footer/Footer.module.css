@@ -23,10 +23,16 @@
   flex-direction: row;
   justify-content: space-between;
   justify-items: center;
+  gap: 1rem
 }
 
 .media_icon {
-  margin-left: 1rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.media_icon:hover {
+  color: black;
 }
 
 .footer_row {

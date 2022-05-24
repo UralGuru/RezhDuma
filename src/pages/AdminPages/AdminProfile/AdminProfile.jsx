@@ -5,7 +5,7 @@ import { Context } from '../../..';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import InfoCard from '../../../components/shared/InfoCard/InfoCard';
-import { REGISTRATION_ROUTE, ADMIN_REQUESTS_ROUTE, FAQ_ROUTE } from '../../../utils/constants';
+import { REGISTRATION_ROUTE, ADMIN_REQUESTS_ROUTE, FAQ_ROUTE, ADMIN_VOTINGS_ROUTE } from '../../../utils/constants';
 
 import styles from './AdminProfile.module.css';
 
@@ -46,9 +46,9 @@ function AdminProfile() {
               description={"Контроль за ходом рассмотрения обращения"}
               onClick={() => navigate(ADMIN_REQUESTS_ROUTE)}/>
             <InfoCard 
-              title={"Голосования"}
-              description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => navigate(REGISTRATION_ROUTE)}/>
+              title={"Голосования и опросы"}
+              description={"Контроль за ходом голосования"}
+              onClick={() => navigate(ADMIN_VOTINGS_ROUTE)}/>
           </div>
         </Container>
       </div>

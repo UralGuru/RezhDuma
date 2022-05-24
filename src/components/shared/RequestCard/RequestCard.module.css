@@ -48,6 +48,16 @@
   color: #1A6B98;
 }
 
+.request_files {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.request_file {
+  display: block;
+}
+
 .response {
   display: flex;
   flex-direction: column;

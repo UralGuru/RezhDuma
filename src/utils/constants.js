@@ -8,6 +8,8 @@ export const REQUESTS_ROUTE = "/requests";
 export const FAQ_ROUTE = "/faq";
 export const ADMIN_REQUESTS_ROUTE = "/admin/requests";
 export const ADMIN_PROFILE_ROUTE = "/admin/profile";
+export const ADMIN_VOTINGS_ROUTE = "/admin/votings";
+export const ADMIN_CREATE_VOTING_ROUTE = "/admin/create_voting";
 
 
 export const NEWS_ROUTE = "/news";
