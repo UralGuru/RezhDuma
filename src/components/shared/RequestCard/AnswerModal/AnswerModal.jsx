@@ -7,8 +7,8 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { createAnswerToRequest, getRequestById } from '../../../../http/requestApi';
 import { Context } from '../../../..';
-import TextAreaField from '../../Forms/TextAreaField/TextAreaField';
-import Button from '../../Button/Button';
+import TextAreaField from '../../../../components/shared/Forms/TextAreaField/TextAreaField';
+import Button from '../../../../components/shared/Button/Button';
 
 const AnswerModal = ({requestData, modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');

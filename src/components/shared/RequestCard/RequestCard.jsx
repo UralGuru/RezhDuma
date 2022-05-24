@@ -10,8 +10,10 @@ import TextAreaField from '../Forms/TextAreaField/TextAreaField';
 import { Context } from '../../..';
 import { createAnswerToRequest, getRequestById } from '../../../http/requestApi';
 import AnswerModal from './AnswerModal/AnswerModal';
+import { useNavigate } from 'react-router-dom';
 
 const RequestCard = ({id}) => {
+  const navigate = useNavigate();
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
@@ -29,6 +31,7 @@ const RequestCard = ({id}) => {
 
   return ( 
     <div className={styles.request_card}>
+      <button onClick={() => navigate('/admin/requestitem/'+ id)}>Посмотреть</button>
       <div className={styles.request}>
         <div className={styles.request_header}>
           <div className={styles.request_date}>
@@ -49,7 +52,7 @@ const RequestCard = ({id}) => {
         <div className={styles.button_column}>
           <Button
             className='primary-outline'
-            onClick={openModal}
+            onClick={requestData?.response ? () => {} : openModal}
             >{requestData?.response ? 'Рассмотрено' : 'Ответить'}
           </Button>
         </div>

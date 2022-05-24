@@ -38,6 +38,10 @@ import UserVotings from './pages/UserPages/UserVotings/UserVotings';
 import Votings from './pages/AdminPages/Votings/Votings';
 import UserRequests from './pages/UserPages/UserRequests/UserRequests';
 import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
+import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
+import UserRequestItemLayout from './pages/UserPages/UserRequestItem/UserRequestItemLayout/UserRequestItemLayout';
+import AdminRequestItemLayout from './pages/AdminPages/AdminRequestItem/AdminRequestItemLayout/AdminRequestItemLayout';
+import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
 
 
 

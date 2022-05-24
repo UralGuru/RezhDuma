@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { Carousel } from 'react-carousel-minimal';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import styles from './UserRequestItem.module.css';
@@ -17,12 +16,12 @@ const UserRequestItem = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [requests, setRequests] = useState({});
 
-  useEffect(() => {
-    fetchOneNews(params.id).then((data) => {
-      setNews(data);
-      setIsLoading(false);
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetchOneNews(params.id).then((data) => {
+  //     setNews(data);
+  //     setIsLoading(false);
+  //   })
+  // }, [])
 
   if (isLoading) {
     return (
@@ -36,4 +35,4 @@ const UserRequestItem = () => {
   );
 }
 
-export default observer(NewsItem);
+export default observer(UserRequestItem);
