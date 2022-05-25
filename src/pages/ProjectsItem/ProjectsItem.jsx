@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 import styles from './ProjectsItem.module.css';
 import {fetchOneProject} from "../../http/projectsApi";
+import Container from '../../components/shared/Container/Container';
 
 
 
@@ -34,7 +35,8 @@ const ProjectsItem = () => {
     }
 
 
-    return (<>
+    return (
+    <Container>
         <ul className={styles.breadcrumb}>
             <li>
                 <div className={styles.notActive} onClick={() => navigate('/')}>Главная</div>
@@ -78,7 +80,8 @@ const ProjectsItem = () => {
                     }}
                 />}
             <div className={styles.description}>{projects.text}</div>
-        </div></>
+        </div>
+    </Container>
     );
 }
 

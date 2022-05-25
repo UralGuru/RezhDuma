@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
-import { ADMIN_CREATE_VOTING_ROUTE } from '../../../utils/constants';
+import Pagination from '../../../components/shared/Pagination/Pagination';
+import VotingCard from '../../../components/shared/VotingCard/VotingCard';
+import { fetchAllVotings } from '../../../http/votingsApi';
+import { ADMIN_CREATE_VOTING_ROUTE, VOTINGS_PER_ONE_PAGE } from '../../../utils/constants';
 
 import styles from './Votings.module.css'
 
 const Votings = () => {
   const navigate = useNavigate();
+
+  const [votings, setVotings] = useState([]);
+  const [votingsCount, setVotingsCount] = useState(0);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    fetchAllVotings().then((data) => {
+      setVotingsCount(data.length);
+    })
+  }, [])
+
+  useEffect(() => {
+    fetchAllVotings(page, VOTINGS_PER_ONE_PAGE).then((data) => {
+      setVotings(data);
+    });
+  }, [page])
 
   return ( 
     <Container>
@@ -16,11 +35,27 @@ const Votings = () => {
           <h2>Опросы и голосования</h2>
           <Button
             className='primary'
-            onClick={() => navigate(ADMIN_CREATE_VOTING_ROUTE)}
+            onClick={() => navigate('create')}
           >Создать</Button>
         </div>  
         <div className={styles.main}>
-          {/* тут будут другие голосования */}
+          <div className={styles.votings}>
+            {votings.map((voting) => {
+              return (<VotingCard 
+                  key={voting.id}
+                  id={voting.id}
+                  topic={voting.topic}
+                  votingDate={voting.votingDate}
+                  expirationDate={voting.expirationDate}
+              />)
+            })}
+          </div>
+          <Pagination 
+            page={page}
+            setPage={setPage}
+            totalCount={votingsCount}
+            itemsPerPage={VOTINGS_PER_ONE_PAGE}
+          />
         </div>
       </div>
     </Container>

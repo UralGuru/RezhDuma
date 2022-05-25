@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  align-items: flex-start;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 20px rgba(40, 82, 132, 0.24);
+  border-radius: 2rem;
+  padding: 2em;
+}
+
+.topic {
+  font-weight: 600;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.dates {
+  font-weight: 500;
+  font-size: .75rem;
+  color: #818181;
+}

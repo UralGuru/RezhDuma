@@ -23,13 +23,13 @@ const NewsCard = ({
       <div className={styles.card_date}>{moment(date).format('DD.MM.YYYY')}</div>
       <div className={styles.card_content}>
         {imageSrc && 
-        <div className={styles.card_img} onClick={() => navigate('/newsitem/' + id)}>
+        <div className={styles.card_img} onClick={() => navigate(`${id}`)}>
           <img src={imageSrc} alt='Не удалось отобразить изображение'/>
         </div>}
         <div className={styles.card_text}>
-          <div className={styles.card_title} onClick={() => navigate('/newsitem/' + id)}>{title}</div>
+          <div className={styles.card_title} onClick={() => navigate(`${id}`)}>{title}</div>
           <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
-          <div className={styles.card_link}><Button className='secondary-outline' onClick={() => navigate('/newsitem/' + id)}>Читать далее</Button></div>
+          <div className={styles.card_link}><Button className='secondary-outline' onClick={() => navigate(`${id}`)}>Читать далее</Button></div>
         </div>
       </div>
     </div>

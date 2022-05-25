@@ -16,10 +16,10 @@ const DocumentsCard = ({ id, title, description, files, date }) => {
         <div className={styles.card}>
             <div className={styles.card_content}>
                 <div className={styles.card_text}>
-                    <div className={styles.card_title} onClick={() => navigate('/documentsitem/' + id)}>{title}</div>
+                    <div className={styles.card_title} onClick={() => navigate(`${id}`)}>{title}</div>
                     <div className={styles.card_description}>{description.slice(0, 100) + "..."}</div>
                     <div className={styles.card_link}>
-                        <Button className='secondary-outline' onClick={ () => navigate('/documentsitem/' + id) }>
+                        <Button className='secondary-outline' onClick={ () => navigate(`${id}`) }>
                           Подробнее
                         </Button>
                     </div>

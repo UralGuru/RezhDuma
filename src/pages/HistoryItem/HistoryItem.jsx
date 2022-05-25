@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 import styles from './HistoryItem.module.css';
 import {fetchOneHistory} from "../../http/historyApi";
+import Container from '../../components/shared/Container/Container';
 
 // получает новость из бэка по id переданному в роуте.
 
@@ -31,7 +32,7 @@ const HistoryItem = () => {
         )
     }
 
-    return (<>
+    return (<Container>
             <ul className={styles.breadcrumb}>
                 <li>
                     <div className={styles.notActive} onClick={() => navigate('/')}>Главная</div>
@@ -76,7 +77,7 @@ const HistoryItem = () => {
                     />}
                 <div className={styles.description}>{history.text}</div>
             </div>
-        </>
+        </Container>
     );
 }
 

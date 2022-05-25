@@ -4,7 +4,7 @@ import Container from '../../components/shared/Container/Container';
 
 import styles from './Profile.module.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { ADMIN_PROFILE_ROUTE, FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUESTS_ROUTE, REQUEST_ROUTE } from '../../utils/constants';
+import { ADMIN_PROFILE_ROUTE, FAQ_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, REQUESTS_ROUTE, CREATE_REQUEST_ROUTE } from '../../utils/constants';
 import InfoCard from '../../components/shared/InfoCard/InfoCard';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -33,7 +33,7 @@ const Profile = () => {
               </div>
               <Button
                 className='primary'
-                onClick={() => {navigate(REQUEST_ROUTE)}}
+                onClick={() => {navigate(CREATE_REQUEST_ROUTE)}}
                 >Отправить обращение
               </Button>
             </div>  
@@ -53,10 +53,6 @@ const Profile = () => {
               title={"Мои вопросы и заявки"}
               description={"Контроль за ходом рассмотрения обращения"}
               onClick={() => navigate(REQUESTS_ROUTE)}/>
-            <InfoCard 
-              title={"Обсуждения"}
-              description={"Контроль за ходом рассмотрения обращения"}
-              onClick={() => {}}/>
             <InfoCard 
               title={"Голосования"}
               description={"Контроль за ходом рассмотрения обращения"}

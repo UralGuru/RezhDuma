@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 import styles from './DocumentsItem.module.css';
 import {fetchOneDocuments} from "../../http/documentsApi";
+import Container from '../../components/shared/Container/Container';
 
 const DocumentsItem = () => {
 
@@ -45,7 +46,7 @@ const DocumentsItem = () => {
         })
 
 
-    return (<>
+    return (<Container>
             <ul className={styles.breadcrumb}>
                 <li>
                     <div className={styles.notActive} onClick={() => navigate('/')}>Главная</div>
@@ -63,7 +64,7 @@ const DocumentsItem = () => {
                 {data}
 
             </div>
-        </>
+        </Container>
     );
 }
 

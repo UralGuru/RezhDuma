@@ -3,13 +3,12 @@ export const ROOT_ROUTE = "/";
 export const LOGIN_ROUTE = "/login";
 export const REGISTRATION_ROUTE = "/registration";
 export const PROFILE_ROUTE = "/profile";
-export const REQUEST_ROUTE = "/request";
+export const CREATE_REQUEST_ROUTE = "/requests/create";
 export const REQUESTS_ROUTE = "/requests";
 export const FAQ_ROUTE = "/faq";
 export const ADMIN_REQUESTS_ROUTE = "/admin/requests";
 export const ADMIN_PROFILE_ROUTE = "/admin/profile";
 export const ADMIN_VOTINGS_ROUTE = "/admin/votings";
-export const ADMIN_CREATE_VOTING_ROUTE = "/admin/create_voting";
 
 
 export const NEWS_ROUTE = "/news";
@@ -75,5 +74,5 @@ export const NEWS_PER_ONE_PAGE = 5;
 export const DOCUMENTS_PER_ONE_PAGE = 9;
 export const PROJECTS_PER_ONE_PAGE = 5;
 export const HISTORY_PER_ONE_PAGE = 5;
-
 export const REQUESTS_PER_ONE_PAGE = 5;
+export const VOTINGS_PER_ONE_PAGE = 9;
