@@ -2,15 +2,10 @@ import React, { useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
 import { Context } from '.';
-import Button from './components/shared/Button/Button';
-import Footer from './layouts/Footer/Footer';
-import Header from './layouts/Header/Header';
-import NavBar from './layouts/NavBar/NavBar';
 import NewsPage from './pages/NewsPage/NewsPage'
 import DocumentsPage from './pages/DocumentsPage/DocumentsPage'
 import HistoryPage from './pages/HistoryPage/HistoryPage'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
-import PollsPage from './pages/PollsPage/PollsPage'
 import VotingsPage from './pages/VotingsPage/VotingsPage'
 import MainPage from './pages/MainPage/MainPage'
 import Login from './pages/Auth/Login';
@@ -27,13 +22,13 @@ import AdminRequired from './pages/AdminRequired/AdminRequired';
 import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
 import DocumentsItem from "./pages/DocumentsItem/DocumentsItem";
-import UserVotings from './pages/UserPages/UserVotings/UserVotings';
 import Votings from './pages/AdminPages/Votings/Votings';
 import UserRequests from './pages/UserPages/UserRequests/UserRequests';
 import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
 import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
 import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
 import VotingItem from './pages/AdminPages/VotingItem/VotingItem';
+import UserVotingItem from './pages/UserPages/UserVotingItem/UserVotingItem';
 
 
 
@@ -71,8 +66,8 @@ function App() {
                         <Route path=':id' element={<HistoryItem />}/>
                     </Route>
                     <Route path="votings">
-                        <Route index element={<VotingsPage />}/>
-                        <Route path=':id' element={<NewsItem />}/>
+                        <Route index element={<VotingsPage/>} />
+                        <Route path=":id" element={<UserVotingItem />}/>
                     </Route>
                     <Route path="projects">
                         <Route index element={<ProjectsPage />}/>
@@ -86,7 +81,6 @@ function App() {
                             <Route path=":id" element={<UserRequestItem />}/>
                             <Route path="create" element={<Request />}/>
                         </Route>
-                        <Route path="votings" element={<UserVotings/>}/>
                     </Route>
 
                     {/* admin routes */}

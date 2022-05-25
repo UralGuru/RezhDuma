@@ -10,16 +10,24 @@ const VotingCard = ({id, topic, votingDate, expirationDate}) => {
   return ( 
     <div className={styles.card}>
       <div className={styles.topic}>{topic}</div>
-      {expirationDate && 
+      {expirationDate ? 
       <div className={styles.dates}>
         <div className={styles.dates_title}>Срок проведения:</div>
         <div className={styles.date}>
           {`с ${moment(votingDate).format('DD.MM.YYYY')} по ${moment(expirationDate).format('DD.MM.YYYY')}`}
         </div>
-      </div>}
+      </div>
+      :
+      <div className={styles.dates}>
+        <div className={styles.dates_title}>Срок проведения:</div>
+        <div className={styles.date}>
+          {`от ${moment(votingDate).format('DD.MM.YYYY')}`}
+        </div>
+      </div>
+      }
       <div className={styles.button_row}>
         <Button
-          onClick={() => {navigate('/admin/votings/' + id)}}
+          onClick={() => {navigate(`${id}`)}}
           className="secondary-outline"
         >Открыть
         </Button>
