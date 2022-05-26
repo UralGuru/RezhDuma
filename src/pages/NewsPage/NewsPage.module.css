@@ -15,6 +15,12 @@
   gap: 2rem;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .news {
   display: flex;
   flex-direction: column;
@@ -25,13 +31,17 @@
 
 .nav_fields {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  
 }
 
-@media (max-width: 456px) {
+@media (max-width: 300px) {
   .header {
     flex-direction: column;
+    gap: 1rem;
   }
 
   .inner {

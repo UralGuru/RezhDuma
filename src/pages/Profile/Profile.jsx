@@ -9,6 +9,7 @@ import InfoCard from '../../components/shared/InfoCard/InfoCard';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import ProfileEntryCard from './ProfileEntryCard/ProfileEntryCard';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
 
 const Profile = () => {
@@ -16,7 +17,7 @@ const Profile = () => {
   const {userStore} = useContext(Context);
   
   return ( 
-    <>
+    <div className={styles.profile_outer}>
       <div className={styles.header_outer}>
         <Container>
           <div className={styles.header_inner}>
@@ -48,6 +49,7 @@ const Profile = () => {
       </div>
       <div className={styles.main}>
         <Container>
+          <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profile'}]}/> 
           <div className={styles.card_row}>
             <InfoCard 
               title={"Мои вопросы и заявки"}
@@ -60,7 +62,7 @@ const Profile = () => {
           </div>
         </Container>
       </div>
-    </>
+    </div>
    )
 }
 

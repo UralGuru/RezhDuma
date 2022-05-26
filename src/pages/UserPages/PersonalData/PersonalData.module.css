@@ -1,0 +1,26 @@
+.outer {
+  margin: 1.5rem 0 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main {
+  padding: 3rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  display: grid;
+  justify-content: flex-start;
+  grid-template-columns: auto auto;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  font-weight: 600;
+}
+
+.label {
+  color: #7E7E7E;
+}
+
+.data_value {
+  color: #585858;
+}

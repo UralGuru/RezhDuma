@@ -2,7 +2,7 @@ import { $authHost, $host } from ".";
 
 
 export const fetchAllVotings = async (page, count) => {
-  const {data} = await $authHost.get(`api/votes?` +
+  const {data} = await $host.get(`api/votes?` +
   (count && count !== '' ? `count=${count}&` : '') +
   (page && page !== '' ? `page=${page}&` : '')
   );
@@ -10,7 +10,7 @@ export const fetchAllVotings = async (page, count) => {
 }
 
 export const fetchVotingById = async (id) => {
-  const {data} = await $authHost.get(`api/votes/${id}`);
+  const {data} = await $host.get(`api/votes/${id}`);
   return data;
 }
 
@@ -21,5 +21,10 @@ export const deleteVotingById = async (id) => {
 
 export const createVoting = async (votingData) => {
   const {data} = await $authHost.post(`api/votes/admin`, votingData);
+  return data;
+}
+
+export const putVote = async (id, voteData) => {
+  const {data} = await $authHost.patch(`api/votes/user?vote=${id}`, voteData);
   return data;
 }

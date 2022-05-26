@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../..';
+import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import InfoCard from '../../../components/shared/InfoCard/InfoCard';
@@ -40,6 +41,7 @@ function AdminProfile() {
       </div>
       <div className={styles.main}>
         <Container>
+          <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profile'}]} /> 
           <div className={styles.card_row}>
             <InfoCard 
               title={"Вопросы и заявки"}

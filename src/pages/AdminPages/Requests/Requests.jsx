@@ -11,6 +11,7 @@ import styles from './Requests.module.css';
 import Pagination from '../../../components/shared/Pagination/Pagination';
 import axios from 'axios';
 import classNames from 'classnames/bind';
+import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 
 let cx = classNames.bind(styles);
 
@@ -116,6 +117,7 @@ const Requests = () => {
         </div>
     <Container>
       <div className={styles.container}>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profile'}, {'label': 'Вопросы', 'path': '/admin/requests'}]}/>
         <h2>Вопросы</h2>
         <div className={styles.selectors}>
           <div 

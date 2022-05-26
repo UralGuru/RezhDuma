@@ -11,6 +11,7 @@ import Button from "../../components/shared/Button/Button";
 import CreateNews from "../../components/shared/NewsModals/CreateNews/CreateNews";
 import { observer } from "mobx-react-lite";
 import { Context } from "../..";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 
 const NewsPage = (props) => {
     const {userStore} = useContext(Context);
@@ -48,21 +49,22 @@ const NewsPage = (props) => {
     return(
         <Container>
             <div className={styles.outer}>
-                <h2>Новости</h2>
-                <div className={styles.nav_fields}>
-                    <Input 
-                        className="page_search-input"
-                        placeholder="Поиск"
-                        value={searchQuery}
-                        onChange={onSearchChange}
-                    />
-                    <div>
+                <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Новости', 'path': '/news'}]}/> 
+                <div className={styles.header}>
+                    <h2>Новости</h2>
+                    <div className={styles.nav_fields}>
                         {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
                         <Button
                             className='primary'
                             onClick={openModal}
                         >Создать новость
                         </Button>}
+                        <Input 
+                            className="page_search-input"
+                            placeholder="Поиск"
+                            value={searchQuery}
+                            onChange={onSearchChange}
+                        />
                     </div>
                 </div>
                 <div className={styles.inner}>

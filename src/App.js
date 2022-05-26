@@ -29,6 +29,7 @@ import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
 import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
 import VotingItem from './pages/AdminPages/VotingItem/VotingItem';
 import UserVotingItem from './pages/UserPages/UserVotingItem/UserVotingItem';
+import PersonalData from './pages/UserPages/PersonalData/PersonalData';
 
 
 
@@ -80,6 +81,9 @@ function App() {
                             <Route index element={<UserRequests />}/>
                             <Route path=":id" element={<UserRequestItem />}/>
                             <Route path="create" element={<Request />}/>
+                        </Route>
+                        <Route path="user">
+                            <Route index element={<PersonalData />}/>
                         </Route>
                     </Route>
 

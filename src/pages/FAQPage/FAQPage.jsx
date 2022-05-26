@@ -8,6 +8,7 @@ import Input from '../../components/shared/Input/Input';
 import Select from '../../components/shared/Select/Select';
 import { REQUESTS_PER_ONE_PAGE, REQUEST_DISTRICTS, REQUEST_TOPICS, REQUEST_TYPES } from '../../utils/constants';
 import Container from '../../components/shared/Container/Container';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import Pagination from '../../components/shared/Pagination/Pagination';
 import FAQCard from './FAQCard/FAQCard';
 
@@ -113,6 +114,7 @@ const FAQPage = () => {
         </div>
     <Container>
       <div className={styles.container}>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profile'}, {'label': 'Часто задаваемые вопросы', 'path': '/faq'}]}/> 
         <h2>Вопросы</h2>
         <div className={styles.selectors}>
           <div 

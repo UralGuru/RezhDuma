@@ -10,7 +10,13 @@
   background-position: center;
   background-size: cover;
   min-height: 500px;
-  padding: 4rem 0;
+  padding: 1.5rem 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .authorizated {

@@ -1,0 +1,25 @@
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  font-weight: 500;
+  color: #47464D;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.crumb_active {
+  font-weight: 600;
+}
+
+.crumb:hover {
+  color: #3a81a8;
+}
+
+.white {
+  color: white;
+}

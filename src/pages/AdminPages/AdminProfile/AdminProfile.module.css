@@ -39,13 +39,17 @@
   color: white;
 }
 
+.main {
+
+}
+
 .card_row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: scroll;
   scrollbar-width: thin;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2em;
   padding: 2rem 2rem;
 }

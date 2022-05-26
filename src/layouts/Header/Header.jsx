@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { LOGIN_ROUTE, ROOT_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON } from '../../utils/constants';
+import { LOGIN_ROUTE, ROOT_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON, USER_ROUTE } from '../../utils/constants';
 import styles from './Header.module.css';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -55,7 +55,7 @@ const Header = () => {
           <div className={cx('profile_menu', {'expanded': isExpanded}, {'not_expanded': !isExpanded})}>
             {userStore.User?.id && <>
                 <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
-                <button onClick={() => collapseMenu(() => navigate())} className={styles.menu_item}>Личные данные</button>
+                <button onClick={() => collapseMenu(() => navigate(USER_ROUTE))} className={styles.menu_item}>Личные данные</button>
                 <button onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выйти</button>
               </>
             }

@@ -1,3 +1,9 @@
+.profile_outer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .header_outer {
   background: rgb(27,101,187);
   background: linear-gradient(50deg, rgba(16,142,184,1) 35%, rgba(5,207,181,1) 100%);
