@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Container from '../../components/shared/Container/Container';
 import styles from './NavBar.module.css';
@@ -25,12 +25,29 @@ const NavLink = ({children, to, imageUrl, className}) => {
 }
 
 const NavBar = () => {
-
+  const ref = useRef();
   const [showSideBar, setShowSideBar] = useState(false);
 
   const sideBarToggle = () => {
     setShowSideBar(!showSideBar);
   }
+
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (showSideBar && ref.current && !ref.current.contains(e.target)) {
+        setShowSideBar(false)
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [showSideBar])
 
   return ( 
     <div className={styles.navbar}>
@@ -52,7 +69,7 @@ const NavBar = () => {
             <AiOutlineClose />
           </Link> }
       </Container>
-      <div className={cx('sidebar', {'active': showSideBar})} onClick={() => sideBarToggle()}>
+      <div ref={ref} className={cx('sidebar', {'active': showSideBar})} onClick={() => sideBarToggle()}>
       <NavLink className={"in-line"} to={'/'} imageUrl={MAIN_ICON}>главная</NavLink>
         <NavLink className={"in-line"} to={'/news'} imageUrl={NEWS_ICON}>новости</NavLink>
         <NavLink className={"in-line"} to={'/votings'} imageUrl={VOTINGS_ICON}>голосования</NavLink>

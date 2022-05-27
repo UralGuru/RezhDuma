@@ -72,10 +72,11 @@ const PersonalDataEdit = () => {
               "lastName": values.surname,
               "patronymic": values.fathername
             }).then((data) => {
-              if (values.email ===  userData.email) {
+              if (values.email !==  userData.email) {
                 userStore.logout();
+              } else {
+                userStore.checkAuth();
               }
-              userStore.checkAuth();
               openModal()
             })
           }}  
