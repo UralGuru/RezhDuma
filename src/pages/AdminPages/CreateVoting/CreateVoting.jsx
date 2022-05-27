@@ -11,6 +11,7 @@ import styles from './CreateVoting.module.css'
 import CreateQuestion from './CreateQuestion/CreateQuestion';
 import TextError from '../../../components/shared/Forms/TextError/TextError';
 import { createVoting } from '../../../http/votingsApi';
+import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 
 const CreateVoting = () => {
 
@@ -35,7 +36,8 @@ const CreateVoting = () => {
 
   return ( 
     <Container>
-      <div className={styles.inner}>
+      <div className={styles.inner}><BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Голосования', 'path': '/admin/votings'}, {'label': 'Новое голосование', 'path': '/admin/votings/create'}]}/>
+        
         <div className={styles.header}>
           <h2>Новое голосование</h2>
         </div> 

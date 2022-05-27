@@ -12,6 +12,7 @@ import Button from '../../../../components/shared/Button/Button';
 import { ROOT_ROUTE, USER_ROUTE } from '../../../../utils/constants';
 import Modal from 'react-modal/lib/components/Modal';
 import { Context } from '../../../..';
+import { observer } from 'mobx-react-lite';
 
 const PersonalDataEdit = () => {
   Modal.setAppElement('#root');
@@ -166,7 +167,7 @@ const PersonalDataEdit = () => {
   )};
 }
  
-export default PersonalDataEdit;
+export default observer(PersonalDataEdit);
 
 const EditSchema = Yup.object({
   email: Yup.string()

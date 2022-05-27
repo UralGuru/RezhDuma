@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import Pagination from '../../../components/shared/Pagination/Pagination';
@@ -31,8 +32,9 @@ const Votings = () => {
   return ( 
     <Container>
       <div className={styles.inner}>
+      <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profile'}, {'label': 'Голосования', 'path': '/admin/votings'}]}/>
         <div className={styles.header}>
-          <h2>Опросы и голосования</h2>
+          <h2>Голосования</h2>
           <Button
             className='primary'
             onClick={() => navigate('create')}

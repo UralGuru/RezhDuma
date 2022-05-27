@@ -11,6 +11,7 @@ import { TextField } from '../../../../components/shared/Forms/TextField/TextFie
 import { USER_ROUTE } from '../../../../utils/constants';
 import { changeUserPassword } from '../../../../http/profileApi';
 import { Context } from '../../../..';
+import { observer } from 'mobx-react-lite';
 
 const ChangePassword = () => {
   Modal.setAppElement('#root');
@@ -111,7 +112,7 @@ const ChangePassword = () => {
   );
 }
  
-export default ChangePassword;
+export default observer(ChangePassword);
 
 const EditSchema = Yup.object({
   password: Yup.string()

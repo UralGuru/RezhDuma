@@ -28,7 +28,7 @@ import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
 import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
 import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
 import VotingItem from './pages/AdminPages/VotingItem/VotingItem';
-import UserVotingItem from './pages/UserPages/UserVotingItem/UserVotingItem';
+import VotingResultsItem from './pages/UserPages/UserVotingItem/VotingResultsItem';
 import PersonalData from './pages/UserPages/PersonalData/PersonalData';
 import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/PersonalDataEdit';
 import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';
@@ -70,7 +70,6 @@ function App() {
                     </Route>
                     <Route path="votings">
                         <Route index element={<VotingsPage/>} />
-                        <Route path=":id" element={<UserVotingItem />}/>
                     </Route>
                     <Route path="projects">
                         <Route index element={<ProjectsPage />}/>
@@ -79,6 +78,12 @@ function App() {
                     
                     {/* authorizated routes */}
                     <Route element={<AuthRequired />}>
+                        <Route path="votings">
+                            <Route path=":id">
+                                <Route index element={<VotingResultsItem />}/>
+                                <Route path='results' element={<VotingItem/>}/>
+                            </Route>
+                        </Route>
                         <Route path="requests">
                             <Route index element={<UserRequests />}/>
                             <Route path=":id" element={<UserRequestItem />}/>
@@ -100,8 +105,6 @@ function App() {
                             <Route path=":id" element={<AdminRequestItem />}/>
                         </Route>
                         <Route path="votings">
-                            <Route index element={<Votings/>}/>
-                            <Route path=":id" element={<VotingItem />}/>
                             <Route path="create" element={<CreateVoting />}/>
                         </Route>
                     </Route>

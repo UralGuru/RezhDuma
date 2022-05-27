@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../../components/shared/Container/Container';
 import { fetchVotingById } from '../../../http/votingsApi';
 import moment from 'moment';
-import styles from './UserVotingItem.module.css';
-import { Formik } from 'formik';
+import styles from './VotingResultsItem.module.css';
 import Button from '../../../components/shared/Button/Button';
 
-const UserVotingItem = () => {
+const VotingResultsItem = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const [voting, setVoting] = useState({});
   const [votes, setVotes] = useState([]);
@@ -67,6 +67,7 @@ const UserVotingItem = () => {
           <div className={styles.button_row}>
             <Button
               className='primary-outline'
+              onClick={() => {navigate('results')}}
             >Результаты</Button>
             <Button
               className='primary'
@@ -79,4 +80,4 @@ const UserVotingItem = () => {
   );
 }
  
-export default UserVotingItem;
+export default VotingResultsItem;
