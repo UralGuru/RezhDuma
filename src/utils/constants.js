@@ -38,26 +38,40 @@ export const REJH_ICON = "images/header_icons/rejh-icon.svg";
 
 export const REQUEST_TOPICS = [
   {value: '', label: 'Все'}, 
-  {value: 'Образование', label: 'Образование'}, 
-  {value: 'Дороги', label: 'Дороги'}, 
-  {value: 'Трубы', label: 'Трубы'}, 
+  // {value: 'Образование', label: 'Образование'},
+  // {value: 'Дороги', label: 'Дороги'},
+  // {value: 'Трубы', label: 'Трубы'},
+  {value: 'Экономика и бюджет', label: 'Экономика и бюджет'},
+  {value: 'Социальные вопросы', label: 'Социальные вопросы'},
+  {value: 'Сельское хозяйство', label: 'Сельское хозяйство'},
+  {value: 'Местное самоуправление', label: 'Местное самоуправление'},
+  {value: 'Промышленность', label: 'Промышленность'},
+  {value: 'Строительство', label: 'Строительство'},
+  {value: 'Транспорт', label: 'Транспорт'},
+  {value: 'Связь', label: 'Связь'},
 
 ]
 
 export const REQUEST_TYPES = [
-  {value: '', label: 'Все'}, 
-  {value: 'Жалоба', label: 'Жалоба'}, 
+  {value: '', label: 'Все'},
   {value: 'Обращение', label: 'Обращение'}, 
-  {value: 'Заявка', label: 'Заявка'}, 
-
+  {value: 'Предложение', label: 'Предложение'},
+  {value: 'Заявление', label: 'Заявление'},
+  {value: 'Жалоба', label: 'Жалоба'},
+  // {value: 'Заявка', label: 'Заявка'},
 ]
 
 export const REQUEST_DISTRICTS = [
   {value: '', label: 'Все'}, 
-  {value: 'ЖБИ', label: 'ЖБИ'}, 
-  {value: 'Ленинский', label: 'Ленинский'}, 
-  {value: 'Виз', label: 'Виз'}, 
-
+  // {value: 'ЖБИ', label: 'ЖБИ'},
+  // {value: 'Ленинский', label: 'Ленинский'},
+  // {value: 'Виз', label: 'Виз'},
+  {value: 'Центр', label: 'Центр'},
+  {value: 'Стройгородок', label: 'Стройгородок'},
+  {value: 'Машиностроителей', label: 'Машиностроителей'},
+  {value: 'Гавань', label: 'Гавань'},
+  {value: 'Вокзальный', label: 'Вокзальный'},
+  {value: '6-й участок', label: '6-й участок'},
 ]
 
 export const REQUEST_STATUS = [
@@ -73,9 +87,10 @@ export const NEWS_TYPE = [
 ]
 
 // count-options
-export const NEWS_PER_ONE_PAGE = 5;
 export const DOCUMENTS_PER_ONE_PAGE = 9;
+export const VOTINGS_PER_ONE_PAGE = 9;
+export const NEWS_PER_ONE_PAGE = 5;
 export const PROJECTS_PER_ONE_PAGE = 5;
 export const HISTORY_PER_ONE_PAGE = 5;
 export const REQUESTS_PER_ONE_PAGE = 5;
-export const VOTINGS_PER_ONE_PAGE = 9;
+
