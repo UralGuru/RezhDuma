@@ -10,6 +10,8 @@ export const ADMIN_REQUESTS_ROUTE = "/admin/requests";
 export const ADMIN_PROFILE_ROUTE = "/admin/profile";
 export const ADMIN_VOTINGS_ROUTE = "/admin/votings";
 export const USER_ROUTE = "/user";
+export const USER_EDIT_ROUTE = "/user/edit";
+export const PASSWORD_EDIT_ROUTE = "/user/edit/password";
 
 
 export const NEWS_ROUTE = "/news";

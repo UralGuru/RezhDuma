@@ -30,6 +30,8 @@ import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestIt
 import VotingItem from './pages/AdminPages/VotingItem/VotingItem';
 import UserVotingItem from './pages/UserPages/UserVotingItem/UserVotingItem';
 import PersonalData from './pages/UserPages/PersonalData/PersonalData';
+import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/PersonalDataEdit';
+import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';
 
 
 
@@ -84,6 +86,10 @@ function App() {
                         </Route>
                         <Route path="user">
                             <Route index element={<PersonalData />}/>
+                            <Route path="edit">
+                                <Route index element={<PersonalDataEdit/>}/>
+                                <Route path="password" element={<ChangePassword />}/>
+                            </Route>
                         </Route>
                     </Route>
 
