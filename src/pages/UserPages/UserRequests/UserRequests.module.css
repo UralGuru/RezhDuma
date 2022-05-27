@@ -1,7 +1,9 @@
 .container {
+  margin: 2rem 0;
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sidebar {
@@ -30,10 +32,6 @@
 .expanded {
   transform: translateX(0vw);
   transition: 300ms;
-}
-
-.container > h2 {
-  padding: 1rem 0 0 0;
 }
 
 .selectors {

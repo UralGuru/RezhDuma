@@ -11,6 +11,7 @@ import Input from '../../../components/shared/Input/Input';
 import Container from '../../../components/shared/Container/Container';
 import classNames from 'classnames/bind';
 import RequestCard from './RequestCard/RequestCard';
+import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 
 const cx = classNames.bind(styles);
 
@@ -107,6 +108,7 @@ const UserRequests = () => {
         </div>
     <Container>
       <div className={styles.container}>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profle'}, {'label': 'Мои вопросы', 'path': '/requests'}]}/>
         <h2>Мои вопросы</h2>
         <div className={styles.selectors}>
           <div 
