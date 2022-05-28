@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
 import { DOCUMENTS_ROUTE, HISTORY_ROUTE, NEWS_ROUTE, POLLS_ROUTE, PROJECTS_ROUTE, TELEGRAM_ICON, VK_ICON, VOTINGS_ROUTE } from '../../utils/constants';
 import {FaTelegramPlane, FaTiktok} from 'react-icons/fa';
+import TelegramIcon from './assets/telegram.svg';
+import VKIcon from './assets/vk.svg';
 
 import styles from './Footer.module.css';
 
@@ -18,8 +20,8 @@ function Footer() {
             {"Официальный сайт города Реж"}
           </div>
           <div className={styles.media_icons}>
-            <a className={styles.media_icon} href="/"><FaTiktok/></a>
-            <a className={styles.media_icon} href="/"><FaTelegramPlane /></a>
+            <a className={styles.media_icon} href="/"><img src={TelegramIcon}/></a>
+            <a className={styles.media_icon} href="/"><img src={VKIcon}/></a>
           </div>
         </div>
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Container from '../../../components/shared/Container/Container';
-import { fetchVotingById } from '../../../http/votingsApi';
+import Container from '../../components/shared/Container/Container';
+import { fetchVotingById } from '../../http/votingsApi';
 import moment from 'moment';
-import styles from './VotingResultsItem.module.css';
-import Button from '../../../components/shared/Button/Button';
+import styles from './VotingItem.module.css';
+import Button from '../../components/shared/Button/Button';
 
-const VotingResultsItem = () => {
+const VotingItem = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [voting, setVoting] = useState({});
@@ -80,4 +80,4 @@ const VotingResultsItem = () => {
   );
 }
  
-export default VotingResultsItem;
+export default VotingItem;

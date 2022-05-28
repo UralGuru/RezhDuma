@@ -7,6 +7,8 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri';
 import classNames from 'classnames/bind';
+import ProfileIcon from './assets/profile-icon.svg';
+import RezhIcon from './assets/rejh-icon.svg';
 
 const cx = classNames.bind(styles);
 
@@ -43,13 +45,13 @@ const Header = () => {
       <Container>
         <div className={styles.header__inner}>
           <a className={styles.header__logo} onClick={() => navigate(ROOT_ROUTE)}>
-            <img className={styles.logo__image} src={REJH_ICON}/>
+            <img className={styles.logo__image} src={RezhIcon}/>
             <div className={styles.logo__text}><div>Официальный сайт<br/>города Реж</div></div> 
           </a>
           <div className={styles.profile}>
             {userStore.User?.id ?
             <button className={styles.profile__text} onClick={() => setIsExpanded(!isExpanded)}>
-              <img className={styles.profile__image} src={PROFILE_ICON}/>
+              <img className={styles.profile__image} src={ProfileIcon}/>
               <div className={styles.authorizated}>
                 <div>{`${userStore.User.lastName} ${userStore.User.firstName} ${userStore.User.patronymic}`}</div>
                 <div>{isExpanded ? <RiArrowUpSLine/> : <RiArrowDownSLine/>}</div>
@@ -57,7 +59,7 @@ const Header = () => {
             </button>
             :
             <button className={styles.profile__text} onClick={() => collapseMenu(() => navigate(LOGIN_ROUTE))}>
-              <img className={styles.profile__image} src={PROFILE_ICON}/>
+              <img className={styles.profile__image} src={ProfileIcon}/>
               <div>{'Авторизоваться'}</div>
             </button>
             } 
@@ -69,8 +71,8 @@ const Header = () => {
             </a>} */}
           </div>
         </div>
-        <div ref={ref} className={styles.menu_container}>
-          <div className={cx('profile_menu', {'expanded': isExpanded}, {'not_expanded': !isExpanded})}>
+        <div className={styles.menu_container}>
+          <div ref={ref} className={cx('profile_menu', {'expanded': isExpanded}, {'not_expanded': !isExpanded})}>
             {userStore.User?.id && <>
                 <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
                 <button onClick={() => collapseMenu(() => navigate(USER_ROUTE))} className={styles.menu_item}>Личные данные</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-const VotingItem = () => {
+const VotingResultsItem = () => {
   const params = useParams();
 
   return ( 
@@ -11,4 +11,4 @@ const VotingItem = () => {
   );
 }
  
-export default VotingItem;
+export default VotingResultsItem;

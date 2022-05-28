@@ -22,16 +22,15 @@ import AdminRequired from './pages/AdminRequired/AdminRequired';
 import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';
 import DocumentsItem from "./pages/DocumentsItem/DocumentsItem";
-import Votings from './pages/AdminPages/Votings/Votings';
 import UserRequests from './pages/UserPages/UserRequests/UserRequests';
 import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
 import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
 import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
-import VotingItem from './pages/AdminPages/VotingItem/VotingItem';
-import VotingResultsItem from './pages/UserPages/UserVotingItem/VotingResultsItem';
+import VotingResultsItem from './pages/AdminPages/VotingItem/VotingResultsItem';
 import PersonalData from './pages/UserPages/PersonalData/PersonalData';
 import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/PersonalDataEdit';
 import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';
+import VotingItem from './pages/VotingItem/VotingItem';
 
 
 
@@ -80,8 +79,8 @@ function App() {
                     <Route element={<AuthRequired />}>
                         <Route path="votings">
                             <Route path=":id">
-                                <Route index element={<VotingResultsItem />}/>
-                                <Route path='results' element={<VotingItem/>}/>
+                                <Route index element={<VotingItem />}/>
+                                <Route path='results' element={<VotingResultsItem/>}/>
                             </Route>
                         </Route>
                         <Route path="requests">

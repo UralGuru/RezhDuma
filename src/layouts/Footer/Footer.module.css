@@ -30,10 +30,12 @@
 .media_icon {
   font-size: 2rem;
   color: white;
+  filter: brightness(1);
+  transition: 200ms;
 }
 
 .media_icon:hover {
-  color: black;
+  filter: brightness(0);
 }
 
 .footer_row {
