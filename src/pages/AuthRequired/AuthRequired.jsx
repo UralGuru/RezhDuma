@@ -9,7 +9,7 @@ import { LOGIN_ROUTE } from '../../utils/constants';
 const RequireAuth = () => {
   const {userStore} = useContext(Context);
   
-  if (!localStorage.getItem('refresh-token') || !userStore.User || !userStore.User.id) {
+  if (!localStorage.getItem('refresh-token')) {
     return (
       <Navigate to={LOGIN_ROUTE} replace={true}/>
     )

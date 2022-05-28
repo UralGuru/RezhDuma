@@ -1,69 +1,100 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { fetchVotingById } from '../../http/votingsApi';
+import { fetchVotingById, putVote } from '../../http/votingsApi';
 import moment from 'moment';
 import styles from './VotingItem.module.css';
 import Button from '../../components/shared/Button/Button';
+import QuestionRadioItem from './QuestionRadioItem/QuestionsRadioItem';
+import QuestionCheckboxItem from './QuestionCheckboxItem/QuestionCheckboxItem';
 
 const VotingItem = () => {
+  // Modal.setAppElement('#root');
+
+  // const [modalIsOpen, setIsOpen] = useState(false);
+  // const openModal = () => setIsOpen(true);
+  // const closeModal = () => setIsOpen(false);
+
   const navigate = useNavigate();
   const params = useParams();
+  const [status, setStatus] = useState('');
   const [voting, setVoting] = useState({});
   const [votes, setVotes] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    setStatus('loading');
     fetchVotingById(params.id).then((data) => {
       setVoting(data);
-      setVotes(data.questions.map((q) => { return {'question': q.question, 'answers': []}}))
+      setVotes(data.questions.map((q) => { return {'id': q.id, 'answers': []}}))
+      setStatus('success');
     });
   }, [])
 
   const onSubmit = () => {
-    console.log(votes);
-  }
-
-  const onChangeVote = (value, q, ans) => {
-    const newArr = votes;
-    let vote = newArr.find((vote) => vote.question === q.question);
-    if (vote.answers.indexOf(value) === -1) {
-      vote.answers.push(value);
-    } else {
-      vote = vote.answers.filter((a) => a !== value);
+    let initialError = error;
+    for (let vote in votes) {
+      if (!votes[vote].answers.length) {
+        initialError = true;
+        setError(true);
+        return;
+      }
+      initialError = false;
+      setError(false);
     }
-    console.log(newArr);
+    if (initialError) {
+      return; // или вывести соответствующую модалку
+    }
+    let answerData = [].concat(...votes.map((vote) => vote.answers))
+    putVote(voting.id, answerData).then((data) => {
+      navigate('results');
+    });
   }
 
-  // {(votes.find((vote) => vote === q.question)).answers.indexOf(ans.id) !== -1 ? true : false}
+  if (status === 'loading') {
+    return (
+      <Container>
+        <div className={styles.inner}>
+          <h2>{voting.topic}</h2>
+          <div className={styles.main}>
+
+          </div>
+        </div>
+      </Container>
+    );
+  }
   
   return ( 
     <Container>
       <div className={styles.inner}>
         <h2>{voting.topic}</h2>
-        <form className={styles.main} onSubmit={onSubmit}>
+        <div className={styles.main}>
           <div className={styles.date}>{moment(voting.votingDate).format('DD.MM.YYYY')}</div>
           <div className={styles.questions}>
               {voting?.questions?.map((q, i) => {
-                return (
-                <div className={styles.question} key={q.id}>
-                  <div className={styles.question_label}>{i+1}. {q.question}</div>
-                  <div className={styles.answers}>
-                    {q?.answers?.map((ans) => {
-                      return (
-                      <label key={ans.id} className={styles.answer}>
-                        <input 
-                          name={q.question}
-                          value={ans.id}
-                          type={q.checkbox ? 'checkbox' : 'radio'}
-                          onChange = {(e) => {onChangeVote(e.target.value, q, ans)}}
-                        />
-                        <span>{ans.answer}</span>
-                      </label>)
-                    })}
-                  </div>
-                </div>
-              )})}
+                if (q.checkbox) {
+                  return (<QuestionCheckboxItem 
+                    key={q.id} 
+                    number={i}
+                    question={q}
+                    votes={votes}
+                    setVotes={setVotes}
+                  />)
+                } else {
+                  return (<QuestionRadioItem 
+                    key={q.id} 
+                    number={i}
+                    question={q}
+                    votes={votes}
+                    setVotes={setVotes}
+                  />)
+                }
+              })}
           </div>
+          { error &&
+            <div className={styles.error}>
+              Ответьте на все вопросы голосования
+            </div>}
           <div className={styles.button_row}>
             <Button
               className='primary-outline'
@@ -71,11 +102,24 @@ const VotingItem = () => {
             >Результаты</Button>
             <Button
               className='primary'
-              type='submit'
+              onClick={onSubmit}
             >Отправить</Button>
           </div>
-        </form>
+        </div>
       </div>
+      {/* <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+
+        style={{
+          overlay: {position: 'fixed',top: 0,left: 0,right: 0,bottom: 0,backgroundColor: 'rgba(0, 0, 0, 0.4)'},
+          content: {top: '50%',left: '50%',right: 'auto',bottom: 'auto',borderRadius: '1rem',marginRight: '-50%',transform: 'translate(-50%, -50%)'},
+        }}>
+        <div className={styles.modal}>
+          Вы успешно проголосовали
+          Перейти на страницу результатов???
+        </div>
+      </Modal> */}
     </Container>
   );
 }

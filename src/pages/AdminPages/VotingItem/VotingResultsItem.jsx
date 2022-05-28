@@ -10,5 +10,5 @@ const VotingResultsItem = () => {
     </div>
   );
 }
- 
+
 export default VotingResultsItem;

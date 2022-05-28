@@ -33,7 +33,6 @@ import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/Change
 import VotingItem from './pages/VotingItem/VotingItem';
 
 
-
 function App() {
     const {userStore} = useContext(Context);
     
