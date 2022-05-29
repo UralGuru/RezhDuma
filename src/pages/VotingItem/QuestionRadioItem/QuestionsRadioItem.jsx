@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './QuestionRadioItem.module.css';
 
-const QuestionRadioItem = ({number, question, votes, setVotes}) => {
+const QuestionRadioItem = ({number, question, votes, setVotes, disabled}) => {
 
   const [answer, setAnswer] = useState();
 
@@ -26,6 +26,7 @@ const QuestionRadioItem = ({number, question, votes, setVotes}) => {
               type={'radio'}
               checked={answer == ans.id}
               onChange = {(event) => {changeAnswer(event.target.value)}}
+              disabled={disabled ? 'disabled' : ''}
             />
             <span>{ans.answer}</span>
           </label>

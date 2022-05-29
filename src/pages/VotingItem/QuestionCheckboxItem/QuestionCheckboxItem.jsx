@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './QuestionCheckboxItem.module.css';
 
-const QuestionCheckboxItem = ({number, question, votes, setVotes}) => {
+const QuestionCheckboxItem = ({number, question, votes, setVotes, disabled}) => {
 
   const [answers, setAnswers] = useState([]);
 
@@ -34,6 +34,7 @@ const QuestionCheckboxItem = ({number, question, votes, setVotes}) => {
               value={ans.id}
               type={'checkbox'}
               onChange={(event) => {changeAnswer(event.target.value)}}
+              disabled={disabled ? 'disabled' : ''}
             />
             <span>{ans.answer}</span>
           </label>

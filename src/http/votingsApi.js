@@ -14,6 +14,11 @@ export const fetchVotingById = async (id) => {
   return data;
 }
 
+export const fetchVotingByIdFromUser = async (id) => {
+  const {data} = await $authHost.get(`api/votes/${id}`);
+  return data;
+}
+
 export const deleteVotingById = async (id) => {
   const {data} = await $authHost.delete(`api/votes/admin/${id}`);
   return data;

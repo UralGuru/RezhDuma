@@ -62,11 +62,18 @@ const AdminRequestItem = () => {
             <div className={styles.personal_data}>
               <div className={styles.personal_field}>
                 <div className={styles.label}>ФИО</div>
-                <div className={styles.field_value}>{request.requesterName ? request.requesterName : 'Не указано'}</div>
+                <div className={styles.field_value}>
+                  {request.requester ? 
+                  `${request.requester.lastName} ${request.requester.firstName} ${request.requester.patronymic}` : 'Не указано'}
+                </div>
               </div>
               <div className={styles.personal_field}>
-                <div className={styles.label}>ФИО</div>
-                <div className={styles.field_value}>{request.requesterName ? request.requesterName : 'Не указано'}</div>
+                <div className={styles.label}>Адрес электронной почты</div>
+                <div className={styles.field_value}>{request.requester?.email ? request.requester.email : 'Не указано'}</div>
+              </div>
+              <div className={styles.personal_field}>
+                <div className={styles.label}>Контактный номер</div>
+                <div className={styles.field_value}>{request.requester?.phone ? request.requester.phone : 'Не указано'}</div>
               </div>
             </div>
           </div>

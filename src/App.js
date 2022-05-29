@@ -26,7 +26,7 @@ import UserRequests from './pages/UserPages/UserRequests/UserRequests';
 import CreateVoting from './pages/AdminPages/CreateVoting/CreateVoting';
 import UserRequestItem from './pages/UserPages/UserRequestItem/UserRequestItem';
 import AdminRequestItem from './pages/AdminPages/AdminRequestItem/AdminRequestItem';
-import VotingResultsItem from './pages/AdminPages/VotingItem/VotingResultsItem';
+import VotingResultsItem from './pages/AdminPages/VotingResultsItem/VotingResultsItem';
 import PersonalData from './pages/UserPages/PersonalData/PersonalData';
 import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/PersonalDataEdit';
 import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';

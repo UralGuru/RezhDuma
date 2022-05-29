@@ -68,7 +68,11 @@ const CreateVoting = () => {
             }
             const data = {
               'topic': values.topic,
-              'expirationDate': (values.expirationDate && expirationTimeCheckbox) ? new Date(values.expirationDate).toISOString().slice(0, -1) : null,
+              'expirationDate': (values.expirationDate && expirationTimeCheckbox) 
+              ?
+                new Date(values.expirationDate).toISOString().slice(0, -1) 
+              : 
+                null,
               'questions': questions
             } 
             console.log(data);

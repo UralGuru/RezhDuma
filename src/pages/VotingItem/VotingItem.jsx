@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { fetchVotingById, putVote } from '../../http/votingsApi';
+import { fetchVotingById, fetchVotingByIdFromUser, putVote } from '../../http/votingsApi';
 import moment from 'moment';
 import styles from './VotingItem.module.css';
 import Button from '../../components/shared/Button/Button';
 import QuestionRadioItem from './QuestionRadioItem/QuestionsRadioItem';
 import QuestionCheckboxItem from './QuestionCheckboxItem/QuestionCheckboxItem';
+import { Context } from '../..';
+import { observer } from 'mobx-react-lite';
 
 const VotingItem = () => {
-  // Modal.setAppElement('#root');
 
-  // const [modalIsOpen, setIsOpen] = useState(false);
-  // const openModal = () => setIsOpen(true);
-  // const closeModal = () => setIsOpen(false);
+  const {userStore} = useContext(Context);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -21,14 +20,28 @@ const VotingItem = () => {
   const [voting, setVoting] = useState({});
   const [votes, setVotes] = useState([]);
   const [error, setError] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     setStatus('loading');
-    fetchVotingById(params.id).then((data) => {
-      setVoting(data);
-      setVotes(data.questions.map((q) => { return {'id': q.id, 'answers': []}}))
-      setStatus('success');
-    });
+    if(localStorage.getItem('access-token')) {
+      fetchVotingByIdFromUser(params.id).then((data) => {
+        setVoting(data);
+        setVotes(data.questions.map((q) => { return {'id': q.id, 'answers': []}}))
+        setStatus('success');
+        setDisabled(!(data.canVote));
+        if (data.expirationDate) {
+          setDisabled((moment(data.expirationDate) < moment()));
+        }
+      });
+    } else {
+      fetchVotingById(params.id).then((data) => {
+        setVoting(data);
+        setVotes(data.questions.map((q) => { return {'id': q.id, 'answers': []}}))
+        setStatus('success');
+        setDisabled(true);
+      });
+    }
   }, [])
 
   const onSubmit = () => {
@@ -46,6 +59,7 @@ const VotingItem = () => {
       return; // или вывести соответствующую модалку
     }
     let answerData = [].concat(...votes.map((vote) => vote.answers))
+
     putVote(voting.id, answerData).then((data) => {
       navigate('results');
     });
@@ -57,7 +71,7 @@ const VotingItem = () => {
         <div className={styles.inner}>
           <h2>{voting.topic}</h2>
           <div className={styles.main}>
-
+            
           </div>
         </div>
       </Container>
@@ -69,6 +83,15 @@ const VotingItem = () => {
       <div className={styles.inner}>
         <h2>{voting.topic}</h2>
         <div className={styles.main}>
+          {!localStorage.getItem('access-token') &&
+            <div className={styles.error}>Чтобы проголосовать необходимо авторизоваться</div>
+          } 
+          {!voting.canVote &&
+            <div className={styles.error}>Вы уже участвовали в этом голосовании.</div>
+          }
+          {voting.expirationDate && (moment(voting.expirationDate) < moment()) &&
+            <div className={styles.error}>Время на голосование истекло {moment(voting.expirationDate).format('DD.MM.YYYY')}</div>
+          }
           <div className={styles.date}>{moment(voting.votingDate).format('DD.MM.YYYY')}</div>
           <div className={styles.questions}>
               {voting?.questions?.map((q, i) => {
@@ -79,6 +102,7 @@ const VotingItem = () => {
                     question={q}
                     votes={votes}
                     setVotes={setVotes}
+                    disabled={disabled}
                   />)
                 } else {
                   return (<QuestionRadioItem 
@@ -87,6 +111,7 @@ const VotingItem = () => {
                     question={q}
                     votes={votes}
                     setVotes={setVotes}
+                    disabled={disabled}
                   />)
                 }
               })}
@@ -103,6 +128,7 @@ const VotingItem = () => {
             <Button
               className='primary'
               onClick={onSubmit}
+              disabled={disabled}
             >Отправить</Button>
           </div>
         </div>
@@ -124,4 +150,4 @@ const VotingItem = () => {
   );
 }
  
-export default VotingItem;
+export default observer(VotingItem);
