@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import Modal from 'react-modal';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { editNews, fetchOneNews } from '../../../../http/newsApi';
 import Button from '../../Button/Button';
 import FilesField from '../../Forms/FilesField/FilesField';
-import SelectField from '../../Forms/SelectField/SelectField';
 import TextAreaField from '../../Forms/TextAreaField/TextAreaField';
 import { TextField } from '../../Forms/TextField/TextField';
-import styles from './EditNews.module.css';
-import { NEWS_TYPE } from '../../../../utils/constants';
+import styles from './EditProject.module.css';
+import { editProject, fetchOneProject } from '../../../../http/projectsApi';
 
-const EditNews = ({id, modalIsOpen, closeModal}) => {
+const EditProject = ({id, modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
   const customStyles = {
     overlay: {
@@ -35,11 +33,11 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
     },
   };
 
-  const [newsData, setNewsData] = useState({});
+  const [projectData, setProjectData] = useState({});
 
   useEffect(() => {
-    fetchOneNews(id).then((data) => {
-      setNewsData(data);
+    fetchOneProject(id).then((data) => {
+      setProjectData(data);
     })
   }, [closeModal]);
 
@@ -51,29 +49,28 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
       >
       <Formik
         initialValues={{
-          title: newsData.title,
-          text: newsData.text,
+          title: projectData.title,
+          text: projectData.text,
           event: 0,
           files: ''
         }}
-        validationSchema={NewsSchema}
+        validationSchema={ProjectSchema}
         validateOnBlur={true}
         validateOnChange={false}
         onSubmit={(values) => {
           const request = new FormData();
           request.append("title", values.title);
           request.append("text", values.text);
-          request.append("event", values.event);
           for (let i = 0; i < values.files.length; i++) {
             request.append("files", values.files[i]);
           }
-          editNews(request, id).then((data) => {
+          editProject(request, id).then((data) => {
             closeModal()
           })}}
       >
         {(formik) => (
           <Form className={styles.modal}>
-            <h2>Редактирование новости</h2>
+            <h2>Редактирование проекта</h2>
             <div className={styles.create_fields}>
               <TextField 
                 name='title'
@@ -90,16 +87,7 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
                 onBlur={formik.handleBlur}
                 value={formik.values.text}
                 type='textarea'
-                placeholder='Текст новости'
-              />
-              <SelectField 
-                name='event'
-                label="Тип"
-                onChange={option => formik.setFieldValue('event', option.value)}
-                onBlur={formik.handleBlur}
-                value={formik.values.event}
-                placeholder='Тип новости'
-                options={NEWS_TYPE}
+                placeholder='Текст'
               />
               <FilesField 
                 accept='image/*'
@@ -133,9 +121,9 @@ const EditNews = ({id, modalIsOpen, closeModal}) => {
   );
 }
  
-export default EditNews;
+export default EditProject;
 
-const NewsSchema = Yup.object({
+const ProjectSchema = Yup.object({
   title: Yup.string()
     .required('Необходимое поле')
     .min(12, 'Поле заголовка должно содержать не менее 12 символов'),

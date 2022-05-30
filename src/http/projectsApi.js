@@ -1,13 +1,19 @@
 import { $authHost, $host } from ".";
 
 
-export const createProjects = async (projects) => {
+export const createProject = async (projects) => {
   const {data} = await $authHost.post('api/projects', projects);
   return data;
 }
 
-export const editProjects = async (editData) => {
-  const {data} = await $authHost.patch('api/projects', editData);
+export const editProject = async (editData, id) => {
+  const {data} = await $authHost.patch(`api/projects/${id}`, editData);
+  return data;
+}
+
+export const deleteProject = async (id) => {
+  const {data} = await $authHost.delete(`api/projects/${id}`)
+  return data;
 }
 
 export const fetchProjects = async (count, page, find) => {

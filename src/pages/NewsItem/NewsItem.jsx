@@ -14,8 +14,6 @@ import DeleteNews from '../../components/shared/NewsModals/DeleteNews/DeleteNews
 import Container from '../../components/shared/Container/Container';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
-// получает новость из бэка по id переданному в роуте.
-
 const NewsItem = () => {
   const {userStore} = useContext(Context);
 

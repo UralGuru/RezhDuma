@@ -17,7 +17,7 @@ import NewsItem from './pages/NewsItem/NewsItem';
 import FAQPage from './pages/FAQPage/FAQPage';
 import AuthRequired from './pages/AuthRequired/AuthRequired';
 import HistoryItem from "./pages/HistoryItem/HistoryItem";
-import ProjectsItem from "./pages/ProjectsItem/ProjectsItem";
+import ProjectsItem from "./pages/ProjectItem/ProjectItem";
 import AdminRequired from './pages/AdminRequired/AdminRequired';
 import Requests from './pages/AdminPages/Requests/Requests';
 import AdminProfile from './pages/AdminPages/AdminProfile/AdminProfile';

@@ -2,7 +2,7 @@ import React from "react";
 
 import IntroPage from "./IntroPage/IntroPage";
 import AutroPage from "./AutroPage/AutroPage";
-import NewsCard from "../../components/shared/NewsCard/NewsCard";
+import Card from "../../components/shared/Card/Card";
 import Container from "../../components/shared/Container/Container";
 
 import styles from './MainPage.module.css';

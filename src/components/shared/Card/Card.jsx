@@ -3,17 +3,15 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import styles from './NewsCard.module.css';
+import styles from './Card.module.css';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 
 let cx = classNames.bind(styles);
 
-// показывается картинка и короткое описание(ограничить до 100-150 букв), ссылка ведующая на страницу одной новости, где
-// по id новости будет прогружаться нужная новость.
-// нужно по прежнему думать над адаптивностью
-const NewsCard = ({
-  id, title, description, imageSrc, date
+
+const Card = ({
+  id, title, description, image, date
 }) => {
   const navigate = useNavigate();
 
@@ -22,9 +20,9 @@ const NewsCard = ({
     <div className={styles.card}>
       <div className={styles.card_date}>{moment(date).format('DD.MM.YYYY')}</div>
       <div className={styles.card_content}>
-        {imageSrc && 
+        {image && 
         <div className={styles.card_img} onClick={() => navigate(`${id}`)}>
-          <img src={imageSrc} alt='Не удалось отобразить изображение'/>
+          <img src={image} alt='Не удалось отобразить изображение'/>
         </div>}
         <div className={styles.card_text}>
           <div className={styles.card_title} onClick={() => navigate(`${id}`)}>{title}</div>
@@ -36,7 +34,7 @@ const NewsCard = ({
   );
 }
 
-NewsCard.propTypes = {
+Card.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
@@ -44,7 +42,7 @@ NewsCard.propTypes = {
   date: PropTypes.string
 };
 
-NewsCard.defaultProps = {
+Card.defaultProps = {
   id: 0,
   title: '',
   description: '',
@@ -52,4 +50,4 @@ NewsCard.defaultProps = {
   date: ''
 };
 
-export default NewsCard;
+export default Card;

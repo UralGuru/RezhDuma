@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
-import NewsCard from '../../../components/shared/NewsCard/NewsCard';
+import Card from '../../../components/shared/Card/Card';
 import { NEWS_ROUTE } from '../../../utils/constants';
 import { observer } from 'mobx-react-lite';
 
@@ -33,13 +33,13 @@ const News = observer(() => {
           <div className={styles.header}>Новости</div>
           <div className={styles.news_intro}>
             {news.map((n) => {
-              return <NewsCard 
+              return <Card 
                 key={n.id}
                 id={n.id}
                 title={n.title}
                 description={n.text}
                 date={n.newsDate}
-                imageSrc={n.filesNames[0]}
+                image={n.filesNames[0]}
               />
             })}
           </div>

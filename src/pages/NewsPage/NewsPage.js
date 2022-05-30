@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import NewsCard from "../../components/shared/NewsCard/NewsCard";
+import Card from "../../components/shared/Card/Card";
 import Container from "../../components/shared/Container/Container";
 
 import styles from './NewsPage.module.css';
@@ -70,13 +70,13 @@ const NewsPage = (props) => {
                 <div className={styles.inner}>
                     <div className={styles.news}>
                         {news.map((n) => {
-                            return <NewsCard 
+                            return <Card 
                                 key={n.id}
                                 id={n.id}
                                 title={n.title}
                                 description={n.text}
                                 date={n.newsDate}
-                                imageSrc={n.filesNames[0]}
+                                image={n.filesNames[0]}
                             />
                         })}
                     </div>

@@ -16,14 +16,22 @@ import { createNews, fetchOneNews } from '../../../../http/newsApi';
 const CreateNews = ({modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
   const customStyles = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.4)'
+    },
     content: {
       top: '50%',
-      minWidth: '50%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       borderRadius: '1rem',
       marginRight: '-50%',
+      minWidth: '60%',
       transform: 'translate(-50%, -50%)',
     },
   };
@@ -57,7 +65,7 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
           })}}
       >
         {(formik) => (
-          <Form className={styles.form_modal}>
+          <Form className={styles.modal}>
             <h2>Создать новость</h2>
             <div className={styles.create_fields}>
               <TextField 

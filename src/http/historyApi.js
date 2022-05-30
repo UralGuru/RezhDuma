@@ -6,8 +6,14 @@ export const createHistory = async (history) => {
   return data;
 }
 
-export const editHistory = async (editData) => {
-  const {data} = await $authHost.patch('api/history', editData);
+export const editHistory = async (editData, id) => {
+  const {data} = await $authHost.patch(`api/history/${id}`, editData);
+  return data;
+}
+
+export const deleteHistory = async (id) => {
+  const {data} = await $authHost.delete(`api/history/${id}`)
+  return data;
 }
 
 export const fetchHistory = async (count, page, find) => {

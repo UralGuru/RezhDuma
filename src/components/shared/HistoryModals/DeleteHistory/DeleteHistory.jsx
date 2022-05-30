@@ -1,12 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal/lib/components/Modal';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { deleteNews } from '../../../../http/newsApi';
+import { useNavigate } from 'react-router-dom';
+import { deleteHistory } from '../../../../http/historyApi';
 import Button from '../../Button/Button';
 
-import styles from './DeleteNews.module.css';
+import styles from './DeleteHistory.module.css';
 
-const DeleteNews = ({modalIsOpen, closeModal, id}) => {
+const DeleteHistory = ({modalIsOpen, closeModal, id}) => {
   const navigate = useNavigate();
   Modal.setAppElement('#root');
   const customStyles = {
@@ -30,7 +30,7 @@ const DeleteNews = ({modalIsOpen, closeModal, id}) => {
   };
 
   const deleteAndClose = () => {
-    deleteNews(id).then(data => {
+    deleteHistory(id).then(data => {
       closeModal();
       navigate(-1);
     })
@@ -43,7 +43,7 @@ const DeleteNews = ({modalIsOpen, closeModal, id}) => {
       style={customStyles}
     >
       <div className={styles.modal}>
-        <div className={styles.modal_header}>Вы уверены что хотите удалить эту новость?</div>
+        <div className={styles.modal_header}>Вы уверены что хотите удалить эту историю?</div>
         <div className={styles.button_row}>
           <Button
             className='secondary-outline'
@@ -59,4 +59,4 @@ const DeleteNews = ({modalIsOpen, closeModal, id}) => {
   );
 }
  
-export default DeleteNews;
+export default DeleteHistory;

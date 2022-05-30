@@ -3,17 +3,19 @@ import { Spinner } from 'react-bootstrap';
 import { Carousel } from 'react-carousel-minimal';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
-import styles from './HistoryItem.module.css';
+import styles from './ProjectItem.module.css';
 import Button from '../../components/shared/Button/Button';
+import EditNews from '../../components/shared/NewsModals/EditNews/EditNews';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
+import DeleteNews from '../../components/shared/NewsModals/DeleteNews/DeleteNews';
 import Container from '../../components/shared/Container/Container';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
-import { fetchOneHistory } from '../../http/historyApi';
-import EditHistory from '../../components/shared/HistoryModals/EditHistory/EditHistory';
-import DeleteHistory from '../../components/shared/HistoryModals/DeleteHistory/DeleteHistory';
+import { fetchOneProject } from '../../http/projectsApi';
+import EditProject from '../../components/shared/ProjectModals/EditProject/EditProject';
+import DeleteProject from '../../components/shared/ProjectModals/DeleteProject/DeleteProject';
 
-const HistoryItem = () => {
+const ProjectItem = () => {
   const {userStore} = useContext(Context);
 
   const params = useParams();
@@ -27,11 +29,11 @@ const HistoryItem = () => {
   const closeDeleteModal = () => setDeleteIsOpen(false);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [history, setHistory] = useState({});
+  const [projects, setProjects] = useState({});
 
   useEffect(() => {
-    fetchOneHistory(params.id).then((data) => {
-      setHistory(data);
+    fetchOneProject(params.id).then((data) => {
+      setProjects(data);
       setIsLoading(false);
     })
   }, [editIsOpen])
@@ -44,13 +46,13 @@ const HistoryItem = () => {
   return ( 
     <Container>
       <div className={styles.outer}>
-        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'История', 'path': '/history'}]}/>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Проекты', 'path': '/projects'}]}/>
         <div className={styles.inner}>
-          <div className={styles.date}>{moment(history.projectsDate).format('DD.MM.YYYY')}</div>
-          <div className={styles.title}>{history.title}</div>
-          {history.filesNames.length != 0 &&
+          <div className={styles.date}>{moment(projects.projectsDate).format('DD.MM.YYYY')}</div>
+          <div className={styles.title}>{projects.title}</div>
+          {projects.filesNames.length != 0 &&
             <Carousel 
-            data={history.filesNames.map((data) => {
+            data={projects.filesNames.map((data) => {
               return {'image': data}
             })}
             height="400px"
@@ -77,7 +79,7 @@ const HistoryItem = () => {
               margin: "0 auto"
             }}
           />}
-          <div className={styles.description}>{history.text}</div>
+          <div className={styles.description}>{projects.text}</div>
           
           {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
             <div className={styles.button_row}>
@@ -88,9 +90,9 @@ const HistoryItem = () => {
               <Button
                 onClick={openDeleteModal}
                 className='primary-outline'
-              >Удалить историю</Button>
-              <EditHistory id={params.id} modalIsOpen={editIsOpen} closeModal={closeEditModal}/>
-              <DeleteHistory id={params.id} modalIsOpen={deleteIsOpen} closeModal={closeDeleteModal}/>
+              >Удалить проект</Button>
+              <EditProject id={params.id} modalIsOpen={editIsOpen} closeModal={closeEditModal}/>
+              <DeleteProject id={params.id} modalIsOpen={deleteIsOpen} closeModal={closeDeleteModal}/>
             </div>
           }
         </div>
@@ -99,4 +101,4 @@ const HistoryItem = () => {
   );
 }
 
-export default observer(HistoryItem);
+export default observer(ProjectItem);
