@@ -1,85 +1,96 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./DocumentsPage.module.css";
 import Input from "../../components/shared/Input/Input";
 import Container from "../../components/shared/Container/Container";
 import {DOCUMENTS_PER_ONE_PAGE} from "../../utils/constants";
 import DocumentsCard from "../../components/shared/DocumentsCard/DocumentsCard";
 import Pagination from "../../components/shared/Pagination/Pagination";
-
 import {useNavigate} from "react-router-dom";
-import {fetchDocuments, fetchDocumentsWithPagination} from "../../http/documentsApi";
+import {fetchDocuments} from "../../http/documentsApi";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import { Context } from "../..";
+import { observer } from "mobx-react-lite";
+import Button from "../../components/shared/Button/Button";
+import CreateDocument from "../../components/shared/DocumentsModals/CreateDocument/CreateDocument";
 
 const DocumentsPage = (props) => {
-    const [document, setDocument] = useState([]);
+    const navigate = useNavigate();
+    const {userStore} = useContext(Context);
+
+    const [documents, setDocuments] = useState([]);
     const [documentsCount, setDocumentsCount] = useState(0);
     const [page, setPage] = useState(1);
 
-    const [searchQuery, setSearchQuery] = useState("");
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
 
+    const [searchQuery, setSearchQuery] = useState("");
     const onSearchChange = (e) => {
         setSearchQuery(e.target.value);
     }
 
-    const getDocuments = () => {
-        fetchDocumentsWithPagination(DOCUMENTS_PER_ONE_PAGE, page).then(data => {
-            setDocument(data);
+    useEffect(() => {
+        fetchDocuments(DOCUMENTS_PER_ONE_PAGE, page, searchQuery).then(data => {
+            setDocuments(data);
         });
-    }
+    }, [page, searchQuery, modalIsOpen])
 
     useEffect(() => {
-        getDocuments();
-    }, [page])
+        fetchDocuments('', '', searchQuery).then(data => {
+            setDocumentsCount(data.length);
+        })
+    }, [searchQuery, modalIsOpen])
 
     useEffect(() => {
-        fetchDocuments().then(data => setDocumentsCount(data.length))
-    }, [])
-
-
-    const navigate = useNavigate();
+        setPage(1);
+    }, [searchQuery])
 
     return (
         <Container>
-            <div className={styles.outer}>
-
-                <ul className={styles.breadcrumb}>
-                    <li>
-                        <div className={styles.notActive} onClick={() => navigate('/')}>Главная /</div>
-                    </li>
-                    <li>
-                        <div>Документы</div>
-                    </li>
-                </ul>
-
+            <div className={styles.inner}>
+                <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Документы', 'path': '/documents'}]}/> 
                 <div className={styles.header}>
                     <h2>Документы</h2>
-                    <Input
-                        className="page_search-input"
-                        placeholder="Поиск"
-                        value={searchQuery}
-                        onChange={onSearchChange}
+                    <div className={styles.nav_fields}>
+                        {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+                        <Button
+                            className='primary'
+                            onClick={openModal}
+                        >Создать документ
+                        </Button>}
+                        <Input 
+                            className="page_search-input"
+                            placeholder="Поиск"
+                            value={searchQuery}
+                            onChange={onSearchChange}
+                        />
+                    </div>
+                </div>
+                <div className={styles.main}>
+                    <div className={styles.documents}>
+                        {documents.map((d) => {
+                            return <DocumentsCard 
+                                key={d.id}
+                                id={d.id}
+                                title={d.title}
+                                description={d.text}
+                                date={d.documentDate}
+                                files={d.filesNames[0]}/>
+                        })}
+                    </div>
+                    <Pagination
+                        page={page}
+                        setPage={setPage}
+                        totalCount={documentsCount}
+                        itemsPerPage={DOCUMENTS_PER_ONE_PAGE}
                     />
                 </div>
-                <div className={styles.grid}>
-                    {document.map((d) => {
-                        return <DocumentsCard key={d.id}
-                                              id={d.id}
-                                              title={d.title}
-                                              description={d.text}
-                                              date={d.documentDate}
-                                              files={d.filesNames[0]}/>
-
-                    })}
-                </div>
-
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    totalCount={documentsCount}
-                    itemsPerPage={DOCUMENTS_PER_ONE_PAGE}
-                />
             </div>
+            {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+                <CreateDocument modalIsOpen={modalIsOpen} closeModal={closeModal}/>}
         </Container>
     );
 }
 
-export default DocumentsPage;
+export default observer(DocumentsPage);

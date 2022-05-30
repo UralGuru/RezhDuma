@@ -6,17 +6,22 @@ export const createDocuments = async (documents) => {
   return data;
 }
 
-export const editDocuments = async (editData) => {
-  const {data} = await $authHost.patch('api/documents', editData);
-}
-
-export const fetchDocuments = async () => {
-  const {data} = await $host.get('api/documents');
+export const editDocuments = async (editData, id) => {
+  const {data} = await $authHost.patch(`api/documents/${id}`, editData);
   return data;
 }
 
-export const fetchDocumentsWithPagination = async (count, page) => {
-  const {data} = await $host.get(`api/documents?count=${count}&page=${page}`);
+export const deleteDocument = async (id) => {
+  const {data} = await $authHost.delete(`api/documents/${id}`)
+  return data;
+}
+
+export const fetchDocuments = async (count, page, find) => {
+  const {data} = await $host.get(`api/documents?` +
+    (count && count !== '' ? `count=${count}&` : '') +
+    (page && page !== '' ? `page=${page}&` : '') +
+    (find && find !== '' ? `find=${find}` : '')
+  );
   return data;
 }
 

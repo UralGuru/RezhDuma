@@ -27,7 +27,7 @@ const ChangePassword = () => {
   return ( 
     <Container>
       <div className={styles.outer}>
-        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личные данные', 'path': '/user'}, {'label': 'Изменить пароль', 'path': '/user/edit'}]}/>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личные данные', 'path': '/user'}, {'label': 'Изменить пароль', 'path': '/user/edit/password'}]}/>
         <h2>Изменение пароля</h2>
         <Formik
           initialValues={{

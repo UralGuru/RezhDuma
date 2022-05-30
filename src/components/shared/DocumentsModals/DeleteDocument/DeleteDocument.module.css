@@ -1,0 +1,18 @@
+.modal {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal_header {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.button_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}

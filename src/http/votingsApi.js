@@ -1,9 +1,10 @@
 import { $authHost, $host } from ".";
 
 
-export const fetchAllVotings = async (page, count) => {
+export const fetchVotings = async (page, count, find) => {
   const {data} = await $host.get(`api/votes?` +
   (count && count !== '' ? `count=${count}&` : '') +
+  (find && find !== '' ? `find=${find}&` : '') +
   (page && page !== '' ? `page=${page}&` : '')
   );
   return data;
