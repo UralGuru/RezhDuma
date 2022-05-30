@@ -27,7 +27,7 @@ const CrumbLink = ({children, to, className}) => {
 const BreadCrumbs = ({data, className}) => {
   return ( 
     <div className={styles.breadcrumbs}>
-      {data.map((crumb) => {
+      {data?.map((crumb) => {
         return (
           <div key={crumb.path} className={styles.breadcrumb}>
             <CrumbLink to={crumb.path} className={className}>{crumb.label}</CrumbLink>

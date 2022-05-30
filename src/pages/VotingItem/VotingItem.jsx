@@ -9,6 +9,7 @@ import QuestionRadioItem from './QuestionRadioItem/QuestionsRadioItem';
 import QuestionCheckboxItem from './QuestionCheckboxItem/QuestionCheckboxItem';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
 const VotingItem = () => {
 
@@ -81,6 +82,7 @@ const VotingItem = () => {
   return ( 
     <Container>
       <div className={styles.inner}>
+        <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Голосования', 'path': '/votings'}, {'label': `Голосование`, 'path': `/votings/${params.id}`}]}/>
         <h2>{voting.topic}</h2>
         <div className={styles.main}>
           {!localStorage.getItem('access-token') &&

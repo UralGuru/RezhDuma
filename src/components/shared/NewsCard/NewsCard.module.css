@@ -6,7 +6,9 @@
 }
 
 .card_date {
-  color: #606060;
+  font-weight: 600;
+  font-size: .8rem;
+  color: #7D7C84;;
 }
 
 .card_content {
@@ -14,7 +16,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 5rem;
+  gap: 4rem;
 }
 
 .card_img {

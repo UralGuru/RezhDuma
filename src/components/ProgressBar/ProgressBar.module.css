@@ -1,0 +1,23 @@
+.progress_bar {
+  height: 1.875rem;
+  background-color: #E3E3E3;
+  border-radius: .5rem;
+}
+
+.progress_done {
+  padding-right: .5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  border-radius: .5rem;
+  background-color: #8EB9D1B2;
+  font-weight: 500;
+  font-size: .85rem;
+  color: #232323;
+}
+
+.progress_maximum {
+  background-color: #118EB8;
+  color: white;
+}

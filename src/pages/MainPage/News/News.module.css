@@ -1,9 +1,12 @@
 .outer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: white;
   border-radius: 1rem;
   box-shadow: -5px 5px 50px rgba(145, 183, 228, 0.22);
   margin: 3rem 0;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .header {
@@ -20,9 +23,19 @@
 }
 
 .news_intro {
-  padding: 3rem 5rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   gap: 2rem;
+}
+
+@media(max-width: 523px) {
+  .news_intro {
+    padding: 1rem;
+  }
+
+  .outer {
+    padding: 1rem;
+  }
 }
