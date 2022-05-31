@@ -5,6 +5,7 @@ import Container from '../../../components/shared/Container/Container';
 import Card from '../../../components/shared/Card/Card';
 import { NEWS_ROUTE } from '../../../utils/constants';
 import { observer } from 'mobx-react-lite';
+import {BsArrowRight} from 'react-icons/bs';
 
 import styles from "./News.module.css";
 import { fetchNews } from '../../../http/newsApi';
@@ -16,7 +17,7 @@ const News = observer(() => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetchNews(3, 1).then(data => {
+    fetchNews(2, 1).then(data => {
       setNews(data);
     })
   }, [])
@@ -28,9 +29,9 @@ const News = observer(() => {
             <Button 
               className='secondary-outline'
               onClick={() => navigate(NEWS_ROUTE)}
-              >{"Все новости -->"}</Button>
+              ><div className={styles.button}>Все новости <BsArrowRight /></div></Button>
           </div>
-          <div className={styles.header}>Новости</div>
+          <h2 className={styles.header}>Новости</h2>
           <div className={styles.news_intro}>
             {news.map((n) => {
               return <Card 

@@ -92,7 +92,7 @@ const VotingResultsItem = () => {
                       return (
                         <div className={styles.answer}>
                           <div className={styles.answer_label}>{a.answer}</div>
-                          <div className={styles.answer_stats}><ProgressBar /></div> {/*Подставить из базы в виде allcount/a.count * 100*/}
+                          <div className={styles.answer_stats}><ProgressBar done={(a.count * 100 / voting.usersCount)}/></div> {/*Подставить из базы в виде allcount/a.count * 100*/}
                         </div>
                       )})}
                   </div>
@@ -100,7 +100,7 @@ const VotingResultsItem = () => {
               )})}
             </div>
             <div className={styles.votes_number}> {/*Подставить из базы в виде allcount*/}
-              {`Проголосовало ${'1000'} человек`}
+              {`Проголосовало ${voting.usersCount} человек`}
             </div>
           </div>
         </div>

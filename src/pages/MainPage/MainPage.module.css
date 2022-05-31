@@ -1,4 +1,7 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
   background: #EDEDED;
   background: -moz-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
   background: -webkit-linear-gradient(180deg, #EDEDED 1.38%, #FFFFFF 43.29%, #FFFFFF 98.41%);
