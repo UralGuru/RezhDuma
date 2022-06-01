@@ -5,7 +5,6 @@
 }
 
 .progress_done {
-  padding-right: .5rem;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -15,6 +14,10 @@
   font-weight: 500;
   font-size: .85rem;
   color: #232323;
+}
+
+.progress_done span {
+  margin-right: .25rem;
 }
 
 .progress_maximum {

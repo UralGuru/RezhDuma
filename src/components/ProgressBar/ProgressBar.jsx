@@ -12,7 +12,7 @@ const ProgressBar = ({ done, isMaximum=false }) => {
       <div 
         className={cx('progress_done', { 'progress_maximum': isMaximum })} 
         style={ {width: `${done > 100 ? 100 : done}%`} }
-      >{done}%
+      ><span>{done}%</span>
       </div>
     </div>
   );

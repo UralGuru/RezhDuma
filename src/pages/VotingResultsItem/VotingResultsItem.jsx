@@ -14,6 +14,16 @@ const VotingResultsItem = () => {
   const [status, setStatus] = useState('loading');
   const [voting, setVoting] = useState({});
 
+  const findMaximum = (q) => {
+    let max = -1;
+    for (let a in q.answers) {
+      if (q.answers[a].count > max) {
+        max = q.answers[a].count;
+      }
+    }
+    return max;
+  }
+
   useEffect(() => {
     setStatus('loading');
     fetchVotingByIdFromUser(params.id).then((data) => {
@@ -92,7 +102,7 @@ const VotingResultsItem = () => {
                       return (
                         <div className={styles.answer}>
                           <div className={styles.answer_label}>{a.answer}</div>
-                          <div className={styles.answer_stats}><ProgressBar done={(a.count * 100 / voting.usersCount)}/></div> {/*Подставить из базы в виде allcount/a.count * 100*/}
+                          <div className={styles.answer_stats}><ProgressBar done={(a.count * 100 / voting.usersCount)} isMaximum={findMaximum(q) == a.count}/></div> {/*Подставить из базы в виде allcount/a.count * 100*/}
                         </div>
                       )})}
                   </div>
