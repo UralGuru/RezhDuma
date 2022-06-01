@@ -7,6 +7,7 @@
 
 .information_modal {
   padding: 1rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,15 +19,6 @@
   font-size: 1.25rem;
   font-weight: 500;
   text-align: center;
-}
-
-.information_modal_content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: .5rem;
-  font-weight: 500;
 }
 
 .create_fields {

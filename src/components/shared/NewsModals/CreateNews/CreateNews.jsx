@@ -145,18 +145,9 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
             {status == 'loading' ? 
             'Пожалуйста, подождите...' : 
             status == 'success' ? 
-            'Новость успешно создана' : 
+            'Создание прошло успешно' : 
             status == 'error' ? 
-            'При создании новости произошла ошибка...' : 
-            'Пожалуйста, подождите...'}
-          </div>
-          <div className={styles.information_modal_content}>
-          {status == 'loading' ? 
-            'Новость загружается...' : 
-            status == 'success' ? 
-            '' : 
-            status == 'error' ? 
-            'Напишите в техподдержку или попробуйте еще раз...' : 
+            'При создании произошла ошибка...' : 
             'Пожалуйста, подождите...'}
           </div>
         </div>

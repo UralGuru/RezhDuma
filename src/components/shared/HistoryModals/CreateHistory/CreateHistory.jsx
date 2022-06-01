@@ -9,6 +9,7 @@ import Button from '../../Button/Button';
 import FilesField from '../../Forms/FilesField/FilesField';
 import styles from './CreateHistory.module.css';
 import { createHistory } from '../../../../http/historyApi';
+import InformationModal from '../../InformationModal/InformationModal';
 
 const CreateHistory = ({modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
@@ -33,7 +34,13 @@ const CreateHistory = ({modalIsOpen, closeModal}) => {
     },
   };
 
+  const [status, setStatus] = useState('');
+  const [informationModalIsOpen, setinformationModalIsOpen] = useState(false);
+  const openInformationModal = () => setinformationModalIsOpen(true);
+  const closeInformationModal = () => setinformationModalIsOpen(false);
+
   return ( 
+    <>
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
@@ -49,6 +56,8 @@ const CreateHistory = ({modalIsOpen, closeModal}) => {
         validateOnBlur={true}
         validateOnChange={false}
         onSubmit={(values) => {
+          openInformationModal();
+          setStatus('loading');
           const request = new FormData();
           request.append("title", values.title);
           request.append("text", values.text);
@@ -56,8 +65,12 @@ const CreateHistory = ({modalIsOpen, closeModal}) => {
             request.append("files", values.files[i]);
           }
           createHistory(request).then((data) => {
+            setStatus('success');
             closeModal()
-          })}}
+          }).catch((data) => {
+            setStatus('error');
+          })
+        }}
       >
         {(formik) => (
           <Form className={styles.modal}>
@@ -109,6 +122,23 @@ const CreateHistory = ({modalIsOpen, closeModal}) => {
           )}
         </Formik>
       </Modal>
+      <InformationModal
+        modalIsOpen={informationModalIsOpen}
+        closeModal={closeInformationModal}
+      >
+        <div className={styles.information_modal}>
+          <div className={styles.information_modal_header}>
+            {status == 'loading' ? 
+            'Пожалуйста, подождите...' : 
+            status == 'success' ? 
+            'Создание прошло успешно' : 
+            status == 'error' ? 
+            'При создании произошла ошибка...' : 
+            'Пожалуйста, подождите...'}
+          </div>
+        </div>
+      </InformationModal>
+      </>
   );
 }
  
@@ -123,6 +153,6 @@ const HistorySchema = Yup.object({
   .min(20, 'Поле должно содержать не менее 20 символов'),
   files: Yup.mixed().test("Размер файла", "Слишком большой размер файла", (value) => {
     if (!value.length) return true;
-    return value[0].size <= 2000
+    return value[0].size <= 5000000
   }),
 })

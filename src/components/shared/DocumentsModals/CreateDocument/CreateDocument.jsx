@@ -9,6 +9,7 @@ import Button from '../../Button/Button';
 import FilesField from '../../Forms/FilesField/FilesField';
 import styles from './CreateDocument.module.css';
 import { createDocuments } from '../../../../http/documentsApi';
+import InformationModal from '../../InformationModal/InformationModal';
 
 const CreateDocument = ({modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
@@ -33,7 +34,13 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
     },
   };
 
+  const [status, setStatus] = useState('');
+  const [informationModalIsOpen, setinformationModalIsOpen] = useState(false);
+  const openInformationModal = () => setinformationModalIsOpen(true);
+  const closeInformationModal = () => setinformationModalIsOpen(false);
+
   return ( 
+    <>
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
@@ -49,7 +56,8 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
         validateOnBlur={true}
         validateOnChange={false}
         onSubmit={(values) => {
-          console.log(values);
+          openInformationModal();
+          setStatus('loading');
           const request = new FormData();
           request.append("title", values.title);
           request.append("text", values.text);
@@ -57,8 +65,12 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
             request.append("files", values.files[i]);
           }
           createDocuments(request).then((data) => {
+            setStatus('success');
             closeModal()
-          })}}
+          }).catch((data) => {
+            setStatus('error');
+          })
+        }}
       >
         {(formik) => (
           <Form className={styles.modal}>
@@ -110,6 +122,23 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
           )}
         </Formik>
       </Modal>
+      <InformationModal
+        modalIsOpen={informationModalIsOpen}
+        closeModal={closeInformationModal}
+      >
+      <div className={styles.information_modal}>
+        <div className={styles.information_modal_header}>
+          {status == 'loading' ? 
+          'Пожалуйста, подождите...' : 
+          status == 'success' ? 
+          'Создание прошло успешно' : 
+          status == 'error' ? 
+          'При создании произошла ошибка...' : 
+          'Пожалуйста, подождите...'}
+        </div>
+      </div>
+    </InformationModal>
+    </>
   );
 }
  

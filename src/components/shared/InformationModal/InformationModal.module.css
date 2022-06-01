@@ -1,0 +1,11 @@
+.button_row {
+  display: flex;
+  justify-content: end;
+  font-weight: 500;
+}
+
+.button_row button {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}

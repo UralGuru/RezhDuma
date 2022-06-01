@@ -49,13 +49,19 @@
   text-align: center;
   color: white;
   background-color: #1E6D98;
+  transition: 300ms;
 }
 
 .btn_nav:hover {
-  background-color: #2C97CC;
+  background-color: #2981ad;
+  transition: 300ms;
 }
 
 .btn_nav_active {
+  background-color: #2C97CC;
+}
+
+.btn_nav_active:hover {
   background-color: #2C97CC;
 }
 
