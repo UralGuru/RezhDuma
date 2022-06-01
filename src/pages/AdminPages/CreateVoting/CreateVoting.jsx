@@ -62,9 +62,11 @@ const CreateVoting = () => {
                 }
               })
             })
-            if (!values.expirationDate || moment(values.expirationDate) < moment()) {
-              alert('Дата конца голосования должна быть позже даты начала');
-              return;
+            if (values.expirationDate) {
+              if (moment(values.expirationDate) < moment()) {
+                alert('Дата конца голосования должна быть позже даты начала');
+                return;
+              }
             }
             const data = {
               'topic': values.topic,
@@ -75,7 +77,6 @@ const CreateVoting = () => {
                 null,
               'questions': questions
             } 
-            console.log(data);
             createVoting(data).then((data) => {
               setQuestions([{'id': 0, 'question': '', 'checkbox': false, 'answers': [{'id': 0, 'answer': ''}]}]);
               resetForm();

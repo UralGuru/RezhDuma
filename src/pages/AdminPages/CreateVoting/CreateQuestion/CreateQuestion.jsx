@@ -77,6 +77,7 @@ const CreateQuestion = ({id, questions, setQuestions, setError}) => {
           {questions[id].answers.map((answer) => {
             return (
               <input 
+                key={answer.id}
                 className={styles.answer}
                 type='text'
                 placeholder='Ответ'

@@ -52,7 +52,7 @@ const VotingsPage = () => {
               {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
               <Button
                 className='primary'
-                onClick={() => navigate('create')}
+                onClick={() => navigate('/admin/votings/create')}
               >Создать голосование
               </Button>}
               <Input 

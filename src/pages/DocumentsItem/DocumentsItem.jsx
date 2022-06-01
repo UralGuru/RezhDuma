@@ -50,7 +50,7 @@ const DocumentsItem = () => {
           <div className={styles.description}>{document.text}</div>
           {document.filesNames.length != 0 && document.filesNames.map((data) => {
               return (
-                <div className={styles.files_container}><iframe src={data}/></div>
+                <div key={data} className={styles.files_container}><iframe src={data}/></div>
               )
             })
             }

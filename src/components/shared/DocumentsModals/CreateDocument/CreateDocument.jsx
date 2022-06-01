@@ -49,6 +49,7 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
         validateOnBlur={true}
         validateOnChange={false}
         onSubmit={(values) => {
+          console.log(values);
           const request = new FormData();
           request.append("title", values.title);
           request.append("text", values.text);
@@ -121,8 +122,4 @@ const DocumentsSchema = Yup.object({
   text: Yup.string()
   .required('Необходимое поле')
   .min(20, 'Поле должно содержать не менее 20 символов'),
-  files: Yup.mixed().test("Размер файла", "Слишком большой размер файла", (value) => {
-    if (!value.length) return true;
-    return value[0].size <= 2000
-  }),
 })
