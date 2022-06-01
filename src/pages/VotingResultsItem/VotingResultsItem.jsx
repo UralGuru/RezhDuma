@@ -102,7 +102,9 @@ const VotingResultsItem = () => {
                       return (
                         <div className={styles.answer}>
                           <div className={styles.answer_label}>{a.answer}</div>
-                          <div className={styles.answer_stats}><ProgressBar done={(a.count * 100 / voting.usersCount)} isMaximum={findMaximum(q) == a.count}/></div> {/*Подставить из базы в виде allcount/a.count * 100*/}
+                            <div className={styles.answer_stats}>
+                              <ProgressBar done={Math.round((a.count * 100 / voting.usersCount))} isMaximum={findMaximum(q) == a.count}/>
+                            </div> 
                         </div>
                       )})}
                   </div>
@@ -110,7 +112,7 @@ const VotingResultsItem = () => {
               )})}
             </div>
             <div className={styles.votes_number}> {/*Подставить из базы в виде allcount*/}
-              {`Проголосовало ${voting.usersCount} человек`}
+              {`Проголосовало: ${voting.usersCount} человек(а)`}
             </div>
           </div>
         </div>
