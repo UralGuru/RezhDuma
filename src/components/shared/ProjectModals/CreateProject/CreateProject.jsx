@@ -124,6 +124,6 @@ const ProjectSchema = Yup.object({
   .min(20, 'Поле должно содержать не менее 20 символов'),
   files: Yup.mixed().test("Размер файла", "Слишком большой размер файла", (value) => {
     if (!value.length) return true;
-    return value[0].size <= 2000
+    return value[0].size <= 5000000
   }),
 })

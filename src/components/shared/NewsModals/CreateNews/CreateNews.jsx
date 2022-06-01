@@ -12,6 +12,7 @@ import { NEWS_TYPE } from '../../../../utils/constants';
 import { Context } from '../../../..';
 import styles from './CreateNews.module.css';
 import { createNews, fetchOneNews } from '../../../../http/newsApi';
+import InformationModal from '../../InformationModal/InformationModal';
 
 const CreateNews = ({modalIsOpen, closeModal}) => {
   Modal.setAppElement('#root');
@@ -36,7 +37,13 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
     },
   };
 
+  const [status, setStatus] = useState('');
+  const [informationModalIsOpen, setinformationModalIsOpen] = useState(false);
+  const openInformationModal = () => setinformationModalIsOpen(true);
+  const closeInformationModal = () => setinformationModalIsOpen(false);
+
   return ( 
+    <>
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
@@ -53,6 +60,8 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
         validateOnBlur={true}
         validateOnChange={false}
         onSubmit={(values) => {
+          openInformationModal();
+          setStatus('loading');
           const request = new FormData();
           request.append("title", values.title);
           request.append("text", values.text);
@@ -61,8 +70,12 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
             request.append("files", values.files[i]);
           }
           createNews(request).then((data) => {
+            setStatus('success');
             closeModal()
-          })}}
+          }).catch((data) => {
+            setStatus('error');
+          })
+        }}
       >
         {(formik) => (
           <Form className={styles.modal}>
@@ -123,6 +136,32 @@ const CreateNews = ({modalIsOpen, closeModal}) => {
           )}
         </Formik>
       </Modal>
+      <InformationModal
+        modalIsOpen={informationModalIsOpen}
+        closeModal={closeInformationModal}
+      >
+        <div className={styles.information_modal}>
+          <div className={styles.information_modal_header}>
+            {status == 'loading' ? 
+            'Пожалуйста, подождите...' : 
+            status == 'success' ? 
+            'Новость успешно создана' : 
+            status == 'error' ? 
+            'При создании новости произошла ошибка...' : 
+            'Пожалуйста, подождите...'}
+          </div>
+          <div className={styles.information_modal_content}>
+          {status == 'loading' ? 
+            'Новость загружается...' : 
+            status == 'success' ? 
+            '' : 
+            status == 'error' ? 
+            'Напишите в техподдержку или попробуйте еще раз...' : 
+            'Пожалуйста, подождите...'}
+          </div>
+        </div>
+      </InformationModal>
+    </>
   );
 }
  
@@ -137,6 +176,6 @@ const NewsSchema = Yup.object({
   .min(20, 'Поле должно содержать не менее 20 символов'),
   files: Yup.mixed().test("Размер файла", "Слишком большой размер файла", (value) => {
     if (!value.length) return true;
-    return value[0].size <= 2000
+    return value[0].size <= 5000000
   }),
 })

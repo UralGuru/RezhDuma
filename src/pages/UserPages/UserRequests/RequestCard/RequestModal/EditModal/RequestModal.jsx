@@ -18,6 +18,14 @@ const RequestModal = ({modalIsOpen, closeModal, requestData}) => {
 
   Modal.setAppElement('#root');
   const customStyles = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.4)'
+    },
     content: {
       top: '50%',
       minWidth: '50%',

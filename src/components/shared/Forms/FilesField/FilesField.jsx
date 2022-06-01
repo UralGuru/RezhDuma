@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './FilesField.module.css';
 import {HiOutlinePaperClip} from 'react-icons/hi'
-import { useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
+import TextError from '../TextError/TextError';
 
 const FilesField = ( props ) => {
   const field = useField(props.name);
@@ -23,6 +24,7 @@ const FilesField = ( props ) => {
         return <div key={file.name}>{file.name}</div>
         })}
       </div>}
+      <ErrorMessage component="div" name={props.name} className={styles.error}/>
     </div>
   );
 }

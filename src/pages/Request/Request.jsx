@@ -15,6 +15,7 @@ import TextAreaField from '../../components/shared/Forms/TextAreaField/TextAreaF
 import FilesField from '../../components/shared/Forms/FilesField/FilesField';
 import Modal from 'react-modal/lib/components/Modal';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
+import InformationModal from '../../components/shared/InformationModal/InformationModal';
 
 const Request = () => {
 
@@ -125,28 +126,9 @@ const Request = () => {
         </Form>
         )}
         </Formik>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={{
-            overlay: {
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.4)'
-            },
-            content: {
-              top: '50%',
-              left: '50%',
-              right: 'auto',
-              bottom: 'auto',
-              borderRadius: '1rem',
-              marginRight: '-50%',
-              transform: 'translate(-50%, -50%)',
-            },
-          }}
+        <InformationModal
+          modalIsOpen={modalIsOpen}
+          closeModal={closeModal}
         >
           <div className={styles.submit_modal}>
             <div className={styles.submit_modal_header}>Ваше обращение отправлено</div>
@@ -155,7 +137,7 @@ const Request = () => {
               <button onClick={() => navigate(REQUESTS_ROUTE)}>Ваши вопросы и заявки</button>
             </div>
           </div>
-        </Modal>
+        </InformationModal>
     </Container>
   );
 }

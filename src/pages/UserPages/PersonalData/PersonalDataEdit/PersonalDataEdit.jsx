@@ -13,6 +13,7 @@ import { ROOT_ROUTE, USER_ROUTE } from '../../../../utils/constants';
 import Modal from 'react-modal/lib/components/Modal';
 import { Context } from '../../../..';
 import { observer } from 'mobx-react-lite';
+import InformationModal from '../../../../components/shared/InformationModal/InformationModal';
 
 const PersonalDataEdit = () => {
   Modal.setAppElement('#root');
@@ -135,14 +136,10 @@ const PersonalDataEdit = () => {
               >Сохранить
               </Button>
             </div>
-            <Modal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-
-              style={{
-                overlay: {position: 'fixed',top: 0,left: 0,right: 0,bottom: 0,backgroundColor: 'rgba(0, 0, 0, 0.4)'},
-                content: {top: '50%',left: '50%',right: 'auto',bottom: 'auto',borderRadius: '1rem',marginRight: '-50%',transform: 'translate(-50%, -50%)'},
-              }}>
+            <InformationModal
+              modalIsOpen={modalIsOpen}
+              closeModal={closeModal}
+              >
               <div className={styles.modal}>
                 <div className={styles.modal_header}>Ваши данные успешно изменены</div>
                 <div className={styles.modal_content}>
@@ -159,7 +156,7 @@ const PersonalDataEdit = () => {
                   }
                 </div>
               </div>
-            </Modal>
+            </InformationModal>
           </Form>
         )}
         </Formik>

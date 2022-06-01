@@ -30,3 +30,9 @@
   word-wrap: break-word;
   font-weight: 300;
 }
+
+.error {
+  font-weight: 400;
+  color: red;
+  opacity: 90%;
+}
