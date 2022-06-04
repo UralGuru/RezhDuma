@@ -49,7 +49,7 @@ const VotingsPage = () => {
           <div className={styles.header}>
             <h2>Голосования</h2>
             <div className={styles.nav_fields}>
-              {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+              {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") !== -1) && 
               <Button
                 className='primary'
                 onClick={() => navigate('/admin/votings/create')}

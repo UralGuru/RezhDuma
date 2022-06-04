@@ -12,8 +12,13 @@ import CreateQuestion from './CreateQuestion/CreateQuestion';
 import TextError from '../../../components/shared/Forms/TextError/TextError';
 import { createVoting } from '../../../http/votingsApi';
 import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
+import InformationModal from '../../../components/shared/InformationModal/InformationModal';
 
 const CreateVoting = () => {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   const addQuestion = () => {
     setQuestions([...questions, {'id': questions.length, 'question': '', 'checkbox': false, 'answers': [{'id': 0, 'answer': ''}]}]);
@@ -79,6 +84,7 @@ const CreateVoting = () => {
             } 
             createVoting(data).then((data) => {
               setQuestions([{'id': 0, 'question': '', 'checkbox': false, 'answers': [{'id': 0, 'answer': ''}]}]);
+              openModal();
               resetForm();
             })
           }}
@@ -148,6 +154,17 @@ const CreateVoting = () => {
         )}
         </Formik>
       </div>
+      <InformationModal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+      >
+        <div className={styles.submit_modal}>
+          <div className={styles.submit_modal_header}>Голосование успешно создано</div>
+          <div className={styles.submit_modal_content}>
+            <div>Вы можете увидеть его во вкладке Голосования</div>
+          </div>
+        </div>
+      </InformationModal>
     </Container>
   );
 }

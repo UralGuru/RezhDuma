@@ -19,8 +19,6 @@ import InformationModal from '../../components/shared/InformationModal/Informati
 
 const Request = () => {
 
-  Modal.setAppElement('#root');
-
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);

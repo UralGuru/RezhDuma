@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { fetchVotingById, fetchVotingByIdFromUser, putVote } from '../../http/votingsApi';
+import { deleteVotingById, fetchVotingById, fetchVotingByIdFromUser, putVote } from '../../http/votingsApi';
 import moment from 'moment';
 import styles from './VotingItem.module.css';
 import Button from '../../components/shared/Button/Button';
@@ -10,6 +10,7 @@ import QuestionCheckboxItem from './QuestionCheckboxItem/QuestionCheckboxItem';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
+import InformationModal from '../../components/shared/InformationModal/InformationModal';
 
 const VotingItem = () => {
 
@@ -23,6 +24,17 @@ const VotingItem = () => {
   const [error, setError] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const deleteAndClose = () => {
+    deleteVotingById(voting.id).then(data => {
+      closeModal();
+      navigate(-1);
+    })
+  }
+
   useEffect(() => {
     setStatus('loading');
     if(localStorage.getItem('access-token')) {
@@ -34,9 +46,9 @@ const VotingItem = () => {
         if (data.expirationDate) {
           setDisabled((moment(data.expirationDate) < moment()));
         }
-        if (!(data.canVote) || (moment(data.expirationDate) < moment())) {
-          navigate('results');
-        }
+        // if (!(data.canVote) || (moment(data.expirationDate) < moment())) {
+        //   navigate('results');
+        // }
       });
     } else {
       fetchVotingById(params.id).then((data) => {
@@ -129,28 +141,46 @@ const VotingItem = () => {
             <Button
               className='primary-outline'
               onClick={() => {navigate('results')}}
+              role="button"
             >Результаты</Button>
             <Button
               className='primary'
               onClick={onSubmit}
               disabled={disabled}
             >Отправить</Button>
+            <Button
+              className='secondary-outline'
+              onClick={openModal}
+              role='button'
+            >Удалить</Button>
           </div>
         </div>
       </div>
-      {/* <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-
-        style={{
-          overlay: {position: 'fixed',top: 0,left: 0,right: 0,bottom: 0,backgroundColor: 'rgba(0, 0, 0, 0.4)'},
-          content: {top: '50%',left: '50%',right: 'auto',bottom: 'auto',borderRadius: '1rem',marginRight: '-50%',transform: 'translate(-50%, -50%)'},
-        }}>
+      <InformationModal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+      >
         <div className={styles.modal}>
-          Вы успешно проголосовали
-          Перейти на страницу результатов???
+          <div className={styles.modal_header}>
+            Вы уверены что хотите удалить это голосование?
+          </div>
+          <div className={styles.modal_content}>
+            Вместе с голосованием удалятся голоса и вся информация об участниках голосования
+          </div>
+          <div className={styles.button_row}>
+            <Button
+              className='secondary-outline'
+              role='button'
+              onClick={() => closeModal()}
+            >Нет</Button>
+            <Button
+              className='primary'
+              role='button'
+              onClick={() => deleteAndClose()}
+            >Да</Button>
+          </div>
         </div>
-      </Modal> */}
+      </InformationModal>
     </Container>
   );
 }
