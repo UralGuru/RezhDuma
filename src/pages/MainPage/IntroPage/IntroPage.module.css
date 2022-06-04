@@ -1,11 +1,11 @@
 .intro{
     background: rgba(60, 60, 60, 0.3);
-    background: -moz-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
-    background: -webkit-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
-    background: -webkit-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
-    background: -o-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
-    background: -ms-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
-    background: linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("./intro.png");
+    background: -moz-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
+    background: -webkit-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
+    background: -webkit-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
+    background: -o-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
+    background: -ms-linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
+    background: linear-gradient(to right, rgba(5, 60, 100, 0.7), rgba(60, 60, 60, 0.4)), url("https://storage.yandexcloud.net/rezh3545/intro.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
