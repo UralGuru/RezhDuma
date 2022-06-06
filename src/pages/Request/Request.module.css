@@ -91,3 +91,10 @@
 .submit_modal_content button {
   font-weight: 600;
 }
+
+@media (max-width: 400px) {
+  .form {
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+  }
+}

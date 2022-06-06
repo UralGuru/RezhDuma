@@ -37,7 +37,7 @@ const VotingItem = () => {
 
   useEffect(() => {
     setStatus('loading');
-    if(localStorage.getItem('access-token')) {
+    if (localStorage.getItem('access-token')) {
       fetchVotingByIdFromUser(params.id).then((data) => {
         setVoting(data);
         setVotes(data.questions.map((q) => { return {'id': q.id, 'answers': []}}))

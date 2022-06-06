@@ -27,7 +27,6 @@ const AnswerModal = ({requestData, modalIsOpen, closeModal}) => {
 
   const {userStore} = useContext(Context);
 
-
   return ( 
     <Modal
       isOpen={modalIsOpen}

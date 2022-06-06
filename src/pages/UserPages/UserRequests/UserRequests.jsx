@@ -109,22 +109,24 @@ const UserRequests = () => {
     <Container>
       <div className={styles.container}>
         <BreadCrumbs data={[{'label': 'Главная', 'path': '/'}, {'label': 'Личный кабинет', 'path': '/profle'}, {'label': 'Мои вопросы', 'path': '/requests'}]}/>
-        <h2>Мои вопросы</h2>
-        <div className={styles.selectors}>
-          <div 
-            role={'button'}
-            onClick={() => setSidebarToggle(true)}
-            className={styles.toggle_open}
-            ><FiChevronRight />
-          </div>
-          <div className={styles.option_select}>
-            <Select
-              options={REQUEST_STATUS}
-              isSearchable={false}
-              value={statusQuery}
-              setValue={setStatusQuery}
-              placeholder={"Статус обращения"}
-            />
+        <div>
+          <h2>Мои вопросы</h2>
+          <div className={styles.selectors}>
+            <div 
+              role={'button'}
+              onClick={() => setSidebarToggle(true)}
+              className={styles.toggle_open}
+              ><FiChevronRight />
+            </div>
+            <div className={styles.option_select}>
+              <Select
+                options={REQUEST_STATUS}
+                isSearchable={false}
+                value={statusQuery}
+                setValue={setStatusQuery}
+                placeholder={"Статус обращения"}
+              />
+            </div>
           </div>
         </div>
         <div className={styles.wrapper}>  

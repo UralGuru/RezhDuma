@@ -1,6 +1,6 @@
 .button_row {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-weight: 500;
 }
 

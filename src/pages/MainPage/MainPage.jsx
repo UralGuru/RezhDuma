@@ -8,6 +8,7 @@ import Container from "../../components/shared/Container/Container";
 import styles from './MainPage.module.css';
 import News from "./News/News";
 import Votings from "./Votings/Votings";
+import Documents from "./Documents/Documents";
 
 const MainPage = (props) => {
     return(
@@ -15,6 +16,7 @@ const MainPage = (props) => {
             <IntroPage />
             <News />
             <Votings />
+            <Documents />
             <AutroPage />
         </div>
     );

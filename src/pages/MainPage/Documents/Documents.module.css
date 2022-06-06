@@ -1,3 +1,10 @@
+.outer {
+  padding: 2rem;
+  background-color: #EEEEEE;
+  box-shadow: -5px 5px 50px rgba(145, 183, 228, 0.22);
+  border-radius: 2rem;
+}
+
 .inner {
   display: flex;
   flex-direction: column;
@@ -21,4 +28,10 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+}
+
+@media (max-width: 523px) {
+  .outer {
+    padding: 1rem;
+  }
 }

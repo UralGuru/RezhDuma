@@ -27,10 +27,6 @@ const Request = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState('')
 
-  if (status == 'error') {
-    return <div className={styles.outer}>При отправке обращения возникла ошибка...</div>
-  }
-
   return (
     <Container>
       <Formik
@@ -47,6 +43,7 @@ const Request = () => {
         
         onSubmit={(values, {resetForm}) => {
           setStatus('sending');
+          openModal();
           const request = new FormData();
           request.append("district", values.district);
           request.append("topic", values.topic);
@@ -56,11 +53,12 @@ const Request = () => {
             request.append("files", values.files[i]);
           }
           createRequest(request).then((data) => {
-            setStatus('sended');
-            openModal();
+            setStatus('success');
+            navigate(REQUESTS_ROUTE);
             resetForm({values: ''});
           }).catch((data) => {
-            setStatus('error')
+            setStatus('error');
+            openModal();
           })
         }}
       > 
@@ -152,8 +150,4 @@ const RequestSchema = Yup.object().shape({
   files: Yup.mixed()
   .nullable()
   .notRequired()
-  // .test("FILE_SIZE", "Uploaded file is too big.", 
-  //     value => !value || (value && value.size <= FILE_SIZE))
-  // .test("FILE_FORMAT", "Uploaded file has unsupported format.", 
-  //     value => !value || (value && SUPPORTED_FORMATS.includes(value.type)))
 });

@@ -15,7 +15,7 @@ const DocumentsCard = ({ id, title, description, date }) => {
             <div className={styles.button_row}>
                 <Button
                     className={'secondary-outline'}
-                    onClick={() => {navigate(`${id}`)}}
+                    onClick={() => {navigate(`/documents/${id}`)}}
                 >Открыть</Button>
             </div>
         </div>

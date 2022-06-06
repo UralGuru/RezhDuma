@@ -41,6 +41,7 @@ const News = observer(() => {
                 description={n.text}
                 date={n.newsDate}
                 image={n.filesNames[0]}
+                category={'/news/'}
               />
             })}
           </div>

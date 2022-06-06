@@ -7,7 +7,7 @@ import { VOTINGS_ROUTE } from '../../../utils/constants';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../../components/shared/Container/Container';
 import VotingCard from '../../../components/shared/VotingCard/VotingCard';
-
+import Slider from '../../../components/shared/Slider/Slider';
 
 const Votings = () => {
 
@@ -24,16 +24,21 @@ const Votings = () => {
     })
   }, [])
 
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+};
+
   if (status === 'success') {
   return ( 
     <Container>
       <div className={styles.inner}>
         <h2 className={styles.header}>Голосования</h2>
-        <div className={styles.main}>
-          {/* <Slider {...settings}>
-            {votings.map((voting) => {
-            return (
-              <div className={styles.voting_item}>
+        <div className={styles.slider_container}>
+          <Slider 
+            items={votings.map((voting) => {
+              return (
                 <VotingCard 
                   key={voting.id}
                   id={voting.id}
@@ -41,10 +46,15 @@ const Votings = () => {
                   votingDate={voting.votingDate}
                   expirationDate={voting.expirationDate}
                 />
-              </div>
             )})}
-          </Slider> */}
-        </div>
+            itemsPerPage={3}
+            responsive={[
+              {windowWidth: 0, items: 1},
+              {windowWidth: 512, items: 2},
+              {windowWidth: 1024, items: 3}
+            ]}
+          />
+      </div>
       </div>
       <div className={styles.button_row}>
         <Button 

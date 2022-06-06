@@ -1,0 +1,71 @@
+.slider_box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.slider {
+  position: relative;
+}
+
+.nav_button {
+  position: absolute;
+  display: flex;
+  background-color: #D9E6E9;
+  color: #135B82;
+  font-size: 2rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 4px 4px rgba(69, 142, 227, 0.25);
+  top: 50%;
+  transform:  translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+.nav_left {
+  left: 0;
+}
+
+.nav_right {
+  right: 0;
+}
+
+.main {
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.slider_item {
+  flex-basis: 0;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.paginator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: .25rem;
+}
+
+.pagination_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #C4C4C4;
+  font-size: 1.25rem;
+  padding: .125rem;
+}
+
+.pagination_button_active {
+  color: #135B82;
+  font-size: 1.5rem;
+  padding: 0rem;
+}

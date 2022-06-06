@@ -9,9 +9,6 @@ import { getRequestById } from '../../../http/requestApi';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 
-
-// получает новость из бэка по id переданному в роуте.
-
 const AdminRequestItem = () => {
   const params = useParams();
   const [request, setRequest] = useState({});
