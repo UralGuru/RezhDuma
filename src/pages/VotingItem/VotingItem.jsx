@@ -148,39 +148,43 @@ const VotingItem = () => {
               onClick={onSubmit}
               disabled={disabled}
             >Отправить</Button>
-            <Button
-              className='secondary-outline'
-              onClick={openModal}
-              role='button'
-            >Удалить</Button>
+            {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+              <Button
+                className='secondary-outline'
+                onClick={openModal}
+                role='button'
+              >Удалить</Button>
+            }
           </div>
         </div>
       </div>
-      <InformationModal
-        modalIsOpen={modalIsOpen}
-        closeModal={closeModal}
-      >
-        <div className={styles.modal}>
-          <div className={styles.modal_header}>
-            Вы уверены что хотите удалить это голосование?
+      {(userStore.User.roles && userStore.User.roles.indexOf("ADMIN") != -1) && 
+        <InformationModal
+          modalIsOpen={modalIsOpen}
+          closeModal={closeModal}
+        >
+          <div className={styles.modal}>
+            <div className={styles.modal_header}>
+              Вы уверены что хотите удалить это голосование?
+            </div>
+            <div className={styles.modal_content}>
+              Вместе с голосованием удалятся голоса и вся информация об участниках голосования
+            </div>
+            <div className={styles.button_row}>
+              <Button
+                className='secondary-outline'
+                role='button'
+                onClick={() => closeModal()}
+              >Нет</Button>
+              <Button
+                className='primary'
+                role='button'
+                onClick={() => deleteAndClose()}
+              >Да</Button>
+            </div>
           </div>
-          <div className={styles.modal_content}>
-            Вместе с голосованием удалятся голоса и вся информация об участниках голосования
-          </div>
-          <div className={styles.button_row}>
-            <Button
-              className='secondary-outline'
-              role='button'
-              onClick={() => closeModal()}
-            >Нет</Button>
-            <Button
-              className='primary'
-              role='button'
-              onClick={() => deleteAndClose()}
-            >Да</Button>
-          </div>
-        </div>
-      </InformationModal>
+        </InformationModal>
+      }
     </Container>
   );
 }
