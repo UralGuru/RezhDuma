@@ -90,6 +90,12 @@
   gap: 2rem;
 }
 
+.error_information {
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
 .toggle_open {
   display: none;
   color: #0F5276;

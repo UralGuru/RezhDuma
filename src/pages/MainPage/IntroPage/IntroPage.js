@@ -13,11 +13,12 @@ const IntroPage = (props) => {
                         городского округа город Реж<br />
                         Свердловской области
                     </div>
-                    <input 
+                    {/* TODO: Реализовать поиск по странице */}
+                    {/* <input 
                         className={styles.search_btn} 
                         type="text"
                         placeholder="Поиск по сайту     &#10140;"
-                    />
+                    /> */}
                 </div>
             </Container>
         </div>

@@ -13,7 +13,7 @@ const AutroPage = (props) => {
                 <div className={styles.inner}>
                     <div>
                         Есть вопросы?<br/>
-                        Задайте их депутату режской думы...
+                        Задайте их депутату режевской думы
                     </div>
                     <button 
                         className={styles.request_btn} 

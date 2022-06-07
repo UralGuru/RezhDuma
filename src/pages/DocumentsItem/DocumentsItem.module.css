@@ -44,7 +44,7 @@
 .files_container {
   position: relative;
   overflow: hidden;
-  padding-top: 56.25%;
+  padding-top: 70%;
 }
 
 .files_container iframe {

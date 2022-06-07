@@ -167,19 +167,25 @@ const UserRequests = () => {
           </div>
           <div className={styles.main}>
             <div className={styles.requests}>
-              {requests.map((req) => {
-                return <RequestCard 
-                  key={req.id}
-                  id={req.id}
-                />
-              })}
+              {(!requests.length && !searchQuery && !statusQuery && !districtQuery && !topicQuery && !typeQuery) ?
+                  <div className={styles.error_information}>У вас еще нет обращений</div> :
+                (!requests.length) ?
+                  <div className={styles.error_information}>К сожалению, на ваш поисковый запрос ничего не найдено</div> :
+                requests.map((req) => {
+                  return <RequestCard 
+                    key={req.id}
+                    id={req.id}
+                  />
+                })
+              }
             </div>
+            {requestsCount > REQUESTS_PER_ONE_PAGE && 
             <Pagination 
               page={page}
               setPage={setPage}
               totalCount={requestsCount}
               itemsPerPage={REQUESTS_PER_ONE_PAGE}
-            />
+            />}
           </div>
         </div>
       </div>

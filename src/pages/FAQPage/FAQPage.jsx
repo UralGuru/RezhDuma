@@ -19,8 +19,7 @@ const FAQPage = () => {
   const [requests, setRequests] = useState([]);
   const [requestsCount, setRequestsCount] = useState(0);
   const [page, setPage] = useState(1);
-
-  const [statusQuery, setStatusQuery] = useState('');
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [districtQuery, setDistrictQuery] = useState('');
   const [topicQuery, setTopicQuery] = useState('');
@@ -169,12 +168,13 @@ const FAQPage = () => {
                 return <FAQCard requestData={req} key={req.id}/>
               })}
             </div>
+            {requestsCount > REQUESTS_PER_ONE_PAGE && 
             <Pagination 
               page={page}
               setPage={setPage}
               totalCount={requestsCount}
               itemsPerPage={REQUESTS_PER_ONE_PAGE}
-            />
+            />}
           </div>
         </div>
       </div>
