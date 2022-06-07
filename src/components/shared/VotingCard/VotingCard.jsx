@@ -28,7 +28,7 @@ const VotingCard = ({id, topic, votingDate, expirationDate}) => {
       }
       <div className={styles.button_row}>
         <Button
-          onClick={() => {navigate(`votings/${id}`)}}
+          onClick={() => {navigate(`/votings/${id}`)}}
           className="secondary-outline"
         >Открыть
         </Button>
