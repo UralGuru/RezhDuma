@@ -64,6 +64,25 @@
   color: #3E3E3E;
 }
 
+.button_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal_header {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 523px) {
   .main {
     padding: 2rem;

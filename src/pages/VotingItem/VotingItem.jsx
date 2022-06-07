@@ -46,9 +46,9 @@ const VotingItem = () => {
         if (data.expirationDate) {
           setDisabled((moment(data.expirationDate) < moment()));
         }
-        // if (!(data.canVote) || (moment(data.expirationDate) < moment())) {
-        //   navigate('results');
-        // }
+        if (!(data.canVote) || (moment(data.expirationDate) < moment())) {
+          navigate('results');
+        }
       });
     } else {
       fetchVotingById(params.id).then((data) => {
