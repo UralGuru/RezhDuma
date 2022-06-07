@@ -15,8 +15,11 @@
 }
 
 .request_link {
-  display: flex;
-  align-items: flex-start;
+  margin-right: auto;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-bottom: .1rem;
+  border-bottom: 1px solid #1A6B98;
 }
 
 .request_header {

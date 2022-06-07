@@ -33,12 +33,12 @@ const RequestCard = ({id}) => {
     <div className={styles.request_card}>
       <div className={styles.request}>
         <div className={styles.request_header}>
-          <button className={styles.request_link} onClick={() => navigate(`${id}`)}>Посмотреть</button>
+          <button className={styles.request_link} onClick={() => navigate(`${id}`)}>Развернуть</button>
           <div className={styles.request_date}>
             {moment(requestData?.appealDate).format('DD.MM.YYYY')}
           </div>
           <div>
-            От: {requestData?.requesterName}
+            От: {`${requestData?.requester?.lastName} ${requestData?.requester?.firstName}`}
           </div>
           <div className={styles.request_text}>
             {requestData?.text}
