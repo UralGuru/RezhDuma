@@ -14,8 +14,7 @@
 .answers {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
-  font-size: 0.9rem;
+  gap: .75rem;
 }
 
 .answer {
@@ -23,10 +22,68 @@
   flex-direction: row;
   align-items: center;
   gap: .5rem;
+  font-size: .9rem;
 }
 
-.answer input {
+.answer label {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.answer input[type="checkbox"]:checked, 
+.answer input[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.answer input[type="checkbox"]:checked + label, 
+.answer input[type="checkbox"]:not(:checked) + label{
+    position: relative;
+    padding-left: 1.75rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+}
+
+.answer input[type="checkbox"]:checked + label:after, 
+.answer input[type="checkbox"]:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    left: .125rem;
+    top: .25rem;
+    width: .625rem;
+    height: .3125rem;
+    border-radius: 1px;
+    border-left: .25rem solid #1A6B98;
+    border-bottom: .25rem solid #1A6B98;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.answer input[type="checkbox"]:checked + label:before, 
+.answer input[type="checkbox"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+input[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked + label:after{
+    opacity: 1;
 }

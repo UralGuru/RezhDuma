@@ -28,16 +28,17 @@ const QuestionCheckboxItem = ({number, question, votes, setVotes, disabled}) => 
       <div className={styles.answers}>
         { question.answers.map((ans) => {
         return (
-          <label key={ans.id} className={styles.answer}>
+          <div key={ans.id} className={styles.answer}>
             <input 
+              id={ans.id}
               name={question.question}
               value={ans.id}
               type={'checkbox'}
               onChange={(event) => {changeAnswer(event.target.value)}}
               disabled={disabled ? 'disabled' : ''}
             />
-            <span>{ans.answer}</span>
-          </label>
+            <label htmlFor={ans.id}>{ans.answer}</label>
+          </div>
         )})}
       </div>
     </div>

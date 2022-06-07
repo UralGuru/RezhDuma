@@ -19,17 +19,20 @@ const QuestionRadioItem = ({number, question, votes, setVotes, disabled}) => {
       <div className={styles.answers}>
         { question.answers.map((ans) => {
         return (
-          <label key={ans.id} className={styles.answer}>
+          <div key={ans.id} className={styles.answer}>
             <input 
-              name={question.question}
-              value={ans.id}
-              type={'radio'}
-              checked={answer == ans.id}
-              onChange = {(event) => {changeAnswer(event.target.value)}}
-              disabled={disabled ? 'disabled' : ''}
-            />
-            <span>{ans.answer}</span>
-          </label>
+                id={ans.id}
+                name={question.question}
+                value={ans.id}
+                type={'radio'}
+                checked={answer == ans.id}
+                onChange = {(event) => {changeAnswer(event.target.value)}}
+                disabled={disabled ? 'disabled' : ''}
+              />
+            <label htmlFor={ans.id}>
+              <span>{ans.answer}</span>
+            </label>
+          </div>
         )})}
       </div>
     </div>

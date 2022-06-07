@@ -14,7 +14,7 @@
 .answers {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: .75rem;
   font-size: 0.9rem;
 }
 
@@ -23,10 +23,62 @@
   flex-direction: row;
   align-items: center;
   gap: .5rem;
+  font-size: .9rem;
 }
 
-.answer input {
+.answer label {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.answer input[type="radio"]:checked, 
+.answer input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.answer input[type="radio"]:checked + label, 
+.answer input[type="radio"]:not(:checked) + label{
+    position: relative;
+    padding-left: 1.75rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+}
+
+.answer input[type="radio"]:checked + label:after, 
+.answer input[type="radio"]:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    left: .34375rem;
+    top: .34375rem;
+    width: .5625rem;
+    height: .5625rem;
+    border-radius: 100%;
+    background-color: #1A6B98;
+}
+
+.answer input[type="radio"]:checked + label:before, 
+.answer input[type="radio"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    border-radius: 100%;
+}
+
+input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+}
+
+input[type="radio"]:checked + label:after{
+    opacity: 1;
 }
