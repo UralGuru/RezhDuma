@@ -33,6 +33,8 @@ const Slider = ({items, itemsPerPage, responsive, disableButtons=false, disableD
 
   useEffect(() => {
     window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+    updateItemsPerPage();
 
     return (() => {
       window.removeEventListener('resize', updateDimensions);
