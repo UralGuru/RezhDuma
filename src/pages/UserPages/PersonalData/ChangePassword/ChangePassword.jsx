@@ -44,7 +44,6 @@ const ChangePassword = () => {
             request.append('password', values.password);
             request.append('newPassword', values.newPassword);
             changeUserPassword(request).then((data) => {
-              userStore.logout();
               openModal();
             })
           }}  
@@ -94,10 +93,8 @@ const ChangePassword = () => {
               closeModal={closeModal}
               >
               <div className={styles.modal}>
-                <div className={styles.modal_header}>Ваши данные успешно изменены</div>
+                <div className={styles.modal_header}>Ваш пароль успешно изменен</div>
                 <div className={styles.modal_content}>
-                  <div>Письмо с подтверждением нового пароля выслано на вашу электронную почту</div>
-                  <div>После подтверждения необходимо авторизоваться</div>
                   <button onClick={() => navigate(USER_ROUTE)}>Вернуться на главную</button>
                 </div>
               </div>

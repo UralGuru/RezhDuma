@@ -31,6 +31,7 @@ import PersonalData from './pages/UserPages/PersonalData/PersonalData';
 import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/PersonalDataEdit';
 import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';
 import VotingItem from './pages/VotingItem/VotingItem';
+import Analytics from './pages/AdminPages/Analytics/Analytics';
 
 
 function App() {
@@ -98,6 +99,7 @@ function App() {
 
                     {/* admin routes */}
                     <Route path="admin" element={<AdminRequired />}>
+                        <Route path='analytics' element={<Analytics />}/>
                         <Route path="requests">
                             <Route index element={<Requests/>}/>
                             <Route path=":id" element={<AdminRequestItem />}/>

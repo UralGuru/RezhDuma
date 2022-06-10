@@ -138,6 +138,11 @@ const VotingItem = () => {
               Ответьте на все вопросы голосования
             </div>}
           <div className={styles.button_row}>
+            {/* <Button
+              className='primary-outline'
+              onClick={() => {navigate('results')}}
+              role="button"
+            >Результаты</Button> */}
             <Button
               className='primary'
               onClick={onSubmit}

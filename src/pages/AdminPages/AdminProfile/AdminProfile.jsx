@@ -6,7 +6,7 @@ import BreadCrumbs from '../../../components/BreadCrumbs/BreadCrumbs';
 import Button from '../../../components/shared/Button/Button';
 import Container from '../../../components/shared/Container/Container';
 import InfoCard from '../../../components/shared/InfoCard/InfoCard';
-import { REGISTRATION_ROUTE, ADMIN_REQUESTS_ROUTE, FAQ_ROUTE, ADMIN_VOTINGS_ROUTE, VOTINGS_ROUTE } from '../../../utils/constants';
+import { REGISTRATION_ROUTE, ADMIN_REQUESTS_ROUTE, FAQ_ROUTE, ADMIN_VOTINGS_ROUTE, VOTINGS_ROUTE, ANALYTICS_ROUTE } from '../../../utils/constants';
 
 import styles from './AdminProfile.module.css';
 
@@ -49,8 +49,12 @@ function AdminProfile() {
               onClick={() => navigate(ADMIN_REQUESTS_ROUTE)}/>
             <InfoCard 
               title={"Голосования и опросы"}
-              description={"Контроль за ходом голосования"}
+              description={"Контроль за ходом голосований"}
               onClick={() => navigate(VOTINGS_ROUTE)}/>
+            <InfoCard 
+              title={"Статистика"}
+              description={"Просмотр статистики по обращениям"}
+              onClick={() => navigate(ANALYTICS_ROUTE)}/>
           </div>
         </Container>
       </div>
