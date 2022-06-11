@@ -33,42 +33,55 @@ const RequestCard = ({id}) => {
     <div className={styles.request_card}>
       <div className={styles.request}>
         <div className={styles.request_header}>
-          <button className={styles.request_link} onClick={() => navigate(`${id}`)}>Развернуть</button>
-          <div className={styles.request_date}>
-            {moment(requestData?.appealDate).format('DD.MM.YYYY')}
+          <div className={styles.topics_column}>
+            <div className={styles.request_topics}>
+              <div className={styles.request_date}>
+                {moment(requestData?.appealDate).format('DD.MM.YY')}
+              </div>
+              {requestData?.district && <div className={styles.request_topic}>{requestData?.district}</div>}
+              {requestData?.topic && <div className={styles.request_topic}>{requestData?.topic}</div>}
+              {requestData?.type && <div className={styles.request_topic}>{requestData?.type}</div>}
+            </div>
           </div>
-          <div>
-            От: {`${requestData?.requester?.lastName} ${requestData?.requester?.firstName}`}
+          <div className={styles.request_status}>
+            {requestData?.response ? 'Рассмотрено' : 'Ответить'}
           </div>
+        </div>
+        <div className={styles.request_content}>
           <div className={styles.request_text}>
             {requestData?.text}
           </div>
-          <div className={styles.request_topics}>
-            {requestData?.district && <div className={styles.request_topic}>{requestData?.district}</div>}
-            {requestData?.topic && <div className={styles.request_topic}>{requestData?.topic}</div>}
-            {requestData?.type && <div className={styles.request_topic}>{requestData?.type}</div>}
+          <div className={styles.request_author}>
+            Автор: {`${requestData?.requester?.lastName} ${requestData?.requester?.firstName} ${requestData?.requester?.patronymic}`}
           </div>
         </div>
-        <div className={styles.button_column}>
-          <Button
-            className='primary-outline'
-            onClick={requestData?.response ? () => {} : openModal}
-            >{requestData?.response ? 'Рассмотрено' : 'Ответить'}
-          </Button>
+      </div>
+      <div className={styles.response}>
+        <div className={styles.response_header}>
+          <div className={styles.response_date}>
+            {moment(requestData.responseDate).format('DD.MM.YYYY')}
+          </div>
+          <div className={styles.response_author}>
+            Ответил: {requestData.responsibleName}
+          </div>
         </div>
-        <AnswerModal 
+        <div className={styles.response_text}>
+          {requestData.response}
+        </div>
+      </div>
+      <div className={styles.button_row}>
+        <button
+          onClick={() => navigate(`${id}`)}
+        >Развернуть</button>
+        <button
+          onClick={() => openModal()}
+        >Редактировать</button>
+      </div>
+      <AnswerModal 
           requestData={requestData}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
         />
-      </div>
-      {requestData?.response && 
-        <div className={styles.response}>
-          <div className={styles.response_date}>{moment(requestData.responseDate).format('DD.MM.YYYY')}</div>
-          <div className={styles.response_author}>Ответил {requestData.responsibleName}:</div>
-          <div className={styles.response_text}>{requestData.response}</div>
-          <div className={styles.edit_button} role={"button"} onClick={openModal}>Редактировать</div>
-        </div>}
     </div>
   );
 }

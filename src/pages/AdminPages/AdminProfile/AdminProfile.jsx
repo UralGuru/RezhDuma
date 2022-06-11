@@ -48,10 +48,6 @@ function AdminProfile() {
               description={"Контроль за ходом рассмотрения обращения"}
               onClick={() => navigate(ADMIN_REQUESTS_ROUTE)}/>
             <InfoCard 
-              title={"Голосования и опросы"}
-              description={"Контроль за ходом голосований"}
-              onClick={() => navigate(VOTINGS_ROUTE)}/>
-            <InfoCard 
               title={"Статистика"}
               description={"Просмотр статистики по обращениям"}
               onClick={() => navigate(ANALYTICS_ROUTE)}/>

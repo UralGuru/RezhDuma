@@ -8,36 +8,34 @@
 
 .request {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.request_link {
-  margin-right: auto;
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding-bottom: .1rem;
-  border-bottom: 1px solid #1A6B98;
-}
-
 .request_header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: .5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .request_date {
+  padding-right: .75rem;
   font-weight: 600;
   font-size: .875rem;
   color: #7D7C84;
 }
 
-.request_text {
-  font-weight: 600;
-  word-wrap: break-word;
-  word-break: break-all;
+.topics_column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: .5rem;
 }
 
 .request_topics {
@@ -52,53 +50,71 @@
 .request_topic {
   padding: .25rem .75rem;
   border: 1px solid #1a6c987d;
-  border-radius: .5rem;
+  border-radius: .75rem;
   color: #1A6B98;
 }
 
-.request_files {
+.request_status {
+  align-self: flex-start;
+  padding: .4rem 1.5rem;
+  color: #4E6D7E;
+  border: 1px solid #5B8196;
+  border-radius: .75rem;
+  font: .85rem 500;
+}
+
+.request_content {
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 
-.request_file {
-  display: block;
+.request_text {
+  font-weight: 600;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.request_author {
+  font-weight: 500;
+  font-size: .85rem;
 }
 
 .response {
+  margin-left: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid #BEBEBE;;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
-  margin-left: 1rem;
+  gap: .5rem;
+}
+
+.response_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 .response_date {
-  font-weight: 600;
-  font-size: .875rem;
+  font-size: .75rem;
+  font-weight: 500;
   color: #7D7C84;
 }
 
 .response_author {
   font-weight: 600;
+  font-size: .85rem;
 }
 
 .response_text {
-  font-weight: 300;
-  word-wrap: break-word;
-  word-break: break-all;
+  font-weight: 500;
 }
 
-.edit_button {
-  font-weight: 600;
-  cursor: pointer;
+.button_row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  font-weight: 500;
   color: #1A6B98;
 }
-
-@media(max-width: 523px) {
-  .request {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
