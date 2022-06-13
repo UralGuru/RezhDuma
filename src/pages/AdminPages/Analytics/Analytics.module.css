@@ -6,6 +6,9 @@
 }
 
 .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: 3rem;
   background-color: white;
   border-radius: 2rem;
@@ -97,6 +100,12 @@
   .all_count_text, .answered_text, .not_answered_text {
     font-size: 1rem;
   }
+}
+
+.diagramm {
+  margin: 1rem auto;
+  width: 80%;
+  aspect-ratio: 3;
 }
 
 @media (max-width: 400px) {

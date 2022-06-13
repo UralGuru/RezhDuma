@@ -6,7 +6,7 @@
 
 .progress_done {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   border-radius: .5rem;
