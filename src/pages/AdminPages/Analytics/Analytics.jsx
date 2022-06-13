@@ -90,14 +90,13 @@ const Analytics = () => {
                 labels: topicCounter.map((item) => item[0]),
                 datasets: [{
                   barPercentage: 0.3,
-                  label: 'По сфере обращения',
                   data: topicCounter.map((item) => item[1]),
                   backgroundColor: [
                     '#3EB1EA',
                   ],
                   borderWidth: 1
                 }]}}
-              title="По типу обращения"
+              title="По сфере обращения"
             />
           </div>
         </div>
