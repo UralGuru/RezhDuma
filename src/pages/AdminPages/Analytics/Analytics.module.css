@@ -126,3 +126,11 @@
     display: none;
   }
 }
+
+@media (max-width: 523px) {
+  .diagramm {
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 1.5;
+  }
+}

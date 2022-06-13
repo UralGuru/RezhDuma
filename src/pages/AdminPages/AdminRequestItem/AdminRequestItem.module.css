@@ -23,17 +23,18 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #CECFD0;
 }
 
 .label {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .field_value {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   font-weight: 600;
   font-size: .9rem;
 }

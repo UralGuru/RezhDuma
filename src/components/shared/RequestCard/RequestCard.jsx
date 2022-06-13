@@ -44,7 +44,7 @@ const RequestCard = ({id}) => {
             </div>
           </div>
           <div className={styles.request_status}>
-            {requestData?.response ? 'Рассмотрено' : 'Ответить'}
+            {requestData?.response ? 'Рассмотрено' : 'Ждет ответа'}
           </div>
         </div>
         <div className={styles.request_content}>
@@ -56,6 +56,7 @@ const RequestCard = ({id}) => {
           </div>
         </div>
       </div>
+      {requestData?.response &&
       <div className={styles.response}>
         <div className={styles.response_header}>
           <div className={styles.response_date}>
@@ -68,14 +69,14 @@ const RequestCard = ({id}) => {
         <div className={styles.response_text}>
           {requestData.response}
         </div>
-      </div>
+      </div>}
       <div className={styles.button_row}>
         <button
           onClick={() => navigate(`${id}`)}
         >Развернуть</button>
         <button
           onClick={() => openModal()}
-        >Редактировать</button>
+        >{requestData.response ? 'Редактировать' : 'Ответить'}</button>
       </div>
       <AnswerModal 
           requestData={requestData}

@@ -63,7 +63,7 @@ const AdminRequestItem = () => {
                 </div>
               </div>
               <div className={styles.field}>
-                <div className={styles.label}>Личные данные</div>
+                <div className={styles.label}>Личные данные заявителя</div>
                 <div className={styles.personal_data}>
                   <div className={styles.personal_field}>
                     <div className={styles.label}>ФИО</div>
