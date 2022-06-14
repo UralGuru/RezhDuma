@@ -21,8 +21,6 @@ const PersonalData = () => {
     })
   }, []);
 
-  console.log(userData);
-
   if (status === 'loading') {
     return (
       <Container>
