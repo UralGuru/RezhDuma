@@ -25,7 +25,7 @@ const Card = ({
         </div>}
         <div className={styles.card_text}>
           <div className={styles.card_title} onClick={() => navigate(`${category}${id}`)}>{title}</div>
-          <div className={styles.card_description}>{description.slice(0, 400) + "..."}</div>
+          <div className={styles.card_description}>{description.slice(0, 400)}{description.length > 400 ? '...' : ''}</div>
           <div className={styles.card_link}>
             <Button className='secondary-outline' onClick={() => navigate(`${category}${id}`)}>Читать далее</Button>
           </div>

@@ -10,7 +10,7 @@ const DocumentsCard = ({ id, title, description, date }) => {
     return (
         <div className={styles.card}>
             <div className={styles.card_title}>{title}</div>
-            <div className={styles.card_description}>{description.slice(0 ,70)}...</div>
+            <div className={styles.card_description}>{description.slice(0 ,70)}{description.length > 70 ? '...' : ''}</div>
             <div className={styles.card_date}>Дата загрузки: {moment(date).format('DD.MM.YYYY')}</div>
             <div className={styles.button_row}>
                 <Button

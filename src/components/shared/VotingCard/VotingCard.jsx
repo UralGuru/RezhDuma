@@ -9,7 +9,7 @@ const VotingCard = ({id, topic, votingDate, expirationDate}) => {
 
   return ( 
     <div className={styles.card}>
-      <div className={styles.topic}>{topic}</div>
+      <div className={styles.topic}>{topic.slice(0 ,50)}{topic.length > 50 ? '...' : ''}</div>
       {expirationDate ? 
       <div className={styles.dates}>
         <div className={styles.dates_title}>Срок проведения:</div>
