@@ -11,24 +11,18 @@
 }
 
 .card_title {
-  margin: 0 auto;
-  text-align: center;
   font-weight: 600;
   font-size: 1.2rem;
   color: #47464D;
 }
 
 .card_description {
-  margin: 0 auto;
-  text-align: center;
   font-size: 0.8rem;
   font-weight: 500;
   color: #47464D;
 }
 
 .card_date {
-  margin: 0 auto;
-  text-align: center;
   font-weight: 500;
   font-size: .75rem;
   color: #818181;
