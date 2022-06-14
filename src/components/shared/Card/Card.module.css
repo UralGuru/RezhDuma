@@ -68,6 +68,8 @@
   flex-grow: 1;
   white-space: pre-line;
   gap: 1rem;
+  font-size: .9rem;
+  font-weight: 500;
 }
 
 .card_title {
