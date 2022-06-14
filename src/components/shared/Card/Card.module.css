@@ -68,7 +68,6 @@
   flex-grow: 1;
   white-space: pre-line;
   gap: 1rem;
-  font-size: .9rem;
   font-weight: 500;
 }
 
@@ -79,7 +78,7 @@
 }
 
 .card_description {
-  color: #606060;
+  color: #7E7E7E;
 }
 
 @media (max-width: 800px) {
