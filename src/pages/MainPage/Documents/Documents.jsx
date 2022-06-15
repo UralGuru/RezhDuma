@@ -18,7 +18,7 @@ const Documents = () => {
 
   useEffect(() => {
     setStatus('loading')
-    fetchDocuments(7, '', '').then((data) => {
+    fetchDocuments(7, 1, '').then((data) => {
       setDocuments(data);
       setStatus('success');
     })
@@ -47,7 +47,7 @@ const Documents = () => {
                     description={document.text}
                     date={document.documentDate}/>
               )})}
-              itemsPerPage={3}
+              itemsPerPage={1}
               responsive={[
                 {windowWidth: 0, items: 1},
                 {windowWidth: 512, items: 2},

@@ -18,7 +18,7 @@ const Votings = () => {
 
   useEffect(() => {
     setStatus('loading')
-    fetchVotings('', 7, '').then((data) => {
+    fetchVotings(1, 7, '').then((data) => {
       setVotings(data);
       setStatus('success');
     })
@@ -47,7 +47,7 @@ const Votings = () => {
                   expirationDate={voting.expirationDate}
                 />
             )})}
-            itemsPerPage={3}
+            itemsPerPage={1}
             responsive={[
               {windowWidth: 0, items: 1},
               {windowWidth: 512, items: 2},
