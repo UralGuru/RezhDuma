@@ -94,7 +94,7 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
                 placeholder='Текст'
               />
               <FilesField 
-                accept='application/pdf'
+                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 name='files'
                 type='file'
                 onBlur={formik.handleBlur}
