@@ -20,8 +20,8 @@ function Footer() {
             {"Официальный сайт города Реж"}
           </div>
           <div className={styles.media_icons}>
-            <a className={styles.media_icon} href="/"><img src={TelegramIcon}/></a>
-            <a className={styles.media_icon} href="/"><img src={VKIcon}/></a>
+            <a className={styles.media_icon} href="https://t.me/RezhDuma_bot"><img src={TelegramIcon}/></a>
+            {/*<a className={styles.media_icon} href="/"><img src={VKIcon}/></a>*/}
           </div>
         </div>
 
@@ -39,7 +39,7 @@ function Footer() {
             </div>
           </div>
           <div className={styles.contact_info}>
-            <div>Адрес: Адрес городской думы</div>
+            <div>г.Реж, ул.Красноармейская,16</div>
             <div>Тел: 8(3547)898-264</div>
             <div>Эл.адрес: dumaRezh@mail.ru</div>
           </div>
