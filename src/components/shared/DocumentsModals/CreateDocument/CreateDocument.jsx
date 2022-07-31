@@ -93,18 +93,17 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
                 type='textarea'
                 placeholder='Текст'
               />
-              <FilesField 
-                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                name='files'
-                type='file'
-                onBlur={formik.handleBlur}
-                value={formik.values.files}
-                onChange={(event) => {
-                  const files = event.target.files;
-                  let myFiles = Array.from(files);
-                  formik.setFieldValue("files", myFiles);
-                }}
-                label='Прикрепить файлы'
+              <FilesField accept='application/pdf'
+                          name='files'
+                          type='file'
+                          onBlur={formik.handleBlur}
+                          value={formik.values.files}
+                          onChange={(event) => {
+                            const files = event.target.files;
+                            let myFiles = Array.from(files);
+                            formik.setFieldValue("files", myFiles);
+                          }}
+                          label='Прикрепить файлы'
               />
             </div>
             <div className={styles.button_row}>

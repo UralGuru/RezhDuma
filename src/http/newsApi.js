@@ -1,4 +1,5 @@
 import { $authHost, $host } from ".";
+import axios from "axios";
 
 
 export const createNews = async (news) => {
@@ -22,6 +23,7 @@ export const fetchNews = async (count, page, find) => {
     (page && page !== '' ? `page=${page}&` : '') +
     (find && find !== '' ? `find=${find}&` : '')
   );
+
   return data;
 }
 
