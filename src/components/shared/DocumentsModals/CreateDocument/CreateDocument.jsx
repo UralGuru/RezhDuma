@@ -103,7 +103,7 @@ const CreateDocument = ({modalIsOpen, closeModal}) => {
                             let myFiles = Array.from(files);
                             formik.setFieldValue("files", myFiles);
                           }}
-                          label='Прикрепить файлы'
+                          label='Прикрепить файлы PDF'
               />
             </div>
             <div className={styles.button_row}>
