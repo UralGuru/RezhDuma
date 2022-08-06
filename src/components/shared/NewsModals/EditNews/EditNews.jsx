@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import moment from 'moment';
 import Modal from 'react-modal';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -138,8 +137,9 @@ export default EditNews;
 const NewsSchema = Yup.object({
   title: Yup.string()
     .required('Необходимое поле')
-    .min(12, 'Поле заголовка должно содержать не менее 12 символов'),
+    //.min(12, 'Поле заголовка должно содержать не менее 12 символов')
+  ,
   text: Yup.string()
   .required('Необходимое поле')
-  .min(20, 'Поле должно содержать не менее 20 символов')
+  //.min(20, 'Поле должно содержать не менее 20 символов')
 })

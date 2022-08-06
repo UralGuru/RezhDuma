@@ -95,13 +95,9 @@ const EditDocument = ({id, modalIsOpen, closeModal}) => {
                           onBlur={formik.handleBlur}
                           value={formik.values.files}
                           onChange={(event) => {
-
                             const files = event.target.files;
-
                             let myFiles = Array.from(files);
-
                             formik.setFieldValue("files", myFiles);
-
                           }}
                           label='Прикрепить файлы'
               />
@@ -129,8 +125,9 @@ export default EditDocument;
 const DocumentSchema = Yup.object({
   title: Yup.string()
     .required('Необходимое поле')
-    .min(12, 'Поле заголовка должно содержать не менее 12 символов'),
+    //.min(12, 'Поле заголовка должно содержать не менее 12 символов')
+  ,
   text: Yup.string()
   .required('Необходимое поле')
-  .min(20, 'Поле должно содержать не менее 20 символов')
+  //.min(20, 'Поле должно содержать не менее 20 символов')
 })

@@ -148,10 +148,12 @@ export default CreateProject;
 const ProjectSchema = Yup.object({
   title: Yup.string()
     .required('Необходимое поле')
-    .min(12, 'Поле заголовка должно содержать не менее 12 символов'),
+    //.min(12, 'Поле заголовка должно содержать не менее 12 символов')
+  ,
   text: Yup.string()
   .required('Необходимое поле')
-  .min(20, 'Поле должно содержать не менее 20 символов'),
+  //.min(20, 'Поле должно содержать не менее 20 символов')
+  ,
   files: Yup.mixed().test("Размер файла", "Слишком большой размер файла", (value) => {
     if (!value.length) return true;
     return value[0].size <= 5000000
