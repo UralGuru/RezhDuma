@@ -59,13 +59,14 @@
 
 .nav_item {
   color: white;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
 .contact_info {
   color: #99D2E3;
   font-size: 0.875em;
+  margin: auto 0;
 }
 
 /* @media (max-width: 450px) {

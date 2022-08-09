@@ -17,10 +17,10 @@ function Footer() {
       <Container>
         <div className={styles.title_row}>
           <div className={styles.title}>
-            {"Официальный сайт города Реж"}
+            {"Электронный портал города Реж"}
           </div>
           <div className={styles.media_icons}>
-            <a className={styles.media_icon} href="https://t.me/RezhDuma_bot"><img src={TelegramIcon}/></a>
+            {/*<a className={styles.media_icon} href="https://t.me/RezhDuma_bot"><img src={TelegramIcon}/></a>*/}
             {/*<a className={styles.media_icon} href="/"><img src={VKIcon}/></a>*/}
           </div>
         </div>

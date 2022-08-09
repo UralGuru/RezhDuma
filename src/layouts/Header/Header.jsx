@@ -1,7 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/shared/Container/Container';
-import { LOGIN_ROUTE, ROOT_ROUTE, PROFILE_ICON, PROFILE_ROUTE, REJH_ICON, USER_ROUTE } from '../../utils/constants';
+import {
+  LOGIN_ROUTE,
+  ROOT_ROUTE,
+  PROFILE_ICON,
+  PROFILE_ROUTE,
+  REJH_ICON,
+  USER_ROUTE,
+  MANUAL_ROUTE
+} from '../../utils/constants';
 import styles from './Header.module.css';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
@@ -60,7 +68,7 @@ const Header = () => {
             :
             <button className={styles.profile__text} onClick={() => collapseMenu(() => navigate(LOGIN_ROUTE))}>
               <img className={styles.profile__image} src={ProfileIcon}/>
-              <div>{'Авторизоваться'}</div>
+              <div>{'Авторизация'}</div>
             </button>
             } 
             {/* {userStore.User.firstName && 
@@ -76,7 +84,8 @@ const Header = () => {
             {userStore.User?.id && <>
                 <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
                 <button onClick={() => collapseMenu(() => navigate(USER_ROUTE))} className={styles.menu_item}>Личные данные</button>
-                <button onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выйти</button>
+                <button onClick={() => collapseMenu(() => navigate(MANUAL_ROUTE))} className={styles.menu_item}>Руководство пользования</button>
+                <button style={{"color": "red"}} onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выход</button>
               </>
             }
           </div>

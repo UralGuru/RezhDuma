@@ -7,10 +7,9 @@ const IntroPage = (props) => {
         <div className={styles.intro}>
             <Container>
                 <div className={styles.page_heading}>
-                    <div>Официальный сайт</div>
-                    <div>   
-                        Администрации<br />
-                        городского округа город Реж<br />
+                    <div><br />Электронный портал</div>
+                    <div>
+                        Администрации города Реж<br />
                         Свердловской области
                     </div>
                     {/* TODO: Реализовать поиск по странице */}

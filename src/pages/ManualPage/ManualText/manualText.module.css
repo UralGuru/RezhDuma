@@ -1,0 +1,33 @@
+ol li{
+    padding-bottom: 5px;
+}
+
+.sectionImg{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    border: #2C97CC solid 1px;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+
+.sectionTableTitle{
+    color: #007cc3;
+    font-weight: bold;
+}
+
+.sectionTitle{
+    color: #007cc3;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.sectionTitleName{
+    color: #007cc3;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+

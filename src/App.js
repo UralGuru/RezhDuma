@@ -32,6 +32,7 @@ import PersonalDataEdit from './pages/UserPages/PersonalData/PersonalDataEdit/Pe
 import ChangePassword from './pages/UserPages/PersonalData/ChangePassword/ChangePassword';
 import VotingItem from './pages/VotingItem/VotingItem';
 import Analytics from './pages/AdminPages/Analytics/Analytics';
+import Manual from "./pages/ManualPage/manual";
 
 
 function App() {
@@ -108,6 +109,8 @@ function App() {
                             <Route path="create" element={<CreateVoting />}/>
                         </Route>
                     </Route>
+
+                    <Route path="manual" element={<Manual />}/>
                     <Route path="*" element={<MainPage />} />
                 </Route>
             </Routes>
