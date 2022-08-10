@@ -15,11 +15,6 @@
     box-shadow: -5px 5px 50px rgba(145, 183, 228, 0.22);
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .news {
     display: flex;

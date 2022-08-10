@@ -102,7 +102,7 @@ export default observer(AnswerModal);
 
 const AnswerSchema = Yup.object({
   response: Yup.string()
-    .min(12, 'Слишком короткий ответ')
+    .max(250, 'Как твиттер: не больше 250 символов(')
     .required('Необходимое поле'),
   frequent: Yup.bool()
     .required()
