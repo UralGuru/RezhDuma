@@ -85,7 +85,7 @@ const Header = () => {
                 <button onClick={() => collapseMenu(() => navigate(PROFILE_ROUTE))} className={styles.menu_item}>Профиль</button>
                 <button onClick={() => collapseMenu(() => navigate(USER_ROUTE))} className={styles.menu_item}>Личные данные</button>
                 <button onClick={() => collapseMenu(() => navigate(MANUAL_ROUTE))} className={styles.menu_item}>Руководство пользования</button>
-                <button style={{"color": "red"}} onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выход</button>
+                <button onClick={() => collapseMenu(() => {userStore.logout(); navigate(ROOT_ROUTE)})} className={styles.menu_item}>Выход</button>
               </>
             }
           </div>

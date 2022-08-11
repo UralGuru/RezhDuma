@@ -10,6 +10,17 @@ const Questions = require('./AdminImages/questions.png');
 const Response = require('./AdminImages/response.png');
 const Statistics = require('./AdminImages/statistica.png');
 
+const CreateNews = require('./AdminImages/a_new.png');
+const CreateVotings = require('./AdminImages/a_vot.png');
+const CreateDocs = require('./AdminImages/a_doc.png');
+const CreateProjects = require('./AdminImages/a_pro.png');
+const CreateHistory = require('./AdminImages/a_his.png');
+
+
+const CreateNewsItem = require('./AdminImages/CreateNews.png');
+const CreateVotingItem = require('./AdminImages/CreateVotings.png');
+const CreateDocItem = require('./AdminImages/CreateDoc.png');
+
 const CAppealImg = require('./CAppeal.png');
 const CAuthImg = require('./CAuth.png');
 const CAuthListImg = require('./CAuthList.png');
@@ -32,6 +43,16 @@ export default {HomePageImg,
     Questions,
     Response,
     Statistics,
+
+    CreateNews,
+    CreateVotings,
+    CreateDocs,
+    CreateProjects,
+    CreateHistory,
+
+    CreateNewsItem,
+    CreateVotingItem,
+    CreateDocItem,
 
     CAppealImg,
     CAuthImg,

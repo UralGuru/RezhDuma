@@ -75,6 +75,11 @@
   overflow: hidden;
 }
 
+.profile_menu button:nth-last-child(1){
+  border-top: #5B5B5B solid 1px;
+  /*color: red;*/
+}
+
 .not_expanded {
   transform: translateY(-100vw);
   transition: 300ms;
